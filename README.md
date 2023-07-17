@@ -5,9 +5,12 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
+
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
+
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -49,6 +52,14 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Live Demo Link](https://noellincoln.github.io/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -63,7 +74,7 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 
-https://github.com/NoelLincoln/myportfolio
+https://github.com/NoelLincoln/noellincoln.github.io
 
 ### Install
 
@@ -116,7 +127,7 @@ To run tests:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/NoelLincoln/myportfolio/issues).
+Feel free to check the [issues page](https://github.com/NoelLincoln/noellincoln.github.io/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
