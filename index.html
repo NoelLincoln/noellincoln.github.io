@@ -7,356 +7,390 @@
         <link rel="stylesheet" href="style.css" rel="noopener">
     </head>
     <body>
-        <header class="header">
-            <h2 class="logo"><a href="#">Noel</a></h2>
-            <nav>
-                <div class="menu">
-                    <img src="assets/images/mobile-menu.svg" alt="menu icon">
-                </div>
-            </nav>
-            <ul class="desktop-menu">
-                <li><a href="#projects">Portfolio</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </header>
-        <section class="headline-container">
-            <section class="headline">
-                <h1 class="title">I'm Noel.<br />Glad to see you!</h1>
-                <p class="intro">
-                    I'm a software developer! I can help you build a product ,
-                    feature or
-                    website Look through some of my work and experience! If you
-                    like what
-                    you see and have a project you need coded, don't hestiate to
-                    contact
-                    me.
-                </p>
-                <h4 class="connect">LET'S CONNECT</h4>
-                <ul class="social-media-icons">
-                    <li>
-                        <a href="https://twitter.com/Noel_Lincoln"
-                            target="_blank" rel="noopener">
-                            <img
-                                src="assets/images/social-media-icons/twitter.svg" /></a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/noel-bryant/"
-                            target="_blank" rel="noopener">
-                            <img
-                                src="assets/images/social-media-icons/linkedin.svg" /></a>
-                    </li>
-                    <li>
-                        <a href="index.html">
-                            <img
-                                src="assets/images/social-media-icons/medium.svg" />
+        <div class="main-container">
+            <header class="header">
+                <h2 class="logo"><a href="#">Noel</a></h2>
+                <nav class="navigation">
+                    <div class="menu" id="menu" onclick="menuOverlay()">
+                        <img src="assets/images/mobile-menu.svg"
+                            alt="menu icon">
+                    </div>
+                    <ul class="desktop-menu">
+                        <li><a href="#projects">Portfolio</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
 
-                        </a> </li>
-                    <li>
-                        <a href="https://github.com/NoelLincoln" target="_blank"
-                            rel="noopener">
-                            <img
-                                src="assets/images/social-media-icons/github.svg" />
-                        </a> </li>
-                    <li>
-                        <a href="index.html">
-                            <img
-                                src="assets/images/social-media-icons/peacesign.svg" />
-                        </a> </li>
+                </nav>
+
+            </header>
+            <div class="menu-overlay" id="menu-overlay">
+
+                <ul>
+                    <li><a href="#projects">Portfolio</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
+                <div class="menu-close" id="menu-close">
+                    <img src="assets/images/mobile-menu-close.png"
+                        alt="menu icon">
+                </div>
+
+            </div>
+            <section class="headline-container">
+                <section class="headline">
+                    <h1 class="title">I'm Noel.<br />Glad to see you!</h1>
+                    <p class="intro">
+                        I'm a software developer! I can help you build a product
+                        ,
+                        feature or
+                        website Look through some of my work and experience! If
+                        you
+                        like what
+                        you see and have a project you need coded, don't
+                        hestiate to
+                        contact
+                        me.
+                    </p>
+                    <h4 class="connect">LET'S CONNECT</h4>
+                    <ul class="social-media-icons">
+                        <li>
+                            <a href="https://twitter.com/Noel_Lincoln"
+                                target="_blank" rel="noopener">
+                                <img
+                                    src="assets/images/social-media-icons/twitter.svg" /></a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/noel-bryant/"
+                                target="_blank" rel="noopener">
+                                <img
+                                    src="assets/images/social-media-icons/linkedin.svg" /></a>
+                        </li>
+                        <li>
+                            <a href="index.html">
+                                <img
+                                    src="assets/images/social-media-icons/medium.svg" />
+
+                            </a> </li>
+                        <li>
+                            <a href="https://github.com/NoelLincoln"
+                                target="_blank"
+                                rel="noopener">
+                                <img
+                                    src="assets/images/social-media-icons/github.svg" />
+                            </a> </li>
+                        <li>
+                            <a href="index.html">
+                                <img
+                                    src="assets/images/social-media-icons/peacesign.svg" />
+                            </a> </li>
+                    </ul>
+                </section>
             </section>
-        </section>
-        <section class="work-collection" id="projects">
-            <div class="works">
-                <div class="snapshot">
-                    <img src="assets/images/snapshot.svg" alt="snapshot" />
-                </div>
-                <div class="card-info">
-                    <div class="primary-text">
-                        <h2>Tonic</h2>
-                        <div class="work-info">
-                            <div class="client">
-                                <p>CANOPY</p>
-                            </div>
-                            <div class="counter"></div>
-                            <div class="role">
-                                <p>Backend Dev</p>
-                            </div>
-                            <div class="counterone"></div>
+            <section class="work-collection" id="projects">
+                <div class="works">
+                    <div class="snapshot">
+                        <img src="assets/images/snapshot.svg" alt="snapshot" />
+                    </div>
+                    <div class="card-info">
+                        <div class="primary-text">
+                            <h2>Tonic</h2>
+                            <div class="work-info">
+                                <div class="client">
+                                    <p>CANOPY</p>
+                                </div>
+                                <div class="counter"></div>
+                                <div class="role">
+                                    <p>Backend Dev</p>
+                                </div>
+                                <div class="counterone"></div>
 
-                            <div class="year">
-                                <p>2015</p>
-                            </div>
+                                <div class="year">
+                                    <p>2015</p>
+                                </div>
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="description-text">
-                        <p>A daily selection of privately personalized reads; no
-                            accounts or
-                            sign-ups required.</p>
-                    </div>
-                    <ul class="language-tags">
-                        <li class="html-lan">HTML</li>
-                        <li class="css">CSS</li>
-                        <li class="javascript">Javascript</li>
-
-                    </ul>
-
-                    <div class="action">
-                        <button class="action-button">See project</button>
-                    </div>
-                </div>
-            </div>
-            <div class="works">
-                <div class="snapshot">
-                    <img src="assets/images/multipoststories.png" alt="snapshot" />
-                </div>
-                <div class="card-info swap">
-                    <div class="primary-text">
-                        <h2>Multi-post Stories</h2>
-                        <div class="work-info">
-                            <div class="client">
-                                <p>CANOPY</p>
-                            </div>
-                            <div class="counter"></div>
-                            <div class="role">
-                                <p>Backend Dev</p>
-                            </div>
-                            <div class="counterone"></div>
-
-                            <div class="year">
-                                <p>2015</p>
-                            </div>
-
+                        <div class="description-text">
+                            <p>A daily selection of privately personalized
+                                reads; no
+                                accounts or
+                                sign-ups required.</p>
                         </div>
-                    </div>
-                    <div class="description-text">
-                        <p>A daily selection of privately personalized reads; no
-                            accounts or
-                            sign-ups required. </p>
-                    </div>
-                    <ul class="language-tags">
-                        <li class="html-lan">HTML</li>
-                        <li class="css">CSS</li>
-                        <li class="javascript">Javascript</li>
+                        <ul class="language-tags">
+                            <li class="html-lan">HTML</li>
+                            <li class="css">CSS</li>
+                            <li class="javascript">Javascript</li>
 
-                    </ul>
-
-                    <div class="action">
-                        <button class="action-button">See project</button>
-                    </div>
-                </div>
-
-            </div>
-            <div class="works">
-                <div class="snapshot">
-                    <img src="assets/images/snapshot2.png" alt="snapshot" />
-                </div>
-                <div class="card-info">
-                    <div class="primary-text">
-                        <h2>Tonic</h2>
-                        <div class="work-info">
-                            <div class="client">
-                                <p>CANOPY</p>
-                            </div>
-                            <div class="counter"></div>
-                            <div class="role">
-                                <p>Backend Dev</p>
-                            </div>
-                            <div class="counterone"></div>
-
-                            <div class="year">
-                                <p>2015</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="description-text">
-                        <p>A daily selection of privately personalized reads; no
-                            accounts or
-                            sign-ups required.</p>
-                    </div>
-                    <ul class="language-tags">
-                        <li class="html-lan">HTML</li>
-                        <li class="css">CSS</li>
-                        <li class="javascript">Javascript</li>
-
-                    </ul>
-
-                    <div class="action">
-                        <button class="action-button">See project</button>
-                    </div>
-                </div>
-            </div>
-            <div class="works">
-                <div class="snapshot">
-                    <img src="assets/images/multipoststories2.png"
-                        alt="snapshot" />
-                </div>
-                <div class="card-info swap">
-                    <div class="primary-text">
-                        <h2>Tonic</h2>
-                        <div class="work-info">
-                            <div class="client">
-                                <p>CANOPY</p>
-                            </div>
-                            <div class="counter"></div>
-                            <div class="role">
-                                <p>Backend Dev</p>
-                            </div>
-                            <div class="counterone"></div>
-
-                            <div class="year">
-                                <p>2015</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="description-text">
-                        <p>A daily selection of privately personalized reads; no
-                            accounts or
-                            sign-ups required.</p>
-                    </div>
-                    <ul class="language-tags">
-                        <li class="html-lan">HTML</li>
-                        <li class="css">CSS</li>
-                        <li class="javascript">Javascript</li>
-
-                    </ul>
-
-                    <div class="action">
-                        <button class="action-button">See project</button>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <section class="about-container">
-            <section class="about-myself" id="about">
-                <div class="top">
-                    <h2>About Myself</h2>
-                    <p>Hello I’m a software developer! I can help you build a
-                        product ,
-                        feature or website. Look through some of my work and
-                        experience! If
-                        you like what you see and have a project you need coded,
-                        don’t
-                        hesitate to contact me.</p>
-
-                    <div class="socials">
-                        <div class="support-text">
-                            <h3>Let's connect</h3>
-                        </div>
-                        <ul class="social-med">
-                            <li class="twitter">
-                                <a href="https://twitter.com/Noel_Lincoln"
-                                    rel="noreferrer">
-                                    <img
-                                        src="assets/images/social-media-icons/twitter.svg" />
-                                </a>
-                            </li>
-                            <li class="linkedin">
-                                <a
-                                    href="https://www.linkedin.com/in/noel-bryant/"
-                                    rel="noreferrer">
-                                    <img
-                                        src="assets/images/social-media-icons/linkedin.svg" /></a>
-                            </li>
-
-                            <li class="medium">
-                                <a href="index.html" rel="noreferrer">
-                                    <img
-                                        src="assets/images/social-media-icons/medium.svg" />
-
-                                </a>
-                            </li>
-
-                            <li class="github">
-                                <a href="https://github.com/NoelLincoln"
-                                    rel="noreferrer">
-                                    <img
-                                        src="assets/images/social-media-icons/github.svg" />
-                                </a>
-                            </li>
-                            <li class="peacesign">
-                                <a href="index.html">
-                                    <img
-                                        src="assets/images/social-media-icons/peacesign.svg" />
-                                </a>
-                            </li>
                         </ul>
+
+                        <div class="action">
+                            <button class="action-button">See project</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="works">
+                    <div class="snapshot">
+                        <img src="assets/images/multipoststories.png"
+                            alt="snapshot" />
+                    </div>
+                    <div class="card-info swap">
+                        <div class="primary-text">
+                            <h2>Multi-post Stories</h2>
+                            <div class="work-info">
+                                <div class="client">
+                                    <p>CANOPY</p>
+                                </div>
+                                <div class="counter"></div>
+                                <div class="role">
+                                    <p>Backend Dev</p>
+                                </div>
+                                <div class="counterone"></div>
+
+                                <div class="year">
+                                    <p>2015</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="description-text">
+                            <p>A daily selection of privately personalized
+                                reads; no
+                                accounts or
+                                sign-ups required. </p>
+                        </div>
+                        <ul class="language-tags">
+                            <li class="html-lan">HTML</li>
+                            <li class="css">CSS</li>
+                            <li class="javascript">Javascript</li>
+
+                        </ul>
+
+                        <div class="action">
+                            <button class="action-button">See project</button>
+                        </div>
                     </div>
 
-                    <button class="resume"
-                        onclick="window.location.href='https://drive.google.com/file/d/1iD2S5PJAGP1TI_19C9GD2Zo4FpeSRO1N/view?usp=sharing';">
-                        Get my resume
-                    </button>
+                </div>
+                <div class="works">
+                    <div class="snapshot">
+                        <img src="assets/images/snapshot2.png" alt="snapshot" />
+                    </div>
+                    <div class="card-info">
+                        <div class="primary-text">
+                            <h2>Tonic</h2>
+                            <div class="work-info">
+                                <div class="client">
+                                    <p>CANOPY</p>
+                                </div>
+                                <div class="counter"></div>
+                                <div class="role">
+                                    <p>Backend Dev</p>
+                                </div>
+                                <div class="counterone"></div>
+
+                                <div class="year">
+                                    <p>2015</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="description-text">
+                            <p>A daily selection of privately personalized
+                                reads; no
+                                accounts or
+                                sign-ups required.</p>
+                        </div>
+                        <ul class="language-tags">
+                            <li class="html-lan">HTML</li>
+                            <li class="css">CSS</li>
+                            <li class="javascript">Javascript</li>
+
+                        </ul>
+
+                        <div class="action">
+                            <button class="action-button">See project</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="works">
+                    <div class="snapshot">
+                        <img src="assets/images/multipoststories2.png"
+                            alt="snapshot" />
+                    </div>
+                    <div class="card-info swap">
+                        <div class="primary-text">
+                            <h2>Tonic</h2>
+                            <div class="work-info">
+                                <div class="client">
+                                    <p>CANOPY</p>
+                                </div>
+                                <div class="counter"></div>
+                                <div class="role">
+                                    <p>Backend Dev</p>
+                                </div>
+                                <div class="counterone"></div>
+
+                                <div class="year">
+                                    <p>2015</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="description-text">
+                            <p>A daily selection of privately personalized
+                                reads; no
+                                accounts or
+                                sign-ups required.</p>
+                        </div>
+                        <ul class="language-tags">
+                            <li class="html-lan">HTML</li>
+                            <li class="css">CSS</li>
+                            <li class="javascript">Javascript</li>
+
+                        </ul>
+
+                        <div class="action">
+                            <button class="action-button">See project</button>
+                        </div>
+                    </div>
 
                 </div>
-                <div class="skill-list">
-                    <ul class="dropdown">
-                        <label for="dropdown-content-languages"
-                            class="dropdown-btn"
-                            id="languages">
-                            <li class="languages">Languages</li>
-                            <span class="arrow south"></span>
-                        </label>
+            </section>
+            <section class="about-container">
+                <section class="about-myself" id="about">
+                    <div class="top">
+                        <h2>About Myself</h2>
+                        <p>Hello I’m a software developer! I can help you build
+                            a
+                            product ,
+                            feature or website. Look through some of my work and
+                            experience! If
+                            you like what you see and have a project you need
+                            coded,
+                            don’t
+                            hesitate to contact me.</p>
 
-                        <ul class="dropdown-content" role="menu">
-                            <li><img src="assets/images/javascript.png"
-                                    alt="javascript
+                        <div class="socials">
+                            <div class="support-text">
+                                <h3>Let's connect</h3>
+                            </div>
+                            <ul class="social-med">
+                                <li class="twitter">
+                                    <a href="https://twitter.com/Noel_Lincoln"
+                                        rel="noreferrer">
+                                        <img
+                                            src="assets/images/social-media-icons/twitter.svg" />
+                                    </a>
+                                </li>
+                                <li class="linkedin">
+                                    <a
+                                        href="https://www.linkedin.com/in/noel-bryant/"
+                                        rel="noreferrer">
+                                        <img
+                                            src="assets/images/social-media-icons/linkedin.svg" /></a>
+                                </li>
+
+                                <li class="medium">
+                                    <a href="index.html" rel="noreferrer">
+                                        <img
+                                            src="assets/images/social-media-icons/medium.svg" />
+
+                                    </a>
+                                </li>
+
+                                <li class="github">
+                                    <a href="https://github.com/NoelLincoln"
+                                        rel="noreferrer">
+                                        <img
+                                            src="assets/images/social-media-icons/github.svg" />
+                                    </a>
+                                </li>
+                                <li class="peacesign">
+                                    <a href="index.html">
+                                        <img
+                                            src="assets/images/social-media-icons/peacesign.svg" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <button class="resume"
+                            onclick="window.location.href='https://drive.google.com/file/d/1iD2S5PJAGP1TI_19C9GD2Zo4FpeSRO1N/view?usp=sharing';">
+                            Get my resume
+                        </button>
+
+                    </div>
+                    <div class="skill-list">
+                        <ul class="dropdown">
+                            <label for="dropdown-content-languages"
+                                class="dropdown-btn"
+                                id="languages">
+                                <li class="languages">Languages</li>
+                                <span class="arrow south"></span>
+                            </label>
+
+                            <ul class="dropdown-content" role="menu">
+                                <li><img src="assets/images/javascript.png"
+                                        alt="javascript
                   image" /><a href="#">Javascript</a></li>
-                            <li><img src="assets/images/html.png" alt="html
+                                <li><img src="assets/images/html.png" alt="html
                   image" /><a href="#">HTML</a></li>
-                            <li><img src="assets/images/css.png"
-                                    alt="javascript
+                                <li><img src="assets/images/css.png"
+                                        alt="javascript
                   image" /><a href="#">CSS</a></li>
+                            </ul>
                         </ul>
-                    </ul>
-                    <ul class="dropdown">
-                        <label for="dropdown" class="dropdown-btn">
-                            <li class="languages">Frameworks</li>
-                            <span class="arrow right"></span>
-                        </label>
-                    </ul>
-                    <hr />
-                    <ul class="dropdown">
-                        <label for="dropdown" class="dropdown-btn">
-                            <li class="languages">Skills</li>
-                            <span class="arrow right"></span>
-                        </label>
+                        <ul class="dropdown">
+                            <label for="dropdown" class="dropdown-btn">
+                                <li class="languages">Frameworks</li>
+                                <span class="arrow right"></span>
+                            </label>
+                        </ul>
+                        <hr />
+                        <ul class="dropdown">
+                            <label for="dropdown" class="dropdown-btn">
+                                <li class="languages">Skills</li>
+                                <span class="arrow right"></span>
+                            </label>
 
-                    </ul>
-                    <hr />
+                        </ul>
+                        <hr />
 
-                </div>
+                    </div>
+
+                </section>
+            </section>
+            <section class="contact-form-container">
+                <section class="contact-form" id="contact">
+                    <h2>Contact Me</h2>
+
+                    <p>If you have an application you are interested in
+                        developing,
+                        a
+                        feature that you need built or a project that needs
+                        coding.
+                        I’d love to help with it!</p>
+                    <form action="https://formspree.io/f/xoqzgvow" method="post"
+                        enctype="multipart/form-data">
+                        <input type="text" placeholder="Lorem ipsum"
+                            maxlength="30"
+                            required>
+                        <input type="email" name="email"
+                            placeholder="loremispum@gmail.com"
+                            required>
+                        <textarea rows="7" name="message"
+                            placeholder="Write your message here..."
+                            maxlength="500"
+                            required></textarea>
+                        <input type="submit" value="Get in touch"
+                            class="submit-btn">
+                    </form>
+                </section>
 
             </section>
-        </section>
-        <section class="contact-form-container">
-            <section class="contact-form" id="contact">
-                <h2>Contact Me</h2>
 
-                <p>If you have an application you are interested in developing,
-                    a
-                    feature that you need built or a project that needs coding.
-                    I’d love to help with it!</p>
-                <form action="https://formspree.io/f/xoqzgvow" method="post"
-                    enctype="multipart/form-data">
-                    <input type="text" placeholder="Lorem ipsum"
-                        maxlength="30"
-                        required>
-                    <input type="email" name="email"
-                        placeholder="loremispum@gmail.com"
-                        required>
-                    <textarea rows="7" name="message"
-                        placeholder="Write your message here..." maxlength="500"
-                        required></textarea>
-                    <input type="submit" value="Get in touch" class="submit-btn">
-                </form>
-            </section>
-
-        </section>
-
+        </div>
+        <script src="index.js"></script>
     </body>
 </html>
