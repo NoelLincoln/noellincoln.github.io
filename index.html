@@ -27,11 +27,12 @@
             <div class="menu-overlay" id="menu-overlay">
 
                 <ul>
-                    <li><a href="#projects">Portfolio</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#projects" onclick="closeMenuOverlay()">Portfolio</a></li>
+                    <li><a href="#about" onclick="closeMenuOverlay()">About</a></li>
+                    <li><a href="#contact" onclick="closeMenuOverlay()">Contact</a></li>
                 </ul>
-                <div class="menu-close" id="menu-close">
+                <div class="menu-close" id="menu-close"
+                    onclick="closeMenuOverlay()">
                     <img src="assets/images/mobile-menu-close.png"
                         alt="menu icon">
                 </div>
