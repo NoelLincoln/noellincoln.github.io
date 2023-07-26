@@ -53,10 +53,6 @@ ul {
   margin-right: 10px;
 }
 
-.menu:hover {
-  transform: scale(1.2);
-}
-
 .desktop-menu {
   display: none;
 }
