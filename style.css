@@ -64,7 +64,13 @@ ul {
   background-color: rgba(96, 112, 255, 0.87);
   backdrop-filter: blur(5px);
 }
+.menu-overlay ul {
+  padding-top: 4rem;
+}
 
+.menu-overlay li {
+  margin-top: 30px;
+}
 .menu-overlay li a {
   text-decoration: none;
   color: #ffffff;
