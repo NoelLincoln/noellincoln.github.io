@@ -52,6 +52,18 @@ ul {
   height: 16px;
   margin-right: 10px;
 }
+.menu-overlay {
+  display: none;
+  position: fixed;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  padding: 5rem 2rem 1rem 1rem;
+  z-index: 10;
+  background-color: rgba(96, 112, 255, 0.87);
+  backdrop-filter: blur(5px);
+}
 
 .desktop-menu {
   display: none;
