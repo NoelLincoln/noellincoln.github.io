@@ -1,5 +1,6 @@
 const menuicon = document.getElementById('menu');
 const menumodal = document.getElementById('menu-overlay');
+const menuclose = document.getElementById('menu-close');
 
 function menuOverlay() {
   if (menuicon.style.display === 'block') {
@@ -16,3 +17,5 @@ function closeMenuOverlay() {
   menumodal.style.display = 'none';
   menuicon.style.display = 'flex';
 }
+
+menuclose.addEventListener('click', closeMenuOverlay);
