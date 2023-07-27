@@ -35,7 +35,7 @@ const projectsData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the releaLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the releorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum han printer took a galley of type and scrambled it 1960s with the releawn printer took a galley of type and scrambled it 1960s with the releaLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the relea",
     details:
       'A daily selection of privately personalized reads; accounts or sign-ups required.',
-    liveLink: 'https://github.com/NoelLincoln/noellincoln.github.io',
+    liveLink: 'https://noellincoln.github.io',
     sourceLink: 'https://github.com/NoelLincoln/noellincoln.github.io',
   },
   {
@@ -48,7 +48,7 @@ const projectsData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the releaLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the releorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum han printer took a galley of type and scrambled it 1960s with the releawn printer took a galley of type and scrambled it 1960s with the releaLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the relea",
     details:
       'Experimental content creation feature that allows users to add to an existing story over the course of a day without spamming their friends.',
-    liveLink: 'https://github.com/NoelLincoln/noellincoln.github.io',
+    liveLink: 'https://noellincoln.github.io',
     sourceLink: 'https://github.com/NoelLincoln/noellincoln.github.io',
   },
   {
@@ -61,7 +61,7 @@ const projectsData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the releaLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the releorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum han printer took a galley of type and scrambled it 1960s with the releawn printer took a galley of type and scrambled it 1960s with the releaLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the relea",
     details:
       "Exploring the future of media in Facebook's first Virtual Reality app; a place to discover and enjoy 360 photos and videos on Gear VR.",
-    liveLink: 'https://github.com/NoelLincoln/noellincoln.github.io',
+    liveLink: 'https://noellincoln.github.io',
     sourceLink: 'https://github.com/NoelLincoln/noellincoln.github.io',
   },
   {
@@ -74,7 +74,7 @@ const projectsData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the releaLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the releorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum han printer took a galley of type and scrambled it 1960s with the releawn printer took a galley of type and scrambled it 1960s with the releaLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the relea",
     details:
       "Exploring the future of media in Facebook's first Virtual Reality app; a place to discover and enjoy 360 photos and videos on Gear VR.",
-    liveLink: 'https://github.com/NoelLincoln/noellincoln.github.io',
+    liveLink: 'https://noellincoln.github.io',
     sourceLink: 'https://github.com/NoelLincoln/noellincoln.github.io',
   },
 ];
@@ -83,7 +83,7 @@ const projectsData = [
 
 function popUpWindow(project) {
   const projectcontent = `
-  <div class="popup-container">
+  <div class="popup-container ">
      <div class="works-popup works-popup-desktop">
                     <div class="primary-text">
                         <div class="popup-close">
@@ -127,15 +127,21 @@ function popUpWindow(project) {
                         <div class="divider">
                          <img src="assets/images/divider.png" />
                          </div>
-                         <div class="project-action-buttons">
-                            <div class="view-project-btn" id="viewprojectbtn">
+                         <div class="project-action-buttons project-action-buttons-desktop">
+                           <a href="${project.liveLink}" rel="noreferer">
+
+                            <div class="view-project-btn view-project-btn-desktop" id="viewprojectbtn">
                                <p>See live</p>
-                               <img src="assets/images/see-live.png" />
-                             </div>
+                               <img src="assets/images/see-live.png" />  
+                            </div>
+                               </a>
+                           <a href="${project.sourceLink}" rel="noreferer">
                            <div class="view-project-btn" id="viewsourcebtn">
                                <p>See source</p>
-                               <img src="assets/images/source-code.png" />
+                               <a href="${project.sourceLink}" rel="noreferer">
+                               <img src="assets/images/source-code.png" />   
                            </div>
+                             </a>
                          </div>
                         </div>
                         
@@ -185,9 +191,7 @@ function projectWorkCards(projectsData = []) {
                             <li class="html-lan">HTML</li>
                             <li class="css">CSS</li>
                             <li class="javascript">Javascript</li>
-
                         </ul>
-
                         <div class="action">
                             <button class="action-button"  project-id="${project.id}" id="view-project">See project</button>
                         </div>
