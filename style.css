@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
   padding: 0;
@@ -7,7 +7,7 @@
 }
 
 html {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #f7f7f9;
   scroll-behavior: smooth;
 }
@@ -64,7 +64,7 @@ i {
 .resume a {
   width: auto;
   height: 24px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 17px;
@@ -161,7 +161,7 @@ i {
 .title {
   margin: 10px 0;
   display: flex;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 41px;
@@ -172,7 +172,7 @@ i {
 
 .intro {
   margin: 10px 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 17px;
@@ -242,7 +242,7 @@ i {
   width: 100%;
   margin-top: auto;
   margin-bottom: auto;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -276,7 +276,7 @@ i {
 .client p {
   width: 100%;
   height: 16px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 13px;
@@ -300,7 +300,7 @@ i {
 .role p {
   width: 88px;
   height: 16px;
-  font-family: "Poppins", sans-serif, sans-pro;
+  font-family: 'Poppins', sans-serif, sans-pro;
   font-style: normal;
   font-weight: 600;
   font-size: 13px;
@@ -329,7 +329,7 @@ i {
 .year p {
   width: 29px;
   height: 16px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 13px;
@@ -340,7 +340,7 @@ i {
 .description-text {
   width: 100%;
   margin-bottom: 1em;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -371,7 +371,7 @@ i {
 
 li.html-lan {
   height: 16px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -394,7 +394,7 @@ li.html-lan {
 
 li.css {
   height: 16px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -417,7 +417,7 @@ li.css {
 
 li.javascript {
   height: 16px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -439,7 +439,7 @@ li.javascript {
   width: 126px;
   height: 48px;
   margin-top: 25px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 17px;
@@ -500,7 +500,7 @@ li.javascript {
   width: 327px;
   height: 35px;
   margin-bottom: 10px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
@@ -515,7 +515,7 @@ li.javascript {
   width: 100%;
   height: auto;
   margin-bottom: 5px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -535,7 +535,7 @@ li.javascript {
 }
 
 .support-text > h3 {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -572,7 +572,7 @@ li.javascript {
 .resume {
   box-sizing: border-box;
   color: #6070ff;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 17px;
@@ -616,7 +616,7 @@ li.javascript {
   width: 327px;
   height: auto;
   order: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -628,7 +628,7 @@ li.javascript {
   flex-direction: column;
   align-items: flex-start;
   padding: 0;
-  width: 100%;
+  width: 90%;
   height: auto;
   flex: none;
   order: 0;
@@ -675,7 +675,7 @@ li.javascript {
   overflow: hidden;
 }
 
-input[type="checkbox"]:checked ~ .dropdown-content {
+input[type='checkbox']:checked ~ .dropdown-content {
   visibility: visible;
   transform: translateY(0);
 }
@@ -690,16 +690,16 @@ input[type="checkbox"]:checked ~ .dropdown-content {
   padding-bottom: 10px;
 }
 
-input[type="checkbox"]:checked + label > .arrow {
+input[type='checkbox']:checked + label > .arrow {
   transform: rotate(45deg);
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
   opacity: 0;
   position: absolute;
 }
 
-input[type="checkbox"]:focus + label {
+input[type='checkbox']:focus + label {
   box-shadow: 0 0 20px rgb(83, 83, 83);
 }
 
@@ -761,7 +761,7 @@ input[type="checkbox"]:focus + label {
   margin-top: 15px;
   text-decoration: none;
   color: #253858;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
@@ -791,7 +791,7 @@ input[type="checkbox"]:focus + label {
 }
 
 .contact-form h2 {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
@@ -802,7 +802,7 @@ input[type="checkbox"]:focus + label {
 }
 
 .contact-form p {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -819,24 +819,24 @@ input[type="checkbox"]:focus + label {
   gap: 15px;
 }
 
-input[type="text"] {
+input[type='text'] {
   height: 48px;
   padding-left: 15px;
   border: none;
   border-radius: 8px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 17px;
   line-height: 20px;
 }
 
-input[type="email"] {
+input[type='email'] {
   height: 48px;
   padding-left: 15px;
   border: none;
   border-radius: 8px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 17px;
@@ -844,7 +844,7 @@ input[type="email"] {
 }
 
 .contact-form textarea {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -858,7 +858,7 @@ input[type="email"] {
   -webkit-border-radius: 15px;
 }
 
-input[type="submit"] {
+input[type='submit'] {
   background: #fff;
   border: none;
   border-radius: 8px;
@@ -866,7 +866,7 @@ input[type="submit"] {
   width: 142px;
   height: 48px;
   color: #6070ff;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 17px;
@@ -880,7 +880,7 @@ input[type="submit"] {
   border: 1px solid white;
 }
 
-input[type="submit"]:active {
+input[type='submit']:active {
   background-color: #2230d2;
   color: #fff;
 }
@@ -938,7 +938,14 @@ input[type="submit"]:active {
     padding: 0;
     gap: 12px;
     width: auto;
-    margin-left: initial;
+    margin-left: 0;
+  }
+
+  .work-info-popup {
+  }
+
+  .work-info-popup-desktop {
+    margin-left: 3rem;
   }
 
   .language-tags {
@@ -951,7 +958,7 @@ input[type="submit"]:active {
 
   .about-myself {
     flex-direction: row;
-    padding-left: 70px;
+    /* padding-left: 70px; */
   }
 
   .skill-list {
@@ -994,6 +1001,105 @@ input[type="submit"]:active {
     font-size: 20px;
   }
 
+  /* .popup-container {
+    width: 80%;
+  } */
+
+  .works-popup {
+  }
+
+  .works-popup-desktop {
+    position: fixed;
+    z-index: 11;
+    top: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    /* overflow: auto; */
+
+    /* overflow: hidden; */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 16px;
+    gap: 12px;
+    width: 60%;
+    height: auto;
+    margin-left: 20rem;
+    margin-right: 15rem;
+    background: #fff;
+    border: 1px solid #dfe1e6;
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+  }
+
+  .description-text-popup {
+    margin: 0;
+  }
+
+  .snapshot-popup-desktop {
+    display: flex;
+    background-color: #e6e6e2;
+  }
+
+  .snapshot-popup-desktop img {
+    width: 50rem;
+    height: 30rem;
+  }
+
+  .snapshot-popup img {
+    width: 100%;
+    height: 30rem;
+  }
+
+  .card-info-popup {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    grid-template-columns: 60% 40%;
+    width: 100%;
+  }
+
+  .divider {
+    display: flex;
+    width: 90;
+    padding: 0 4px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .project-action-buttons {
+    display: flex;
+    padding: 4px 9px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    color: #6070ff;
+    width: 95%;
+  }
+
+  .view-project-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 8px;
+    padding: 5px;
+    border: 1px solid #6070ff;
+    width: 136px;
+    height: 48px;
+  }
+
+  .view-project-btn > p {
+    color: #396df2;
+    text-align: center;
+    font-size: 15px;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    line-height: 20px;
+  }
+
   .action {
     width: inherit;
   }
@@ -1013,7 +1119,7 @@ input[type="submit"]:active {
 
   hr {
     height: 2px;
-    width: 100%;
+    width: 90%;
     background: #dfe1e6;
     border: none;
   }
@@ -1024,11 +1130,11 @@ input[type="submit"]:active {
     background-image: url(assets/images/contact-form-bg.svg);
   }
 
-  input[type="text"] {
+  input[type='text'] {
     width: 80%;
   }
 
-  input[type="email"] {
+  input[type='email'] {
     width: 80%;
   }
 
