@@ -26,7 +26,7 @@ const projectContainer = document.querySelector('#popupWindow');
 
 const projectsData = [
   {
-    id: 'project_one',
+    id: '1',
     name: 'Tonic',
     image: 'snapshot2.png',
     descrShort:
@@ -39,7 +39,7 @@ const projectsData = [
     sourceLink: 'https://github.com/NoelLincoln/noellincoln.github.io',
   },
   {
-    id: 'project_two',
+    id: '2',
     name: 'Multipost',
     image: 'Multipoststories2.png',
     descrShort:
@@ -52,7 +52,7 @@ const projectsData = [
     sourceLink: 'https://github.com/NoelLincoln/noellincoln.github.io',
   },
   {
-    id: 'projectthree',
+    id: '3',
     name: 'Tonic',
     image: 'snapshot2.png',
     descrShort:
@@ -65,11 +65,11 @@ const projectsData = [
     sourceLink: 'https://github.com/NoelLincoln/noellincoln.github.io',
   },
   {
-    id: 'projectfour',
+    id: '4',
     name: 'Multipost',
     image: 'multipoststories.png',
     descrShort:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essent",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     descrLong:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the releaLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the releorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum han printer took a galley of type and scrambled it 1960s with the releawn printer took a galley of type and scrambled it 1960s with the releaLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the relea",
     details:
@@ -78,8 +78,6 @@ const projectsData = [
     sourceLink: 'https://github.com/NoelLincoln/noellincoln.github.io',
   },
 ];
-
-// ------------popup modal------------------
 
 function popUpWindow(project) {
   const projectcontent = `
@@ -136,7 +134,7 @@ function popUpWindow(project) {
                             </div>
                                </a>
                            <a href="${project.sourceLink}" rel="noreferer">
-                           <div class="view-project-btn" id="viewsourcebtn">
+                           <div class="view-project-btn " id="viewsourcebtn">
                                <p>See source</p>
                                <a href="${project.sourceLink}" rel="noreferer">
                                <img src="assets/images/source-code.png" />   
@@ -148,8 +146,7 @@ function popUpWindow(project) {
                     </div>
 
                 </div>
-
-  </div>
+      </div>
             
           `;
 
@@ -162,7 +159,7 @@ function projectWorkCards(projectsData = []) {
   projectsData.forEach((project) => {
     projectContent += `
     <div class="works">
-                    <div class="snapshot">
+                    <div class="snapshot" id="snapshot">
                         <img src="assets/images/${project.image}" alt="snapshot" />
                     </div>
                     <div class="card-info">
@@ -199,7 +196,6 @@ function projectWorkCards(projectsData = []) {
                 </div>
     `;
   });
-
   return projectContent;
 }
 
