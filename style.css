@@ -97,15 +97,18 @@ i {
   border-radius: 16px;
   backdrop-filter: blur(5px);
 }
+
 .blurbg {
   filter: blur(4px);
 }
+
 .popup-close {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 90%;
 }
+
 .menu-overlay {
   display: none;
   position: fixed;
@@ -205,7 +208,6 @@ i {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   margin-top: 5em;
   margin-left: 3rem;
   margin-right: 3rem;
@@ -272,7 +274,7 @@ i {
 }
 
 .view-project-btn-desktop {
-  gap: 0px;
+  gap: 0;
 }
 
 .view-project-btn-desktop img {
@@ -287,6 +289,7 @@ i {
   font-family: Poppins, sans-serif;
   font-weight: 500;
   line-height: 20px;
+
   /* padding-left: 1rem; */
   margin-right: 0;
 }
@@ -1135,6 +1138,7 @@ input[type='submit']:active {
   .right-desktop {
     margin-top: 0;
   }
+
   .card-info-popup {
     display: flex;
     flex-direction: row;
@@ -1178,11 +1182,10 @@ input[type='submit']:active {
     padding: 5px;
     border: 1px solid #6070ff;
     width: 161px;
-    /* height: 48px; */
   }
 
   .view-project-btn-desktop {
-    gap: 0px;
+    gap: 0;
   }
 
   .view-project-btn-desktop img {
@@ -1197,6 +1200,7 @@ input[type='submit']:active {
     font-family: Poppins, sans-serif;
     font-weight: 500;
     line-height: 20px;
+
     /* padding-left: 1rem; */
     margin-right: 0;
   }
@@ -1242,8 +1246,4 @@ input[type='submit']:active {
   textarea {
     width: 80%;
   }
-
-  /* .swap {
-    grid-row-start: 1;
-  } */
 }
