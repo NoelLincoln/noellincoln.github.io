@@ -81,7 +81,7 @@ const projectsData = [
 
 function popUpWindow(project) {
   const projectcontent = `
-  <div class="popup-container ">
+  <div class="popup-container  ">
      <div class="works-popup works-popup-desktop">
                     <div class="primary-text">
                         <div class="popup-close">
