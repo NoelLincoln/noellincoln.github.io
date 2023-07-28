@@ -14,3 +14,16 @@ const submitform = document.getElementById('submitform');
 submitform.addEventListener('click', () => {
   validateEmail();
 });
+
+// Function to save form data to local storage
+const saveFormDataToLocalStorage = (formData) => {
+  localStorage.setItem('contactFormData', JSON.stringify(formData));
+};
+
+// Function to load form data from local storage
+const loadFormDataFromLocalStorage = () => {
+  const storedFormData = localStorage.getItem('contactFormData');
+  return storedFormData ? JSON.parse(storedFormData) : {};
+};
+
+
