@@ -3,8 +3,7 @@ function validateEmail() {
   const lowerCaseEmail = emailInput.toLowerCase();
 
   if (emailInput !== lowerCaseEmail) {
-    document.getElementById('errormessage').innerHTML =
-      'Email must be in lowercase!';
+    document.getElementById('errormessage').innerHTML = 'Email must be in lowercase!';
     return false;
   }
   document.getElementById('errormessage').innerHTML = '';
@@ -48,9 +47,6 @@ document.getElementById('contactForm').addEventListener('submit', (event) => {
   // Save form data to local storage
   saveFormDataToLocalStorage(formData);
   document.getElementById('successmessage').innerHTML = 'Message sent';
-
-  // Handle form submission (you can send the form data to the server here)
-  console.log('Form data submitted:', formData);
 });
 
 // On page load, load form data from local storage and populate the form
