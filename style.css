@@ -959,6 +959,10 @@ input[type='submit']:active {
   text-align: center;
 }
 
+#successmessage {
+  color: green;
+}
+
 /* This applies from 768px onwards */
 @media (min-width: 768px) {
   * {
