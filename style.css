@@ -949,6 +949,16 @@ input[type='submit']:active {
   color: #fff;
 }
 
+.errormessage {
+  display: flex;
+  justify-content: center;
+}
+
+#errormessage {
+  color: red;
+  text-align: center;
+}
+
 /* This applies from 768px onwards */
 @media (min-width: 768px) {
   * {
