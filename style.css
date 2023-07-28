@@ -77,6 +77,38 @@ i {
   order: 0;
 }
 
+.works-popup {
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  position: fixed;
+  z-index: 11;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5em;
+  padding: 16px;
+  gap: 12px;
+  width: 80%;
+  margin-left: 3rem;
+  background: #fff;
+  border: 1px solid #dfe1e6;
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+}
+
+.blurbg {
+  filter: blur(4px);
+}
+
+.popup-close {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
 .menu-overlay {
   display: none;
   position: fixed;
@@ -167,6 +199,7 @@ i {
 .work-collection {
   display: grid;
   grid-template-columns: auto;
+  grid-column-start: 2;
   grid-gap: 20px;
 }
 
@@ -176,9 +209,10 @@ i {
   flex-direction: column;
   align-items: center;
   margin-top: 5em;
+  margin-left: 3rem;
+  margin-right: 3rem;
   padding: 16px;
   gap: 12px;
-  width: 100%;
   background: #fff;
   border: 1px solid #dfe1e6;
   border-radius: 16px;
@@ -200,6 +234,64 @@ i {
   align-items: flex-start;
   padding: 0;
   width: 100%;
+}
+
+.divider {
+  display: flex;
+  width: 90;
+  padding: 0 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-action-buttons {
+  display: flex;
+  padding: 4px 9px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: #6070ff;
+  width: 95%;
+}
+
+.project-action-buttons-desktop {
+  display: flex;
+  padding: 4px 9px;
+  justify-content: center;
+  align-items: center;
+  color: #6070ff;
+  width: 95%;
+}
+
+.view-project-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  gap: 10px;
+  padding: 5px;
+  border: 1px solid #6070ff;
+}
+
+.view-project-btn-desktop {
+  gap: 0;
+}
+
+.view-project-btn-desktop img {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.view-project-btn p {
+  color: #396df2;
+  text-align: center;
+  font-size: 15px;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  line-height: 20px;
+
+  /* padding-left: 1rem; */
+  margin-right: 0;
 }
 
 .primary-text {
@@ -324,7 +416,7 @@ i {
   display: flex;
   align-items: center;
   margin-top: 5px;
-  padding: 0;
+  padding: 4px 9px;
   gap: 8px;
   height: auto;
   order: 2;
@@ -600,7 +692,7 @@ li.javascript {
   flex-direction: column;
   align-items: flex-start;
   padding: 0;
-  width: 100%;
+  width: 90%;
   height: auto;
   flex: none;
   order: 0;
@@ -897,11 +989,22 @@ input[type='submit']:active {
     display: inline-flex;
   }
 
-  .works {
+  .work-collection {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto;
+    grid-column-start: 2;
+    grid-gap: 20px;
+  }
+
+  .works {
+    display: flex;
+    flex-direction: row;
     width: 85%;
     flex: 1;
+  }
+
+  .works:nth-child(even) {
+    flex-direction: row-reverse;
   }
 
   .work-info {
@@ -910,11 +1013,31 @@ input[type='submit']:active {
     padding: 0;
     gap: 12px;
     width: auto;
-    margin-left: initial;
+    margin-left: 0;
+  }
+
+  .work-info-popup-desktop {
+    margin-left: 3rem;
   }
 
   .language-tags {
-    margin-left: initial;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .css {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .javascript {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .html-lan {
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .about-container {
@@ -923,7 +1046,6 @@ input[type='submit']:active {
 
   .about-myself {
     flex-direction: row;
-    padding-left: 70px;
   }
 
   .skill-list {
@@ -966,6 +1088,127 @@ input[type='submit']:active {
     font-size: 20px;
   }
 
+  .popup-container {
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .works-popup-desktop {
+    z-index: 11;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    gap: 12px;
+    background: hsla(0, 0%, 0%, 0.1);
+    backdrop-filter: blur(5px);
+  }
+
+  .works-popup {
+    position: relative;
+    border-radius: 16px;
+    width: 80%;
+    height: 100%;
+    margin-left: 10%;
+    padding-bottom: 5rem;
+  }
+
+  .description-text-popup {
+    margin: 0;
+  }
+
+  .snapshot-order {
+    order: 1;
+  }
+
+  .snapshot-popup-desktop {
+    display: flex;
+    background-color: #e6e6e2;
+  }
+
+  .snapshot-popup-desktop img {
+    width: 90%;
+    height: auto;
+  }
+
+  .snapshot-popup img {
+    width: 100%;
+    height: 30rem;
+  }
+
+  .right-desktop {
+    margin-top: 0;
+  }
+
+  .card-info-popup {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    grid-template-columns: 60% 40%;
+    width: 100%;
+  }
+
+  .divider {
+    display: flex;
+    width: 90;
+    padding: 0 4px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .project-action-buttons {
+    display: flex;
+    padding: 4px 9px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    color: #6070ff;
+    width: 95%;
+  }
+
+  .project-action-buttons-desktop {
+    display: flex;
+    padding: 4px 9px;
+    justify-content: center;
+    align-items: center;
+    color: #6070ff;
+    width: 95%;
+  }
+
+  .view-project-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 5px;
+    border: 1px solid #6070ff;
+    width: 161px;
+  }
+
+  .view-project-btn-desktop {
+    gap: 0;
+  }
+
+  .view-project-btn-desktop img {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .view-project-btn p {
+    color: #396df2;
+    text-align: center;
+    font-size: 15px;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    line-height: 20px;
+
+    /* padding-left: 1rem; */
+    margin-right: 0;
+  }
+
   .action {
     width: inherit;
   }
@@ -985,7 +1228,7 @@ input[type='submit']:active {
 
   hr {
     height: 2px;
-    width: 100%;
+    width: 90%;
     background: #dfe1e6;
     border: none;
   }
@@ -1006,9 +1249,5 @@ input[type='submit']:active {
 
   textarea {
     width: 80%;
-  }
-
-  .swap {
-    grid-row-start: 1;
   }
 }
