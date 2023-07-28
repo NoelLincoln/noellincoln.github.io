@@ -215,7 +215,7 @@
                         <input type="text" placeholder="Lorem ipsum"
                             maxlength="30"
                             required>
-                        <input type="email" name="email"
+                        <input type="email" name="email" id="email"
                             placeholder="loremispum@gmail.com"
                             required>
                         <textarea rows="7" name="message"
@@ -223,8 +223,9 @@
                             maxlength="500"
                             required></textarea>
                         <input type="submit" value="Get in touch"
-                            class="submit-btn">
-                        <p id="errormsg"></p>
+                            class="submit-btn" id="submit"
+                            onclick="validateEmail()">
+                        <p id="errormessage"></p>
 
                     </form>
                 </section>
