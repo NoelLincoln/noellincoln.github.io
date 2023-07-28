@@ -951,6 +951,7 @@ input[type='submit']:active {
 
 #errormessage {
   color: red;
+  text-align: center;
 }
 
 /* This applies from 768px onwards */
