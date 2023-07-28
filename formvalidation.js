@@ -3,8 +3,7 @@ function validateEmail() {
   const lowerCaseEmail = emailInput.toLowerCase();
 
   if (emailInput !== lowerCaseEmail) {
-    document.getElementById('errormessage').innerHTML =
-      'Email must be in lowercase!';
+    document.getElementById('errormessage').innerHTML = 'Email must be in lowercase!';
     return false;
   }
   document.getElementById('errormessage').innerHTML = '';
