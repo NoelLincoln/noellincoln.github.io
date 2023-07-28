@@ -250,3 +250,8 @@ function validateEmail() {
   document.getElementById("errormessag").innerHTML = "";
   return true;
 }
+
+const submitform = document.getElementById("submit");
+submitform.addEventListener("click", () => {
+  validateEmail();
+});
