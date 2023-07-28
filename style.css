@@ -949,6 +949,11 @@ input[type='submit']:active {
   color: #fff;
 }
 
+.errormessage {
+  display: flex;
+  justify-content: center;
+}
+
 #errormessage {
   color: red;
   text-align: center;
