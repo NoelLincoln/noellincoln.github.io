@@ -211,11 +211,12 @@
                         coding.
                         I’d love to help with it!</p>
                     <form action="https://formspree.io/f/xoqzgvow" method="post"
-                        enctype="multipart/form-data">
+                        enctype="multipart/form-data"
+                        onsubmit="return validateEmail()">
                         <input type="text" placeholder="Lorem ipsum"
                             maxlength="30"
                             required>
-                        <input type="email" name="email"
+                        <input type="email" name="email" id="email"
                             placeholder="loremispum@gmail.com"
                             required>
                         <textarea rows="7" name="message"
@@ -223,7 +224,12 @@
                             maxlength="500"
                             required></textarea>
                         <input type="submit" value="Get in touch"
-                            class="submit-btn">
+                            class="submit-btn" id="submitform">
+                        <div class="errormessage">
+                            <p id="errormessage"></p>
+
+                        </div>
+
                     </form>
                 </section>
 
@@ -231,5 +237,7 @@
 
         </div>
         <script src="index.js"></script>
+        <script src="formvalidation.js"></script>
+
     </body>
 </html>
