@@ -27,21 +27,26 @@ const projectContainer = document.querySelector('#popupWindow');
 const projectsData = [
   {
     id: '1',
-    name: 'Tonic',
-    image: 'snapshot2.png',
-    descrShort:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essent",
+    name: 'To do list',
+    image: 'to-do-list.png',
+    company: 'solo project',
+    role: 'fullstack',
+    year: '2023',
+    descrShort: 'a simple to do list application',
     descrLong:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the releaLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the releorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum han printer took a galley of type and scrambled it 1960s with the releawn printer took a galley of type and scrambled it 1960s with the releaLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s with the relea",
+      'Users can plan their schedules easily with this application. They can add to do items, edit existing to do items , sort the items and remove them once accomplished',
     details:
       'A daily selection of privately personalized reads; accounts or sign-ups required.',
-    liveLink: 'https://noellincoln.github.io',
-    sourceLink: 'https://github.com/NoelLincoln/noellincoln.github.io',
+    liveLink: 'https://noellincoln.github.io/to-do-list',
+    sourceLink: 'https://github.com/NoelLincoln/to-do-list',
   },
   {
     id: '2',
     name: 'Multipost',
     image: 'Multipoststories2.png',
+    company: 'solo project',
+    role: 'fullstack',
+    year: '2023',
     descrShort:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essent",
     descrLong:
@@ -55,6 +60,9 @@ const projectsData = [
     id: '3',
     name: 'Tonic',
     image: 'snapshot2.png',
+    company: 'solo project',
+    role: 'fullstack',
+    year: '2023',
     descrShort:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essent",
     descrLong:
@@ -68,6 +76,9 @@ const projectsData = [
     id: '4',
     name: 'Multipost',
     image: 'multipoststories.png',
+    company: 'solo project',
+    role: 'fullstack',
+    year: '2023',
     descrShort:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     descrLong:
@@ -91,16 +102,16 @@ function popUpWindow(project) {
 
                         <div class="work-info work-info-popup-desktop">
                             <div class="client">
-                                <p>CANOPY</p>
+                                <p>${project.company}</p>
                             </div>
                             <div class="counter"></div>
                             <div class="role">
-                                <p>Backend Dev</p>
+                                <p>${project.role}</p>
                             </div>
                             <div class="counterone"></div>
 
                             <div class="year">
-                                <p>2015</p>
+                                <p>${project.year}</p>
                             </div>
 
                         </div>
@@ -112,7 +123,7 @@ function popUpWindow(project) {
                     <div class="card-info card-info-popup swap">
 
                         <div class="description-text description-text-popup">
-                            <p>${project.descrShort}</p>
+                            <p>${project.descrLong}</p>
                         </div>
                         <div class="right right-desktop">
                           <ul class="language-tags">
@@ -167,16 +178,16 @@ function projectWorkCards(projectsData = []) {
                             <h2>${project.name}</h2>
                             <div class="work-info">
                                 <div class="client">
-                                    <p>CANOPY</p>
+                                    <p>${project.company}</p>
                                 </div>
                                 <div class="counter"></div>
                                 <div class="role">
-                                    <p>Backend Dev</p>
+                                    <p>${project.role}</p>
                                 </div>
                                 <div class="counterone"></div>
 
                                 <div class="year">
-                                    <p>2015</p>
+                                    <p>${project.year}</p>
                                 </div>
 
                             </div>
