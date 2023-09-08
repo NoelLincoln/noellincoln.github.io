@@ -87,7 +87,6 @@ i {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5em;
   padding: 16px;
   gap: 12px;
   width: 80%;
@@ -332,7 +331,7 @@ i {
   display: flex;
   align-items: center;
   padding: 8px 0;
-  width: 55px;
+  width: auto;
   height: 42px;
   order: 0;
 }
@@ -362,7 +361,6 @@ i {
 }
 
 .role p {
-  width: 88px;
   height: 16px;
   font-family: 'Poppins', sans-serif, sans-pro;
   font-style: normal;
