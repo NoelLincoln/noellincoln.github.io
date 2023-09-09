@@ -1,7 +1,7 @@
 {
-  "name": "hellomicroverse",
+  "name": "my portfolio",
   "version": "1.0.0",
-  "description": "Learning how to use git and github professionally.\r <a name=\"readme-top\"></a>",
+  "description": "Showcasing projects I've done and my skills.\r <a name=\"readme-top\"></a>",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

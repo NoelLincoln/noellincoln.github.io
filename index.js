@@ -41,8 +41,8 @@ const projectsData = [
     sourceLink: 'https://github.com/NoelLincoln/to-do-list',
   },
   {
-    id: '2',
-    name: 'Tonic',
+    id: '3',
+    name: 'Tonic3',
     image: 'snapshot2.png',
     company: 'solo project',
     role: 'fullstack',
