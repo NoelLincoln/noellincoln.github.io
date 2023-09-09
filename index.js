@@ -43,7 +43,7 @@ const projectsData = [
   {
     id: '2',
     name: 'Multipost',
-    image: 'Multipoststories2.png',
+    image: 'multipoststories2.png',
     company: 'solo project',
     role: 'fullstack',
     year: '2023',
