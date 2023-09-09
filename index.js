@@ -28,7 +28,7 @@ const projectsData = [
   {
     id: '1',
     name: 'To do list',
-    image: 'to-do-list.png',
+    image: 'todolist.png',
     company: 'solo project',
     role: 'fullstack',
     year: '2023',
