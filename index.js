@@ -58,7 +58,7 @@ const projectsData = [
   },
   {
     id: '3',
-    name: 'Tonic',
+    name: 'Tonic3',
     image: 'snapshot2.png',
     company: 'solo project',
     role: 'fullstack',
