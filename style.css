@@ -1134,7 +1134,6 @@ input[type='submit']:active {
 
   .snapshot-popup-desktop {
     display: flex;
-    background-color: #e6e6e2;
   }
 
   .snapshot-popup-desktop img {
