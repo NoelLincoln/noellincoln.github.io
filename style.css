@@ -196,7 +196,6 @@ i {
 }
 
 .work-collection {
-  display: grid;
   grid-template-columns: auto;
   grid-column-start: 2;
   grid-gap: 20px;
@@ -224,6 +223,7 @@ i {
 
 .snapshot img {
   width: 100%;
+  height: 250px;
   max-width: 100%;
 }
 
@@ -237,10 +237,14 @@ i {
 
 .divider {
   display: flex;
-  width: 90;
+  width: 90%;
   padding: 0 4px;
   justify-content: center;
   align-items: center;
+}
+
+.divider img {
+  width: inherit;
 }
 
 .project-action-buttons {
@@ -1126,6 +1130,10 @@ input[type='submit']:active {
 
   .description-text-popup {
     margin: 0;
+  }
+
+  .snapshot img {
+    height: 400px;
   }
 
   .snapshot-order {
