@@ -89,7 +89,7 @@ const projectsData = [
     language: ['Ruby on Rails', 'Bootstrap', 'PostgreSQL'],
 
     details:
-      "A sample application built with Ruby on rails , Bootstrap CSS and PostgreSQL.",
+      'A sample application built with Ruby on rails , Bootstrap CSS and PostgreSQL.',
     liveLink: 'https://noellincoln.github.io/first-capstone-project/',
     sourceLink: 'https://github.com/NoelLincoln/first-capstone-project',
   },
