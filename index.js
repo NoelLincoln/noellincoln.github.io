@@ -86,7 +86,7 @@ const projectsData = [
       'Blog App is a web application meant for users to share their stories with the world.',
     descrLong:
       'Users can create blogs and have interactions through them via likes and comments from other users. They can also maanage their blogs by deleting them or adding new ones.',
-    language: ['Ruby on Rails', 'Bootstrap', 'PostgreSQL'],
+    language: ['RoR', 'Bootstrap', 'PostgreSQL'],
 
     details:
       'A sample application built with Ruby on rails , Bootstrap CSS and PostgreSQL.',
