@@ -196,7 +196,6 @@ i {
 }
 
 .work-collection {
-  display: grid;
   grid-template-columns: auto;
   grid-column-start: 2;
   grid-gap: 20px;
@@ -224,6 +223,7 @@ i {
 
 .snapshot img {
   width: 100%;
+  height: 250px;
   max-width: 100%;
 }
 
@@ -237,10 +237,14 @@ i {
 
 .divider {
   display: flex;
-  width: 90;
+  width: 90%;
   padding: 0 4px;
   justify-content: center;
   align-items: center;
+}
+
+.divider img {
+  width: inherit;
 }
 
 .project-action-buttons {
@@ -1128,6 +1132,10 @@ input[type='submit']:active {
     margin: 0;
   }
 
+  .snapshot img {
+    height: 400px;
+  }
+
   .snapshot-order {
     order: 1;
   }
@@ -1138,7 +1146,7 @@ input[type='submit']:active {
 
   .snapshot-popup-desktop img {
     width: 90%;
-    height: auto;
+    height: 30rem;
   }
 
   .snapshot-popup img {
