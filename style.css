@@ -157,7 +157,7 @@ i {
   align-items: center;
   justify-content: center;
   padding: 15px 0 10px;
-  background-image: url(assets/images/desktop-header-bg.png);
+  background-image: url(assets/images/desktop-header-bg.webp);
   min-height: 591px;
   width: auto;
   border-radius: 0 0 0 100px;
@@ -1083,7 +1083,7 @@ input[type='submit']:active {
   }
 
   .headline-container {
-    background-image: url(assets/images/desktop-header-bg.png);
+    background-image: url(assets/images/desktop-header-bg.webp);
   }
 
   .headline {
