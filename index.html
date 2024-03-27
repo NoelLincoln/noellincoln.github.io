@@ -168,17 +168,17 @@
                             </label>
                             <div class="content">
                             <ul class="dropdown-content" id="language-content" role="menu">
-                                <li><img src="assets/images/ruby.png"
+                                <li><img data-src="assets/images/ruby.png" class="lazyload"
                                         alt="ruby
                   image" /><a href="https://www.ruby-lang.org/" aria-label="visit official ruby website" target="_blank" rel="noopener" rel="noreferrer">Ruby</a></li>
-                  <li><img src="assets/images/javascript.png"
+                  <li><img data-src="assets/images/javascript.png" class="lazyload"
                                         alt="javascript
                   image" /><a href="https://www.javascript.com/" aria-label="visit official JavaScript website" target="_blank" rel="noopener" rel="noreferrer">JavaScript</a></li>
-                  <li><img src="assets/images/typescript.png"
+                  <li><img data-src="assets/images/typescript.png" class="lazyload"
                                         alt="typescript
                   image" /><a href="https://www.typescriptlang.org/" aria-label="visit TypeScriptwebsite" 
                   target="_blank" rel="noopener" rel="noreferrer">TypeScript</a></li>
-                  <li><img src="assets/images/java.png"
+                  <li><img data-src="assets/images/java.png" class="lazyload"
                                         alt="java
                   image" /><a href="https://www.java.com/" aria-label="visit official Java website"
                   target="_blank" rel="noopener" rel="noreferrer">Java</a></li>
@@ -282,6 +282,8 @@
         <script src="formvalidation.js"></script>
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
         <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+        <script src="lazysizes.min.js" async></script>
+
         <script>
             LottieInteractivity.create({
                 player: '#lottie',
