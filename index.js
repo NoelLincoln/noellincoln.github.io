@@ -28,7 +28,7 @@ const projectsData = [
   {
     id: '1',
     name: 'To do list',
-    image: 'todolist.jpg',
+    image: 'todolist.webp',
     company: 'solo project',
     role: 'fullstack',
     year: '2023',
@@ -44,7 +44,7 @@ const projectsData = [
   {
     id: '2',
     name: 'Air Pollution Stats',
-    image: 'air-pollution-stats.png',
+    image: 'air-pollution-stats.webp',
     company: 'solo project',
     role: 'fullstack',
     year: '2023',
@@ -60,7 +60,7 @@ const projectsData = [
   {
     id: '3',
     name: 'AmannaTrust',
-    image: 'amannatrust.png',
+    image: 'amannatrust.webp',
     company: 'solo project',
     role: 'fullstack',
     year: '2023',
@@ -78,7 +78,7 @@ const projectsData = [
   {
     id: '4',
     name: 'Blog App',
-    image: 'blog-app-img.png',
+    image: 'blog-app.webp',
     company: 'solo project',
     role: 'fullstack',
     year: '2023',
