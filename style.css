@@ -667,7 +667,6 @@ li.javascript {
 .skill-list {
   display: flex;
   flex-direction: column;
-  /* margin-left: 50px; */
   align-items: center;
   padding: 0;
   width: 100%;
@@ -732,12 +731,11 @@ li.javascript {
 
 .collapsible.active {
   background-color: #396df2;
-  color: white; /* Change text color to white */
+  color: white;
 }
 
-/* Active styles for the arrow */
 .collapsible.active .arrow {
-  border-color: white; /* Change arrow color to white */
+  border-color: white;
 }
 
 .south {
@@ -1015,6 +1013,26 @@ input[type='submit']:active {
 @media (min-width: 768px) {
   * {
     margin: auto;
+  }
+
+  .content {
+    padding: 0 18px;
+    display: none;
+  }
+
+  .dropdown-content {
+    border-radius: 8px;
+    padding: 1px;
+    list-style: none;
+    position: relative;
+    width: 100%; /* Make it fill the width of its container */
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to a new line */
+  }
+
+  .dropdown-content li {
+    flex: 1 1 30%; /* Adjust the width of each item as needed */
+    margin: 5px; /* Add some space between items */
   }
 
   #lottie {
