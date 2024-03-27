@@ -41,8 +41,6 @@ ul {
 
 #hello-lottie {
   margin-top: auto;
-  /* width: 600px;
-  height: 600px; */
 }
 
 .logo {
@@ -1040,11 +1038,18 @@ input[type='submit']:active {
     width: 100%; /* Make it fill the width of its container */
     display: flex;
     flex-wrap: wrap; /* Allow items to wrap to a new line */
+    flex-direction: row;
   }
 
   .dropdown-content li {
     flex: 1 1 30%; /* Adjust the width of each item as needed */
     margin: 5px; /* Add some space between items */
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   #hello-lottie {
@@ -1151,19 +1156,6 @@ input[type='submit']:active {
 
   .skill-list {
     width: 100%;
-  }
-
-  .dropdown-content {
-    flex-direction: row;
-  }
-
-  .dropdown-content li {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    width: 100%;
-    margin-left: 10px;
-    margin-right: 10px;
   }
 
   .top {
