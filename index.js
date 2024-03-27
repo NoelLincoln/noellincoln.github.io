@@ -205,7 +205,7 @@ function projectWorkCards(projectsData = []) {
                             
                         </ul>
                         <div class="action">
-                            <button class="action-button"  project-id="${project.id}" id="view-project">See project</button>
+                            <button class="action-button view-project"  project-id="${project.id}">See project</button>
                         </div>
                     </div>
                 </div>
@@ -239,7 +239,7 @@ window.addEventListener('load', () => {
 
   projectsSection.innerHTML = projectWorkCards(projectsData);
 
-  const viewprojbtn = document.querySelectorAll('#view-project');
+  const viewprojbtn = document.querySelectorAll('.view-project');
 
   Array.from(viewprojbtn).forEach((element) => {
     element.addEventListener('click', () => {
