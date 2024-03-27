@@ -33,6 +33,12 @@ ul {
   padding: 10px;
 }
 
+#hello-lottie {
+  margin-top: auto;
+  /* width: 600px;
+  height: 600px; */
+}
+
 .logo {
   margin-left: 12px;
   width: 100px;
@@ -1033,6 +1039,10 @@ input[type='submit']:active {
   .dropdown-content li {
     flex: 1 1 30%; /* Adjust the width of each item as needed */
     margin: 5px; /* Add some space between items */
+  }
+
+  #hello-lottie {
+    margin-bottom: 0;
   }
 
   #lottie {
