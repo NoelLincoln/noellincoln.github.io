@@ -78,7 +78,7 @@ const projectsData = [
   {
     id: '4',
     name: 'Blog App',
-    image: 'blog-app.webp',
+    image: 'blog-app.png',
     company: 'solo project',
     role: 'fullstack',
     year: '2023',
