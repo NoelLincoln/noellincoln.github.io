@@ -78,7 +78,7 @@ const projectsData = [
   {
     id: '4',
     name: 'Blog App',
-    image: 'blog-app.webp',
+    image: 'blog-app.png',
     company: 'solo project',
     role: 'fullstack',
     year: '2023',
@@ -143,14 +143,14 @@ function popUpWindow(project) {
                          <img src="assets/images/divider.png" />
                          </div>
                          <div class="project-action-buttons project-action-buttons-desktop">
-                           <a href="${project.liveLink}" rel="noreferer">
+                           <a href="${project.liveLink}" target="_blank" rel="noopener" rel="noreferrer">
 
                             <div class="view-project-btn view-project-btn-desktop" id="viewprojectbtn">
                                <p>See live</p>
                                <img src="assets/images/see-live.png" />  
                             </div>
                                </a>
-                           <a href="${project.sourceLink}" rel="noreferer">
+                           <a href="${project.sourceLink}" target="_blank" rel="noopener" rel="noreferrer">
                            <div class="view-project-btn " id="viewsourcebtn">
                                <p>See source</p>
                                <a href="${project.sourceLink}" target="_blank" rel="noreferer">
