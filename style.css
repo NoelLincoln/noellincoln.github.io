@@ -20,6 +20,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 ul {
   list-style: none;
 }
@@ -535,6 +539,7 @@ li.javascript {
   background-color: #6070ff;
   color: #fff;
   transform: scale(1.25);
+  cursor: pointer;
 }
 
 .action-button:active {
@@ -1069,6 +1074,10 @@ input[type='submit']:active {
     display: flex;
     align-items: center;
     gap: 30px;
+  }
+
+  #closepopup:hover {
+    cursor: pointer;
   }
 
   .desktop-menu li a {
