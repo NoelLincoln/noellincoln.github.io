@@ -1327,6 +1327,7 @@ input[type='submit']:active {
 
   .resume {
     margin-left: 0;
+    width: auto;
   }
 
   .languages {
