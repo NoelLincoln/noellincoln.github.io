@@ -1,194 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Noel Bryant | Full Stack Software Engineer</title>
-        <link rel="stylesheet" href="style.css" rel="noopener">
-        <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noel Bryant | Full Stack Software Engineer</title>
+    <link rel="stylesheet" href="style.css" rel="noopener">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body>
+    <div id="popupWindow" class="work-collection"></div>
 
-    </head>
-    <body>
-        <div id="popupWindow" class=" work-collection">
+    <div class="main-container" id="main-container">
+        <header class="header">
+            <h2 class="logo"><a href="#">Noel</a></h2>
+            <nav class="navigation">
+                <div class="menu" id="menu" onclick="menuOverlay()">
+                    <img src="assets/images/mobile-menu.svg" alt="menu icon">
+                </div>
+                <ul class="desktop-menu">
+                    <li><a href="#projects">Portfolio</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
+        <div class="menu-overlay" id="menu-overlay">
+            <ul id="smoothscroll">
+                <li><a href="#projects" onclick="closeMenuOverlay()">Portfolio</a></li>
+                <li><a href="#about" onclick="closeMenuOverlay()">About</a></li>
+                <li><a href="#contact" onclick="closeMenuOverlay()">Contact</a></li>
+            </ul>
+            <div class="menu-close" id="menu-close" onclick="closeMenuOverlay()">
+                <img src="assets/images/mobile-menu-close.png" alt="menu icon">
+            </div>
         </div>
 
-        <div class="main-container" id="main-container">
-
-            <header class="header">
-                <h2 class="logo"><a href="#">Noel</a></h2>
-                <nav class="navigation">
-                    <div class="menu" id="menu" onclick="menuOverlay()">
-                        <img src="assets/images/mobile-menu.svg"
-                            alt="menu icon">
-                    </div>
-                    <ul class="desktop-menu">
-                        <li><a href="#projects">Portfolio</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-
-                </nav>
-
-            </header>
-            <div class="menu-overlay" id="menu-overlay">
-
-                <ul id="smoothscroll">
-                    <li><a href="#projects" onclick="closeMenuOverlay()">Portfolio</a></li>
-                    <li><a href="#about" onclick="closeMenuOverlay()">About</a></li>
-                    <li><a href="#contact" onclick="closeMenuOverlay()">Contact</a></li>
+        <section class="headline-container">
+            <section class="headline">
+                <h1 class="title">Hi, I'm Noel. <br />Glad to see you!</h1>
+                <p class="intro">
+                    I'm a full stack software developer who loves to build applications that simply work without a hitch and meet business as well as user needs. I can help you build custom software from scratch, add features to existing applications all the way to running tests, deployment and maintenance! I am open to any opportunities to work with you!
+                </p>
+                <h4 class="connect">LET'S CONNECT</h4>
+                <ul class="social-media-icons">
+                    <li>
+                        <a href="https://twitter.com/Noel_Lincoln" aria-label="visit twitter website" target="_blank" rel="noopener">
+                            <img src="assets/images/social-media-icons/twitter.svg" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/noel-bryant/" aria-label="visit LinkedIn website" target="_blank" rel="noopener">
+                            <img src="assets/images/social-media-icons/linkedin.svg" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://medium.com/@noelsobryant" aria-label="visit medium website" target="_blank" rel="noopener">
+                            <img src="assets/images/social-media-icons/medium.svg" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/NoelLincoln" aria-label="visit github website" target="_blank" rel="noopener">
+                            <img src="assets/images/social-media-icons/github.svg" />
+                        </a>
+                    </li>
                 </ul>
-                <div class="menu-close" id="menu-close"
-                    onclick="closeMenuOverlay()">
-                    <img src="assets/images/mobile-menu-close.png"
-                        alt="menu icon">
-                </div>
-
-            </div>
-            <section class="headline-container">
-                <section class="headline">
-                    <h1 class="title">Hi, I'm Noel. <br />Glad to see you! 
-                        
-                    </h1>
-                    <p class="intro">
-                        I'm a full stack software developer who loves to build applications that simply work without a hitch and meet business as well as user needs. I can help you build custom software from scratch, add features to  existing applications all the way to running tests, deployment and maintenance!
-                        I am open to any opportunities to work with you!
-                    </p>
-                    <h4 class="connect">LET'S CONNECT</h4>
-                    
-                    
-                    <ul class="social-media-icons">
-                        <li>
-                            <a href="https://twitter.com/Noel_Lincoln" aria-label="visit twitter website"
-                                target="_blank" rel="noopener">
-                                <img
-                                    src="assets/images/social-media-icons/twitter.svg" /></a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/noel-bryant/" aria-label="visit LinkedIn website"
-                                target="_blank" rel="noopener">
-                                <img
-                                    src="assets/images/social-media-icons/linkedin.svg" /></a>
-                        </li>
-                        <li>
-                            <a href="https://medium.com/@noelsobryant" aria-label="visit medium website"
-                            target="_blank" rel="noopener">
-                                <img
-                                    src="assets/images/social-media-icons/medium.svg" />
-
-                            </a> </li>
-                        <li>
-                            <a href="https://github.com/NoelLincoln" aria-label="visit github website"
-                                target="_blank"
-                                rel="noopener">
-                                <img
-                                    src="assets/images/social-media-icons/github.svg" />
-                            </a> </li>
-                    </ul>
-                </section>
-                <lottie-player id="hello-lottie" src="https://lottie.host/1d897988-2d05-4040-9654-8ec01c33a5a4/415gGY3pkG.json" background="transparent" speed="1" autoplay></lottie-player>
             </section>
-
+            <lottie-player id="hello-lottie" src="https://lottie.host/1d897988-2d05-4040-9654-8ec01c33a5a4/415gGY3pkG.json" background="transparent" speed="1" autoplay></lottie-player>
         </section>
+
         <div class="lottie">
             <lottie-player id="lottie" src="https://lottie.host/e5ba7100-a706-4a15-b186-2aa6e592ea25/QDrzDPF9VX.json" background="transparent" speed="1" autoplay></lottie-player>
-
             <div class="hand-pointer-down">
                 <div class="hand-pointer-works">
-                    <h2>Highlighted Projects </h2>
+                    <h2>Highlighted Projects</h2>
                 </div>
-           </div>
-        </div>
-            <section class="work-collection" id="projects">
             </div>
-            <section class="about-container">
-                <section class="about-myself" id="about">
-                    <div class="top">
-                        <h2>About Myself</h2>
-                        <p>Hello I’m a Full Stack Software Developer looking for new opportunities to leverage my skills! I can help you build a product ,feature or website. I craft seamless digital experiences from frontend to backend, I specialize in bridging the gap between user-centric design and robust functionality. With expertise in both frontend technologies like React, AngularJs, VueJs and backend frameworks like Node.js, Ruby on Rails and Spring Boot, I engineer dynamic, scalable solutions that drive user engagement and business growth. Look through some of my work and experience! If you like what you see and have a project you need coded,don’t hesitate to contact me.</p>
+        </div>
 
-                        <div class="socials">
-                            <div class="support-text">
-                                <h3>Let's connect</h3>
+        <section class="work-collection" id="projects"></section>
+
+        <section class="about-container">
+            <section class="about-myself" id="about">
+                <div class="top">
+                    <h2>About Myself</h2>
+                    <p>Hello I’m a Full Stack Software Developer looking for new opportunities to leverage my skills! I can help you build a product, feature, or website. I craft seamless digital experiences from frontend to backend, I specialize in bridging the gap between user-centric design and robust functionality. With expertise in both frontend technologies like React, AngularJs, VueJs and backend frameworks like Node.js, Ruby on Rails and Spring Boot, I engineer dynamic, scalable solutions that drive user engagement and business growth. Look through some of my work and experience! If you like what you see and have a project you need coded, don’t hesitate to contact me.</p>
+                    <div class="socials">
+                        <div class="support-text">
+                            <h3>Let's connect</h3>
+                        </div>
+                        <ul class="social-med">
+                            <li class="twitter">
+                                <a href="https://twitter.com/Noel_Lincoln" aria-label="visit twitter website" target="_blank" rel="noopener" rel="noreferrer">
+                                    <img src="assets/images/social-media-icons/twitter.svg" alt="twitter" />
+                                </a>
+                            </li>
+                            <li class="linkedin">
+                                <a href="https://www.linkedin.com/in/noel-bryant/" aria-label="visit Linkedin website" target="_blank" rel="noopener" rel="noreferrer">
+                                    <img src="assets/images/social-media-icons/linkedin.svg" alt="linkedin" />
+                                </a>
+                            </li>
+                            <li class="medium">
+                                <a href="https://medium.com/@noelsobryant" aria-label="visit medium website" target="_blank" rel="noopener">
+                                    <img src="assets/images/social-media-icons/medium.svg" alt="medium" />
+                                </a>
+                            </li>
+                            <li class="github">
+                                <a href="https://github.com/NoelLincoln" aria-label="visit github website" target="_blank" rel="noopener" rel="noreferrer">
+                                    <img src="assets/images/social-media-icons/github.svg" alt="github" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="resume action-button" type="button" onclick="window.open('https://drive.google.com/file/d/1zjOyRhIS_b-_8CS9PIRNW-HiR3tKYFP5/view?usp=sharing', '_blank');">
+                        Get my resume
+                    </button>
+                </div>
+
+                <div class="skill-list">
+                    <ul class="dropdown">
+                        <label for="dropdown-content-languages" class="dropdown-btn collapsible" id="languages">
+                            <li class="languages">Languages</li>
+                            <div class="arrows">
+                                <span class="arrow"></span>
                             </div>
-                            <ul class="social-med">
-                                <li class="twitter">
-                                    <a href="https://twitter.com/Noel_Lincoln" aria-label="visit twitter website"
-                                        target="_blank" rel="noopener" rel="noreferrer">
-                                        <img
-                                            src="assets/images/social-media-icons/twitter.svg" alt="twitter"/>
-                                    </a>
+                        </label>
+                        <div class="content">
+                            <ul class="dropdown-content" id="language-content" role="menu">
+                                <li>
+                                    <img data-src="assets/images/ruby.png" class="lazyload" alt="ruby image" />
+                                    <a href="https://www.ruby-lang.org/" aria-label="visit official ruby website" target="_blank" rel="noopener" rel="noreferrer">Ruby</a>
                                 </li>
-                                <li class="linkedin">
-                                    <a
-                                        href="https://www.linkedin.com/in/noel-bryant/" aria-label="visit Linkedin website"
-                                        target="_blank" rel="noopener" rel="noreferrer">
-                                        <img
-                                            src="assets/images/social-media-icons/linkedin.svg" alt="linkedin"/></a>
+                                <li>
+                                    <img data-src="assets/images/javascript.png" class="lazyload" alt="javascript image" />
+                                    <a href="https://www.javascript.com/" aria-label="visit official JavaScript website" target="_blank" rel="noopener" rel="noreferrer">JavaScript</a>
                                 </li>
-
-                                <li class="medium">
-                                    <a href="https://medium.com/@noelsobryant" aria-label="visit medium website" target="_blank" rel="noopener">
-                                        <img
-                                            src="assets/images/social-media-icons/medium.svg" alt="medium"/>
-                                    </a>
+                                <li>
+                                    <img data-src="assets/images/typescript.png" class="lazyload" alt="typescript image" />
+                                    <a href="https://www.typescriptlang.org/" aria-label="visit TypeScript website" target="_blank" rel="noopener" rel="noreferrer">TypeScript</a>
                                 </li>
-
-                                <li class="github">
-                                    <a href="https://github.com/NoelLincoln" aria-label="visit github website"
-                                        target="_blank" rel="noopener" rel="noreferrer">
-                                        <img
-                                            src="assets/images/social-media-icons/github.svg" alt="github"/>
-                                    </a>
+                                <li>
+                                    <img data-src="assets/images/java.png" class="lazyload" alt="java image" />
+                                    <a href="https://www.java.com/" aria-label="visit official Java website" target="_blank" rel="noopener" rel="noreferrer">Java</a>
                                 </li>
                             </ul>
                         </div>
-
-                        <button class="resume action-button" type="button"
-                                    onclick="window.open('https://drive.google.com/file/d/1zjOyRhIS_b-_8CS9PIRNW-HiR3tKYFP5/view?usp=sharing', '_blank');">
-                            Get my resume
-                        </button>
-
-                    </div>
-                    <div class="skill-list">
-                        <ul class="dropdown">
-                            <label for="dropdown-content-languages"
-                                class="dropdown-btn collapsible"
-                                id="languages">
-                                <li class="languages">Languages</li>
-                                <div class="arrows">
-                                    <span class="arrow"></span>
-                                </div>
-                                
-                            </label>
-                            <div class="content">
-                            <ul class="dropdown-content" id="language-content" role="menu">
-                                <li><img data-src="assets/images/ruby.png" class="lazyload"
-                                        alt="ruby
-                  image" /><a href="https://www.ruby-lang.org/" aria-label="visit official ruby website" target="_blank" rel="noopener" rel="noreferrer">Ruby</a></li>
-                  <li><img data-src="assets/images/javascript.png" class="lazyload"
-                                        alt="javascript
-                  image" /><a href="https://www.javascript.com/" aria-label="visit official JavaScript website" target="_blank" rel="noopener" rel="noreferrer">JavaScript</a></li>
-                  <li><img data-src="assets/images/typescript.png" class="lazyload"
-                                        alt="typescript
-                  image" /><a href="https://www.typescriptlang.org/" aria-label="visit TypeScriptwebsite" 
-                  target="_blank" rel="noopener" rel="noreferrer">TypeScript</a></li>
-                  <li><img data-src="assets/images/java.png" class="lazyload"
-                                        alt="java
-                  image" /><a href="https://www.java.com/" aria-label="visit official Java website"
-                  target="_blank" rel="noopener" rel="noreferrer">Java</a></li>
-                            </ul>
-                            </div>    
-                        </ul>
-                        <ul class="dropdown">
-                            <label for="dropdown" class="dropdown-btn collapsible">
-                                <li class="languages">Frameworks</li>
-                                <div class="arrows">
+                    </ul>
+                    <ul class="dropdown">
+                        <label for="dropdown" class="dropdown-btn collapsible">
+                            <li class="languages">Frameworks</li>
+                            <div class="arrows">
                                 <span class="arrow right"></span>
-                                </div>
-                            </label>
-
-                            <div class="content">
+                            </div>
+                        </label>
+                        <div class="content">
                             <ul class="dropdown-content" role="menu">
                                 <li>Ruby on Rails</li>
                                 <li>Spring Boot</li>
@@ -197,24 +162,21 @@
                                 <li>ReactJs</li>
                                 <li>Bootstrap</li>
                                 <li>Tailwind CSS</li>
-                                </ul>
-    
+                            </ul>
+                        </div>
+                    </ul>
+                    <hr />
+                    <ul class="dropdown">
+                        <label for="dropdown" class="dropdown-btn collapsible">
+                            <li class="languages">Skills</li>
+                            <div class="arrows">
+                                <span class="arrow right"></span>
                             </div>
-                        </ul>
-                        <hr />
-                        <ul class="dropdown">
-                            <label for="dropdown" class="dropdown-btn collapsible">
-                                <li class="languages">Skills</li>
-                                <div class="arrows">
-                                    <span class="arrow right"></span>
-                                </div>
-                                
-                            </label>
-                            <div class="content">
+                        </label>
+                        <div class="content">
                             <ul class="dropdown-content" role="menu">
                                 <li>Redux</li>
                                 <li>Postman</li>
-                                <li>Redux</li>
                                 <li>Database Administration</li>
                                 <li>Source Control Management</li>
                                 <li>Intellij</li>
@@ -227,115 +189,91 @@
                                 <li>GraphQl</li>
                                 <li>Amazon s3</li>
                             </ul>
-                            </div>
-                            
-
-                        </ul>
-                        <hr />
-
-                    </div>
-
-                </section>
-            </section>
-            <section class="contact-form-container">
-                <section class="contact-form" id="contact">
-                    <h2>Contact Me</h2>
-
-                    <p>If you have an application you are interested in
-                        developing,
-                        a
-                        feature that you need built or a project that needs
-                        coding.
-                        I’d love to help with it!</p>
-                    <form action="https://formspree.io/f/xoqzgvow" method="post"
-                        enctype="multipart/form-data"
-                        onsubmit="return validateEmail()">
-                        <input type="text" placeholder="Your Name"
-                            maxlength="30"
-                            required>
-                        <input type="email" name="email" id="email"
-                            placeholder="Your Email"
-                            required>
-                        <textarea rows="7" name="message"
-                            placeholder="Write your message here..."
-                            maxlength="500"
-                            required></textarea>
-                        <input type="submit" value="Get in touch"
-                            class="submit-btn" id="submitform">
-                        <div class="errormessage">
-                            <p id="errormessage"></p>
-
                         </div>
-
-                    </form>
-                </section>
-
+                    </ul>
+                    <hr />
+                </div>
             </section>
+        </section>
 
-        </div>
-        <script src="index.js"></script>
-        <script src="formvalidation.js"></script>
-        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-        <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
-        <script src="lazysizes.min.js" async></script>
+        <section class="contact-form-container">
+            <section class="contact-form" id="contact">
+                <h2>Contact Me</h2>
+                <p>If you have an application you are interested in developing, a feature that you need built or a project that needs coding. I’d love to help with it!</p>
+                <form action="https://formspree.io/f/xoqzgvow" method="post" enctype="multipart/form-data" onsubmit="return validateEmail()">
+                    <input type="text" placeholder="Your Name" maxlength="30" required>
+                    <input type="email" name="email" id="email" placeholder="Your Email" required>
+                    <textarea rows="7" name="message" placeholder="Write your message here..." maxlength="500" required></textarea>
+                    <input type="submit" value="Get in touch" class="submit-btn" id="submitform">
+                    <div class="errormessage">
+                        <p id="errormessage"></p>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </div>
 
-        <script>
-            LottieInteractivity.create({
-                player: '#lottie',
-                mode: 'scroll',
-                actions: [
+    <script src="index.js"></script>
+    <script src="formvalidation.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+    <script src="lazysizes.min.js" async></script>
+
+    <script>
+        LottieInteractivity.create({
+            player: '#lottie',
+            mode: 'scroll',
+            actions: [
                 {
-                    visibility: [0,1],
+                    visibility: [0, 1],
                     type: 'seek',
                     frames: [0, 300],
                 },
-                ]
-  });
-</script>
+            ]
+        });
+    </script>
 
-<script>
-  let coll = document.getElementsByClassName("collapsible");
-  let i;
+    <script>
+        let coll = document.getElementsByClassName("collapsible");
+        let i;
 
-  for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
 
-      let content = this.nextElementSibling;
+                let content = this.nextElementSibling;
 
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        closeAllExcept(this);
-        content.style.display = "block";
-      }
-    });
-  }
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    closeAllExcept(this);
+                    content.style.display = "block";
+                }
+            });
+        }
 
-  const closeAllExcept = (clickedSection) => {
-  const allCollapsible = document.querySelectorAll('.collapsible');
+        const closeAllExcept = (clickedSection) => {
+            const allCollapsible = document.querySelectorAll('.collapsible');
 
-  allCollapsible.forEach(collapsible => {
-    if (collapsible !== clickedSection) {
-      collapsible.classList.remove('active');
+            allCollapsible.forEach(collapsible => {
+                if (collapsible !== clickedSection) {
+                    collapsible.classList.remove('active');
 
-      const content = collapsible.nextElementSibling;
-      content.style.display = 'none';
-    }
-  });
-};
+                    const content = collapsible.nextElementSibling;
+                    content.style.display = 'none';
+                }
+            });
+        };
+    </script>
 
-</script>
-<script>
-document.querySelectorAll('.collapsible').forEach(collapsible => {
-  collapsible.addEventListener('click', () => {
-    const arrow = collapsible.querySelector('.arrow');
-    arrow.classList.toggle('south');
-  });
-});
-
-</script>
-
-    </body>
+    <script>
+        document.querySelectorAll('.collapsible').forEach(collapsible => {
+            collapsible.addEventListener('click', () => {
+                const arrow = collapsible.querySelector('.arrow');
+                arrow.classList.toggle('south');
+            });
+        });
+    </script>
+</body>
 </html>
