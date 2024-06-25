@@ -27,19 +27,18 @@ const projectContainer = document.querySelector('#popupWindow');
 const projectsData = [
   {
     id: '1',
-    name: 'To do list',
-    image: 'todolist.webp',
+    name: 'Events Management Application',
+    image: 'techtidemeetups.webp',
     company: 'solo project',
     role: 'fullstack',
-    year: '2023',
-    descrShort: 'a simple to do list application',
-    descrLong:
-      'Users can plan their schedules easily with this application. They can add to do items, edit existing to do items , sort the items and remove them once accomplished',
-    language: ['React', 'Redux'],
+    year: '2024',
+    descrShort: 'An event management application built majorly with Next.js, TypeScript and TailwindCSS. It uses MongoDB for the database and Clerk for user management. ',
+    descrLong: 'A Next.js application that provides an event management platform. Users can create events, manage their events, and view their events. They can also view other events from other users. ',
+    language: ['Next.js', 'TailwindCSS', 'TypeScript'],
     details:
-      'A daily selection of privately personalized reads; accounts or sign-ups required.',
-    liveLink: 'https://noellincoln.github.io/to-do-list',
-    sourceLink: 'https://github.com/NoelLincoln/to-do-list',
+      'View the latest tech events, network ,learn and grow 🚀 .',
+    liveLink: 'https://events-app-next-mu.vercel.app/',
+    sourceLink: 'https://github.com/NoelLincoln/events-app-next',
   },
   {
     id: '2',
@@ -92,6 +91,22 @@ const projectsData = [
       'A sample application built with Ruby on rails , Bootstrap CSS and PostgreSQL.',
     liveLink: 'https://noellincoln.github.io/first-capstone-project/',
     sourceLink: 'https://github.com/NoelLincoln/first-capstone-project',
+  },
+  {
+    id: '5',
+    name: 'To do list',
+    image: 'todolist.webp',
+    company: 'solo project',
+    role: 'fullstack',
+    year: '2023',
+    descrShort: 'a simple to do list application',
+    descrLong:
+      'Users can plan their schedules easily with this application. They can add to do items, edit existing to do items , sort the items and remove them once accomplished',
+    language: ['React', 'Redux'],
+    details:
+      'A daily selection of privately personalized reads; accounts or sign-ups required.',
+    liveLink: 'https://noellincoln.github.io/to-do-list',
+    sourceLink: 'https://github.com/NoelLincoln/to-do-list',
   },
 ];
 
