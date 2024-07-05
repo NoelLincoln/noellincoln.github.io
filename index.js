@@ -3,6 +3,12 @@ const menumodal = document.getElementById('menu-overlay');
 const menuclose = document.getElementById('menu-close');
 const maincontainer = document.getElementById('main-container');
 
+const titleElement = document.querySelector('.title');
+
+setTimeout(() => {
+  titleElement.innerHTML += ' <br> Glad to see you!';
+}, 4000);
+
 function menuOverlay() {
   if (menuicon.style.display === 'block') {
     menuicon.style.display = 'none';
@@ -116,7 +122,7 @@ function popUpWindow(project) {
     .join('');
 
   const projectcontent = `
-  <div class="popup-container  ">
+  <div class="popup-container">
      <div class="works-popup works-popup-desktop">
                     <div class="primary-text">
                         <div class="popup-close">
