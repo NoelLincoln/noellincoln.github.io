@@ -3,11 +3,32 @@ const menumodal = document.getElementById('menu-overlay');
 const menuclose = document.getElementById('menu-close');
 const maincontainer = document.getElementById('main-container');
 
-const titleElement = document.querySelector('.title');
+document.addEventListener('DOMContentLoaded', () => {
+  const textElement = document.getElementById('text');
+  const combinedText = "Hi, I'm Noel.\nGlad to see you!";
+  const typingDuration = 5; // Total duration for typing the text in seconds
 
-setTimeout(() => {
-  titleElement.innerHTML += ' <br> Glad to see you!';
-}, 4000);
+  function typeText(element, text, duration) {
+    let currentText = '';
+    let charIndex = 0;
+    const typingSpeed = (duration / text.length) * 1000;
+
+    function typeChar() {
+      if (charIndex < text.length) {
+        currentText += text[charIndex];
+        element.innerHTML = currentText.replace(/\n/g, '<br/>');
+        charIndex += 1;
+        setTimeout(typeChar, typingSpeed);
+      }
+    }
+
+    element.parentElement.style.visibility = 'visible'; // Make the h1 visible
+    typeChar();
+  }
+
+  // Start typing the text
+  typeText(textElement, combinedText, typingDuration);
+});
 
 function menuOverlay() {
   if (menuicon.style.display === 'block') {
@@ -165,19 +186,17 @@ function popUpWindow(project) {
                          </div>
                          <div class="project-action-buttons project-action-buttons-desktop">
                            <a href="${project.liveLink}" target="_blank" rel="noopener" rel="noreferrer">
-
-                            <div class="view-project-btn view-project-btn-desktop" id="viewprojectbtn">
-                               <p>See live</p>
-                               <img src="assets/images/see-live.png" />  
-                            </div>
-                               </a>
+                              <div class="view-project-btn" id="viewprojectbtn">
+                                <p>See live</p>
+                                <img src="assets/images/see-live.png" />  
+                              </div>
+                            </a>
                            <a href="${project.sourceLink}" target="_blank" rel="noopener" rel="noreferrer">
-                           <div class="view-project-btn " id="viewsourcebtn">
-                               <p>See source</p>
-                               <a href="${project.sourceLink}" target="_blank" rel="noreferer">
-                               <img src="assets/images/source-code.png" />   
-                           </div>
-                             </a>
+                              <div class="view-project-btn " id="viewsourcebtn">
+                                  <p>See source</p>
+                                  <img src="assets/images/source-code.png" />   
+                              </div>
+                          </a>
                          </div>
                         </div>
                         
