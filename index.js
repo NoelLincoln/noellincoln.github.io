@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function typeText(element, text, duration) {
     let currentText = '';
     let charIndex = 0;
-    const typingSpeed = duration / text.length * 1000;
+    const typingSpeed = (duration / text.length) * 1000;
 
     function typeChar() {
       if (charIndex < text.length) {
@@ -186,19 +186,17 @@ function popUpWindow(project) {
                          </div>
                          <div class="project-action-buttons project-action-buttons-desktop">
                            <a href="${project.liveLink}" target="_blank" rel="noopener" rel="noreferrer">
-
-                            <div class="view-project-btn view-project-btn-desktop" id="viewprojectbtn">
-                               <p>See live</p>
-                               <img src="assets/images/see-live.png" />  
-                            </div>
-                               </a>
+                              <div class="view-project-btn" id="viewprojectbtn">
+                                <p>See live</p>
+                                <img src="assets/images/see-live.png" />  
+                              </div>
+                            </a>
                            <a href="${project.sourceLink}" target="_blank" rel="noopener" rel="noreferrer">
-                           <div class="view-project-btn " id="viewsourcebtn">
-                               <p>See source</p>
-                               <a href="${project.sourceLink}" target="_blank" rel="noreferer">
-                               <img src="assets/images/source-code.png" />   
-                           </div>
-                             </a>
+                              <div class="view-project-btn " id="viewsourcebtn">
+                                  <p>See source</p>
+                                  <img src="assets/images/source-code.png" />   
+                              </div>
+                          </a>
                          </div>
                         </div>
                         
