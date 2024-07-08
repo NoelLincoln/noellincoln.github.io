@@ -194,25 +194,21 @@ i {
 
 .title {
   margin: 0 auto;
-  margin-left: 0;
-  display: flex;
+  display: inline-block;
   font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 41px;
   line-height: 52px;
-  align-items: start;
   color: #172b4d;
   overflow: hidden;
-  border-right: 0.15em solid orange;
   white-space: nowrap;
   visibility: hidden; /* Initially hidden */
-  width: 0; /* Start with zero width */
 }
 
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+.caret {
+  border-right: 0.15em solid orange;
+  animation: blink-caret 1.25s step-end infinite;
 }
 
 @keyframes blink-caret {
