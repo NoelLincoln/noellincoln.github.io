@@ -185,6 +185,7 @@ i {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position-x: center;
+  margin-top: 3rem;
 }
 
 .headline {
@@ -193,18 +194,20 @@ i {
 
 .title {
   margin: 0 auto;
+  margin-left: 0;
   display: flex;
   font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 41px;
   line-height: 52px;
-  align-items: center;
+  align-items: start;
   color: #172b4d;
   overflow: hidden;
   border-right: 0.15em solid orange;
   white-space: nowrap;
-  animation: typing 5s steps(40, end), blink-caret 1.25s step-end infinite;
+  visibility: hidden; /* Initially hidden */
+  width: 0; /* Start with zero width */
 }
 
 @keyframes typing {
