@@ -3,6 +3,12 @@ const menumodal = document.getElementById('menu-overlay');
 const menuclose = document.getElementById('menu-close');
 const maincontainer = document.getElementById('main-container');
 
+const titleElement = document.querySelector('.title');
+
+setTimeout(() => {
+  titleElement.innerHTML += ' <br> Glad to see you!';
+}, 4000);
+
 function menuOverlay() {
   if (menuicon.style.display === 'block') {
     menuicon.style.display = 'none';
@@ -27,19 +33,18 @@ const projectContainer = document.querySelector('#popupWindow');
 const projectsData = [
   {
     id: '1',
-    name: 'To do list',
-    image: 'todolist.webp',
+    name: 'Events Management Application',
+    image: 'techtidemeetups.webp',
     company: 'solo project',
     role: 'fullstack',
-    year: '2023',
-    descrShort: 'a simple to do list application',
-    descrLong:
-      'Users can plan their schedules easily with this application. They can add to do items, edit existing to do items , sort the items and remove them once accomplished',
-    language: ['React', 'Redux'],
+    year: '2024',
+    descrShort: 'An event management application built majorly with Next.js, TypeScript and TailwindCSS. It uses MongoDB for the database and Clerk for user management. ',
+    descrLong: 'A Next.js application that provides an event management platform. Users can create events, manage their events, and view their events. They can also view other events from other users. ',
+    language: ['Next.js', 'TailwindCSS', 'TypeScript'],
     details:
-      'A daily selection of privately personalized reads; accounts or sign-ups required.',
-    liveLink: 'https://noellincoln.github.io/to-do-list',
-    sourceLink: 'https://github.com/NoelLincoln/to-do-list',
+      'View the latest tech events, network ,learn and grow 🚀 .',
+    liveLink: 'https://events-app-next-mu.vercel.app/',
+    sourceLink: 'https://github.com/NoelLincoln/events-app-next',
   },
   {
     id: '2',
@@ -93,6 +98,22 @@ const projectsData = [
     liveLink: 'https://noellincoln.github.io/first-capstone-project/',
     sourceLink: 'https://github.com/NoelLincoln/first-capstone-project',
   },
+  {
+    id: '5',
+    name: 'To do list',
+    image: 'todolist.webp',
+    company: 'solo project',
+    role: 'fullstack',
+    year: '2023',
+    descrShort: 'a simple to do list application',
+    descrLong:
+      'Users can plan their schedules easily with this application. They can add to do items, edit existing to do items , sort the items and remove them once accomplished',
+    language: ['React', 'Redux'],
+    details:
+      'A daily selection of privately personalized reads; accounts or sign-ups required.',
+    liveLink: 'https://noellincoln.github.io/to-do-list',
+    sourceLink: 'https://github.com/NoelLincoln/to-do-list',
+  },
 ];
 
 function popUpWindow(project) {
@@ -101,7 +122,7 @@ function popUpWindow(project) {
     .join('');
 
   const projectcontent = `
-  <div class="popup-container  ">
+  <div class="popup-container">
      <div class="works-popup works-popup-desktop">
                     <div class="primary-text">
                         <div class="popup-close">
