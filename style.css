@@ -185,6 +185,7 @@ i {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position-x: center;
+  margin-top: 3rem;
 }
 
 .headline {
@@ -193,23 +194,21 @@ i {
 
 .title {
   margin: 0 auto;
-  display: flex;
+  display: inline-block;
   font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 41px;
   line-height: 52px;
-  align-items: center;
   color: #172b4d;
   overflow: hidden;
-  border-right: 0.15em solid orange;
   white-space: nowrap;
-  animation: typing 5s steps(40, end), blink-caret 1.25s step-end infinite;
+  visibility: hidden; /* Initially hidden */
 }
 
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+.caret {
+  border-right: 0.15em solid orange;
+  animation: blink-caret 1.25s step-end infinite;
 }
 
 @keyframes blink-caret {
@@ -286,6 +285,7 @@ i {
   padding: 0 4px;
   justify-content: center;
   align-items: center;
+  margin: auto;
 }
 
 .divider img {
@@ -316,18 +316,9 @@ i {
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  gap: 10px;
-  padding: 5px;
+  padding: 0.25rem 0.75rem;
+  height: 2rem;
   border: 1px solid #6070ff;
-}
-
-.view-project-btn-desktop {
-  gap: 0;
-}
-
-.view-project-btn-desktop img {
-  margin-left: 1rem;
-  margin-right: 1rem;
 }
 
 .view-project-btn p {
@@ -337,9 +328,20 @@ i {
   font-family: Poppins, sans-serif;
   font-weight: 500;
   line-height: 20px;
+  margin-right: 0.25rem;
+  width: max-content;
+}
 
-  /* padding-left: 1rem; */
-  margin-right: 0;
+#popupWindow {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .primary-text {
@@ -1217,6 +1219,8 @@ input[type='submit']:active {
     justify-content: center;
     width: 100%;
     height: 100vh;
+    overflow-y: auto; /* Ensure content within the modal can scroll */
+    max-height: calc(100% - 40px);
   }
 
   .works-popup-desktop {
@@ -1239,6 +1243,7 @@ input[type='submit']:active {
 
   .description-text-popup {
     margin: 0;
+    padding-left: 7rem;
   }
 
   .snapshot img {
@@ -1277,7 +1282,6 @@ input[type='submit']:active {
 
   .divider {
     display: flex;
-    width: 90;
     padding: 0 4px;
     justify-content: center;
     align-items: center;
@@ -1303,34 +1307,8 @@ input[type='submit']:active {
   }
 
   .view-project-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    padding: 5px;
-    border: 1px solid #6070ff;
-    width: 161px;
-  }
-
-  .view-project-btn-desktop {
-    gap: 0;
-  }
-
-  .view-project-btn-desktop img {
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
-
-  .view-project-btn p {
-    color: #396df2;
-    text-align: center;
-    font-size: 15px;
-    font-family: Poppins, sans-serif;
-    font-weight: 500;
-    line-height: 20px;
-
-    /* padding-left: 1rem; */
-    margin-right: 0;
+    padding: 0.25rem 0.75rem;
+    height: 2rem;
   }
 
   .action {
