@@ -1248,7 +1248,8 @@ input[type='submit']:active {
 
   .description-text-popup {
     margin: 0;
-    padding-left: 7rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 
   .snapshot img {
@@ -1275,6 +1276,7 @@ input[type='submit']:active {
 
   .right-desktop {
     margin-top: 0;
+    padding-right: 3rem;
   }
 
   .card-info-popup {
