@@ -94,9 +94,7 @@ i {
 .works-popup {
   top: 0;
   bottom: 0;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  position: fixed;
+  overflow-x: scroll;
   z-index: 11;
   box-sizing: border-box;
   display: flex;
@@ -105,7 +103,7 @@ i {
   padding: 16px;
   gap: 12px;
   width: 80%;
-  margin-left: 3rem;
+  margin: auto;
   background: #fff;
   border: 1px solid #dfe1e6;
   border-radius: 16px;
@@ -114,7 +112,7 @@ i {
 
 .works-popup::-webkit-scrollbar {
   width: 10px;
-  height: 100px;
+  height: 10px;
 }
 
 .works-popup::-webkit-scrollbar-track {
@@ -199,7 +197,7 @@ i {
   font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 41px;
+  font-size: 38px;
   line-height: 52px;
   color: #172b4d;
   overflow: hidden;
@@ -468,8 +466,9 @@ i {
 .language-tags {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-top: 5px;
-  padding: 4px 9px;
+  padding: 4px 1px;
   gap: 8px;
   height: auto;
   order: 2;
