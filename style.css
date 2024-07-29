@@ -43,6 +43,10 @@ ul {
   padding: 10px;
 }
 
+.lottie-bg-container {
+  display: none;
+}
+
 #hello-lottie {
   margin-top: auto;
 }
@@ -180,7 +184,7 @@ i {
   min-height: 591px;
   width: auto;
   border-radius: 0 0 0 100px;
-  background-color: #fff;
+  background-color: #ddd0d0;
   background-repeat: no-repeat;
   background-size: 100%;
   background-position-x: center;
@@ -706,6 +710,7 @@ li.javascript {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2rem;
   padding: 0;
   width: 100%;
   height: auto;
@@ -1058,6 +1063,19 @@ input[type='submit']:active {
     display: none;
   }
 
+  .lottie-bg-container {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+  }
+
+  .lottie-bg {
+    position: absolute;
+    z-index: 2;
+    width: 40%;
+    height: 50rem;
+  }
+
   .dropdown-content {
     border-radius: 8px;
     padding: 1px;
@@ -1081,7 +1099,7 @@ input[type='submit']:active {
   }
 
   #hello-lottie {
-    margin-bottom: 0;
+    display: none;
   }
 
   #lottie {
@@ -1115,12 +1133,13 @@ input[type='submit']:active {
   }
 
   .headline-container {
-    background-image: url(assets/images/desktop-header-bg.png);
+    background-image: none;
+    margin-right: 2rem;
   }
 
   .headline {
+    width: 50%;
     margin-right: 20%;
-    margin-left: 20%;
   }
 
   .social-media-icons {

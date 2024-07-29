@@ -8,6 +8,11 @@
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
 <body>
+
+    <div class="lottie-bg-container">
+        <div id="lottie-bg" class="lottie-bg"></div>
+    </div>
+
     <div id="popupWindow" class="work-collection"></div>
 
     <div class="main-container" id="main-container">
@@ -36,6 +41,7 @@
             </div>
         </div>
 
+        
         <section class="headline-container">
             <section class="headline">
                     <h1 class="title" id="title1"><span id="text"></span><span class="caret"></span></h1>
@@ -70,11 +76,11 @@
                     </li>
                 </ul>
             </section>
-            <lottie-player id="hello-lottie" src="https://lottie.host/1d897988-2d05-4040-9654-8ec01c33a5a4/415gGY3pkG.json" background="transparent" speed="1" autoplay></lottie-player>
+            <lottie-player id="hello-lottie" src="https://lottie.host/397468bc-0988-4d2a-ba5f-aa1f5098153f/FnUfMU2BtX.json" background="transparent" speed="1" autoplay></lottie-player>
         </section>
 
         <div class="lottie">
-            <lottie-player id="lottie" src="https://lottie.host/e5ba7100-a706-4a15-b186-2aa6e592ea25/QDrzDPF9VX.json" background="transparent" speed="1" autoplay></lottie-player>
+            <lottie-player id="lottie" src="https://lottie.host/e5ba7100-a706-4a15-b186-2aa6e592ea25/QDrzDPF9VX.json" background="transparent" speed="1" autoplay loop></lottie-player>
             <div class="hand-pointer-down">
                 <div class="hand-pointer-works">
                     <h2>Highlighted Projects</h2>
@@ -88,7 +94,30 @@
             <section class="about-myself" id="about">
                 <div class="top">
                     <h2>About Myself</h2>
-                    <p>Hello I’m a Full Stack Software Developer looking for new opportunities to leverage my skills! I can help you build a product, feature, or website. I craft seamless digital experiences from frontend to backend, I specialize in bridging the gap between user-centric design and robust functionality. With expertise in both frontend technologies like React, AngularJs, VueJs and backend frameworks like Node.js, Ruby on Rails and Spring Boot, I engineer dynamic, scalable solutions that drive user engagement and business growth. Look through some of my work and experience! If you like what you see and have a project you need coded, don’t hesitate to contact me.</p>
+                    <p>
+                        Hi, I'm Noel, a Full Stack Software Engineer with over 3 years of experience in designing and building web applications. I specialize in creating dynamic and responsive websites and applications using a diverse set of technologies, including JavaScript, Node.js, React, Next.js, TypeScript, Ruby on Rails, PostgreSQL, MongoDB, and Tailwind CSS.
+                      </p>
+                      
+                      <p>
+                        My journey in software development began with a curiosity for solving complex problems and a desire to bring innovative ideas to life through code. Over the years, I've honed my skills in both frontend and backend development, allowing me to deliver end-to-end solutions that are efficient, scalable, and user-friendly.
+                      </p>
+                      
+                      <p>
+                        I'm proficient in using modern frameworks and libraries to create seamless user experiences and robust backend systems. My experience includes working on projects ranging from e-commerce platforms to healthcare applications, where I have successfully implemented features like user authentication, data visualization, API integration, and more.
+                      </p>
+                      
+                      <p>
+                        In addition to my technical skills, I am a strong advocate for collaborative work environments and continuous learning. I enjoy working with cross-functional teams to achieve project goals and am always eager to take on new challenges that push the boundaries of my knowledge.
+                      </p>
+                      
+                      <p>
+                        When I'm not coding, you can find me exploring the latest tech trends, contributing to open-source projects, or playing football to decompress 😀.
+                      </p>
+                      
+                      <p>
+                        Feel free to browse through my portfolio to see some of the exciting projects I've worked on. Let's connect and create something amazing together!
+                      </p>
+                      
                     <div class="socials">
                         <div class="support-text">
                             <h3>Let's connect</h3>
@@ -222,7 +251,20 @@
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
     <script src="lazysizes.min.js" async></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            lottie.loadAnimation({
+                container: document.getElementById('lottie-bg'),
+                path: 'assets/images/lottie-bg.json',
+                renderer: 'svg',
+                loop: true,
+                autoplay: true
+            });
+        });
+    </script>
 
     <script>
         LottieInteractivity.create({
