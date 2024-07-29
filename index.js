@@ -103,24 +103,6 @@ const projectsData = [
   },
   {
     id: '4',
-    name: 'Blog App',
-    image: 'blog-app.png',
-    company: 'solo project',
-    role: 'fullstack',
-    year: '2023',
-    descrShort:
-      'Blog App is a web application meant for users to share their stories with the world.',
-    descrLong:
-      'Users can create blogs and have interactions through them via likes and comments from other users. They can also maanage their blogs by deleting them or adding new ones.',
-    language: ['RoR', 'Bootstrap', 'PostgreSQL'],
-
-    details:
-      'A sample application built with Ruby on rails , Bootstrap CSS and PostgreSQL.',
-    liveLink: 'https://noellincoln.github.io/first-capstone-project/',
-    sourceLink: 'https://github.com/NoelLincoln/first-capstone-project',
-  },
-  {
-    id: '5',
     name: 'To do list',
     image: 'todolist.webp',
     company: 'solo project',
