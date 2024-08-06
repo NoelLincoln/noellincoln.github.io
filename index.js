@@ -55,7 +55,7 @@ const projectsData = [
   {
     id: '1',
     name: 'Events Management Application',
-    image: 'techtidemeetups.webp',
+    image: 'eventsapp.png',
     company: 'solo project',
     role: 'fullstack',
     year: '2024',
