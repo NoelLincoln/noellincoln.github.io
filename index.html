@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noel Bryant | Full Stack Software Engineer</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Full stack software engineer specialising in React, Next.js, Node.js and Ruby on Rails. Available for freelance and full-time opportunities.">
+    <link rel="canonical" href="https://noellincoln.github.io/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://noellincoln.github.io/">
+    <meta property="og:title" content="Noel Bryant | Full Stack Software Engineer">
+    <meta property="og:description" content="Full stack software engineer specialising in React, Next.js, Node.js and Ruby on Rails. Available for freelance and full-time opportunities.">
+    <meta property="og:image" content="https://noellincoln.github.io/assets/images/og-preview.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Noel_Lincoln">
+    <meta name="twitter:title" content="Noel Bryant | Full Stack Software Engineer">
+    <meta name="twitter:description" content="Full stack software engineer specialising in React, Next.js, Node.js and Ruby on Rails. Available for freelance and full-time opportunities.">
+    <meta name="twitter:image" content="https://noellincoln.github.io/assets/images/og-preview.png">
+
     <link rel="stylesheet" href="style.css" rel="noopener">
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
@@ -19,6 +38,7 @@
         <header class="header">
             <h2 class="logo"><a href="#">Noel</a></h2>
             <nav class="navigation">
+                <button type="button" class="theme-toggle theme-toggle-mobile" id="theme-toggle-mobile" aria-label="Toggle dark mode">&#9790;</button>
                 <div class="menu" id="menu" onclick="menuOverlay()">
                     <img src="assets/images/mobile-menu.svg" alt="menu icon">
                 </div>
@@ -26,19 +46,19 @@
                     <li><a href="#projects">Portfolio</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">&#9790;</button></li>
                 </ul>
             </nav>
         </header>
 
         <div class="menu-overlay" id="menu-overlay">
+            <span class="overlay-brand">Noel</span>
             <ul id="smoothscroll">
                 <li><a href="#projects" onclick="closeMenuOverlay()">Portfolio</a></li>
                 <li><a href="#about" onclick="closeMenuOverlay()">About</a></li>
                 <li><a href="#contact" onclick="closeMenuOverlay()">Contact</a></li>
             </ul>
-            <div class="menu-close" id="menu-close" onclick="closeMenuOverlay()">
-                <img src="assets/images/mobile-menu-close.png" alt="menu icon">
-            </div>
+            <button type="button" class="menu-close" id="menu-close" onclick="closeMenuOverlay()" aria-label="Close menu">&times;</button>
         </div>
 
         
@@ -76,15 +96,12 @@
                     </li>
                 </ul>
             </section>
-            <lottie-player id="hello-lottie" src="https://lottie.host/397468bc-0988-4d2a-ba5f-aa1f5098153f/FnUfMU2BtX.json" background="transparent" speed="1" autoplay></lottie-player>
+            <lottie-player id="hello-lottie" src="https://lottie.host/e5ba7100-a706-4a15-b186-2aa6e592ea25/QDrzDPF9VX.json" background="transparent" speed="1" autoplay></lottie-player>
         </section>
 
-        <div class="lottie">
-            <lottie-player id="lottie" src="https://lottie.host/e5ba7100-a706-4a15-b186-2aa6e592ea25/QDrzDPF9VX.json" background="transparent" speed="1" autoplay loop></lottie-player>
-            <div class="hand-pointer-down">
-                <div class="hand-pointer-works">
-                    <h2>Highlighted Projects</h2>
-                </div>
+        <div class="hand-pointer-down">
+            <div class="hand-pointer-works">
+                <h2>Highlighted Projects</h2>
             </div>
         </div>
 
@@ -94,28 +111,11 @@
             <section class="about-myself" id="about">
                 <div class="top">
                     <h2>About Myself</h2>
-                    <p>
-                        Hi, I'm Noel, a Full Stack Software Engineer with over 3 years of experience in designing and building web applications. I specialize in creating dynamic and responsive websites and applications using a diverse set of technologies, including JavaScript, Node.js, React, Next.js, TypeScript, Ruby on Rails, PostgreSQL, MongoDB, and Tailwind CSS.
-                      </p>
-                      
                       <p>
-                        My journey in software development began with a curiosity for solving complex problems and a desire to bring innovative ideas to life through code. Over the years, I've honed my skills in both frontend and backend development, allowing me to deliver end-to-end solutions that are efficient, scalable, and user-friendly.
+                        I'm a <span class="kw">full-stack software engineer</span> with <span class="kw">3+ years</span> building production web applications end-to-end — from architecture and API design through to deployment and maintenance. My stack centres on <span class="kw">React</span>, <span class="kw">Next.js</span>, and <span class="kw">TypeScript</span> on the front end, backed by <span class="kw">Node.js</span>, <span class="kw">Ruby on Rails</span>, and <span class="kw">PostgreSQL</span>.
                       </p>
-                      
                       <p>
-                        I'm proficient in using modern frameworks and libraries to create seamless user experiences and robust backend systems. My experience includes working on projects ranging from e-commerce platforms to healthcare applications, where I have successfully implemented features like user authentication, data visualization, API integration, and more.
-                      </p>
-                      
-                      <p>
-                        In addition to my technical skills, I am a strong advocate for collaborative work environments and continuous learning. I enjoy working with cross-functional teams to achieve project goals and am always eager to take on new challenges that push the boundaries of my knowledge.
-                      </p>
-                      
-                      <p>
-                        When I'm not coding, you can find me exploring the latest tech trends, contributing to open-source projects, or playing football to decompress 😀.
-                      </p>
-                      
-                      <p>
-                        Feel free to browse through my portfolio to see some of the exciting projects I've worked on. Let's connect and create something amazing together!
+                        I care about software that actually works — <span class="kw">clean architecture</span>, <span class="kw">tested code</span>, and experiences users don't have to think twice about. Open to freelance, contract, and full-time opportunities.
                       </p>
                       
                     <div class="socials">
@@ -161,20 +161,20 @@
                         <div class="content">
                             <ul class="dropdown-content" id="language-content" role="menu">
                                 <li>
-                                    <img data-src="assets/images/ruby.png" class="lazyload" alt="ruby image" />
-                                    <a href="https://www.ruby-lang.org/" aria-label="visit official ruby website" target="_blank" rel="noopener" rel="noreferrer">Ruby</a>
-                                </li>
-                                <li>
                                     <img data-src="assets/images/javascript.png" class="lazyload" alt="javascript image" />
-                                    <a href="https://www.javascript.com/" aria-label="visit official JavaScript website" target="_blank" rel="noopener" rel="noreferrer">JavaScript</a>
+                                    <a href="https://www.javascript.com/" aria-label="visit official JavaScript website" target="_blank" rel="noopener noreferrer">JavaScript</a>
                                 </li>
                                 <li>
                                     <img data-src="assets/images/typescript.png" class="lazyload" alt="typescript image" />
-                                    <a href="https://www.typescriptlang.org/" aria-label="visit TypeScript website" target="_blank" rel="noopener" rel="noreferrer">TypeScript</a>
+                                    <a href="https://www.typescriptlang.org/" aria-label="visit TypeScript website" target="_blank" rel="noopener noreferrer">TypeScript</a>
                                 </li>
                                 <li>
-                                    <img data-src="assets/images/java.png" class="lazyload" alt="java image" />
-                                    <a href="https://www.java.com/" aria-label="visit official Java website" target="_blank" rel="noopener" rel="noreferrer">Java</a>
+                                    <img data-src="assets/images/python.png" class="lazyload" alt="python image" />
+                                    <a href="https://www.python.org/" aria-label="visit official Python website" target="_blank" rel="noopener noreferrer">Python</a>
+                                </li>
+                                <li>
+                                    <img data-src="assets/images/go.png" class="lazyload" alt="go image" />
+                                    <a href="https://go.dev/" aria-label="visit official Go website" target="_blank" rel="noopener noreferrer">Go</a>
                                 </li>
                             </ul>
                         </div>
@@ -188,13 +188,12 @@
                         </label>
                         <div class="content">
                             <ul class="dropdown-content" role="menu">
+                                <li>React</li>
+                                <li>Next.js</li>
+                                <li>Node.js</li>
                                 <li>Ruby on Rails</li>
-                                <li>Spring Boot</li>
-                                <li>TypeScript</li>
-                                <li>VueJs</li>
-                                <li>ReactJs</li>
-                                <li>Bootstrap</li>
                                 <li>Tailwind CSS</li>
+                                <li>PostgreSQL</li>
                             </ul>
                         </div>
                     </ul>
@@ -263,20 +262,6 @@
                 loop: true,
                 autoplay: true
             });
-        });
-    </script>
-
-    <script>
-        LottieInteractivity.create({
-            player: '#lottie',
-            mode: 'scroll',
-            actions: [
-                {
-                    visibility: [0, 1],
-                    type: 'seek',
-                    frames: [0, 300],
-                },
-            ]
         });
     </script>
 

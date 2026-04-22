@@ -1,3 +1,32 @@
+// ── Theme toggle ──────────────────────────────────────────
+(function () {
+  const STORAGE_KEY = 'theme';
+  const MOON = '☽';
+  const SUN = '☀';
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    const icon = theme === 'dark' ? SUN : MOON;
+    document.querySelectorAll('.theme-toggle').forEach((btn) => {
+      btn.textContent = icon;
+    });
+  }
+
+  const saved = localStorage.getItem(STORAGE_KEY) ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  applyTheme(saved);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.theme-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(STORAGE_KEY, next);
+        applyTheme(next);
+      });
+    });
+  });
+}());
+
 const menuicon = document.getElementById('menu');
 const menumodal = document.getElementById('menu-overlay');
 const menuclose = document.getElementById('menu-close');
@@ -54,68 +83,18 @@ const projectContainer = document.querySelector('#popupWindow');
 const projectsData = [
   {
     id: '1',
-    name: 'Events Management Application',
-    image: 'eventsapp.png',
-    company: 'solo project',
-    role: 'fullstack',
-    year: '2024',
-    descrShort: 'An event management application built majorly with Next.js, TypeScript and TailwindCSS. It uses MongoDB for the database and Clerk for user management. ',
-    descrLong: 'A Next.js application that provides an event management platform. Users can create events, manage their events, and view their events. They can also view other events from other users. ',
-    language: ['Next.js', 'TailwindCSS', 'TypeScript'],
-    details:
-      'View the latest tech events, network ,learn and grow 🚀 .',
-    liveLink: 'https://events-app-next-mu.vercel.app/',
-    sourceLink: 'https://github.com/NoelLincoln/events-app-next',
-  },
-  {
-    id: '2',
-    name: 'Air Pollution Stats',
-    image: 'air-pollution-stats.webp',
-    company: 'solo project',
-    role: 'fullstack',
-    year: '2023',
-    descrShort:
-      'Air Pollution Stats is a webapp built with the aim of sharing information about air pollution for various regions around the globe.',
-    descrLong:
-      'This application provides statistics about air pollution. It is built with react ,redux and openweather api. When the application first loads, it geolocates the users device and loads the states from/in  the country. A user will then proceed to select a state and get data about the air quality index.',
-    language: ['React', 'Redux', 'REST API'],
-    details: 'Get air quality index data from all over the globe.',
-    liveLink: 'https://air-pollution-stats.onrender.com/',
-    sourceLink: 'https://github.com/NoelLincoln/air-pollution-stats',
-  },
-  {
-    id: '3',
     name: 'AmannaTrust',
     image: 'amannatrust.webp',
     company: 'solo project',
     role: 'fullstack',
     year: '2023',
-    descrShort:
-      'Amannatrust is a project based on a non governmental organization formed with the aim to help needy children get access to education. The application is built with HTML, vanilla CSS and vanilla Javascript.',
-    descrLong:
-      'The organization operates on a project-based model, strategically implementing initiatives geared towards providing access to education for those who need it most. At its core, Amannatrust is driven by a profound commitment to addressing the barriers that hinder children from receiving quality education. These barriers may include financial constraints, lack of educational infrastructure, societal challenges, or other forms of disadvantage. Through its projects, Amannatrust endeavors to dismantle these barriers, empowering children with the knowledge and skills they need to thrive.',
+    descrShort: 'A website for a non-profit organisation helping underprivileged children access education, built with HTML, CSS, and JavaScript.',
+    problem: 'The organisation had no online presence to communicate their mission or attract donors and volunteers. They needed a site that loaded fast globally and was easy to navigate.',
+    built: 'Designed and built a fully static site using semantic HTML, vanilla CSS, and JavaScript — no frameworks — prioritising accessibility, fast load times, and a clear content hierarchy.',
+    learned: 'Practiced building a polished, production-ready UI without a framework, sharpening skills in semantic markup, CSS layout, and responsive design from first principles.',
     language: ['HTML', 'CSS', 'JavaScript'],
-
-    details:
-      "Exploring the future of media in Facebook's first Virtual Reality app; a place to discover and enjoy 360 photos and videos on Gear VR.",
     liveLink: 'https://noellincoln.github.io/first-capstone-project/',
     sourceLink: 'https://github.com/NoelLincoln/first-capstone-project',
-  },
-  {
-    id: '4',
-    name: 'To do list',
-    image: 'todolist.webp',
-    company: 'solo project',
-    role: 'fullstack',
-    year: '2023',
-    descrShort: 'a simple to do list application',
-    descrLong:
-      'Users can plan their schedules easily with this application. They can add to do items, edit existing to do items , sort the items and remove them once accomplished',
-    language: ['React', 'Redux'],
-    details:
-      'A daily selection of privately personalized reads; accounts or sign-ups required.',
-    liveLink: 'https://noellincoln.github.io/to-do-list',
-    sourceLink: 'https://github.com/NoelLincoln/to-do-list',
   },
 ];
 
@@ -155,38 +134,49 @@ function popUpWindow(project) {
                     </div>
                     <div class="card-info card-info-popup swap">
 
-                        <div class="description-text description-text-popup">
-                            <p>${project.descrLong}</p>
+                        <div class="description-text description-text-popup case-study">
+                            <div class="case-study-section">
+                                <h4 class="case-study-label">Problem</h4>
+                                <p>${project.problem}</p>
+                            </div>
+                            <div class="case-study-section">
+                                <h4 class="case-study-label">What I built</h4>
+                                <p>${project.built}</p>
+                            </div>
+                            <div class="case-study-section">
+                                <h4 class="case-study-label">What I learned</h4>
+                                <p>${project.learned}</p>
+                            </div>
                         </div>
                         <div class="right right-desktop">
                           <ul class="language-tags">
-                            ${languageListItems} 
+                            ${languageListItems}
                         </ul>
 
                         <div class="divider">
                          <img src="assets/images/divider.png" />
                          </div>
                          <div class="project-action-buttons project-action-buttons-desktop">
-                           <a href="${project.liveLink}" target="_blank" rel="noopener" rel="noreferrer">
+                           <a href="${project.liveLink}" target="_blank" rel="noopener noreferrer">
                               <div class="view-project-btn" id="viewprojectbtn">
                                 <p>See live</p>
-                                <img src="assets/images/see-live.png" />  
+                                <img src="assets/images/see-live.png" />
                               </div>
                             </a>
-                           <a href="${project.sourceLink}" target="_blank" rel="noopener" rel="noreferrer">
+                           <a href="${project.sourceLink}" target="_blank" rel="noopener noreferrer">
                               <div class="view-project-btn " id="viewsourcebtn">
                                   <p>See source</p>
-                                  <img src="assets/images/source-code.png" />   
+                                  <img src="assets/images/source-code.png" />
                               </div>
                           </a>
                          </div>
                         </div>
-                        
+
                     </div>
 
                 </div>
       </div>
-            
+
           `;
 
   return projectcontent;
