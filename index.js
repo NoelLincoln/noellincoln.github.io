@@ -1,5 +1,5 @@
 // ── Theme toggle ──────────────────────────────────────────
-(function () {
+(function initTheme() {
   const STORAGE_KEY = 'theme';
   const MOON = '☽';
   const SUN = '☀';
@@ -12,9 +12,14 @@
     });
   }
 
-  const saved = localStorage.getItem(STORAGE_KEY) ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  applyTheme(saved);
+  const storedTheme = localStorage.getItem(STORAGE_KEY);
+  const saved = storedTheme || 'light';
+
+  if (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    applyTheme('dark');
+  } else {
+    applyTheme(saved);
+  }
 
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.theme-toggle').forEach((btn) => {
