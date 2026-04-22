@@ -47,10 +47,6 @@ ul {
   display: none;
 }
 
-#hello-lottie {
-  display: none;
-}
-
 .logo {
   margin-left: 12px;
   width: 100px;
@@ -149,13 +145,27 @@ i {
 }
 
 @keyframes overlaySlideIn {
-  from { opacity: 0; transform: translateY(-8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes menuItemFade {
-  from { opacity: 0; transform: translateX(-16px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .menu-overlay {
@@ -222,9 +232,17 @@ i {
   animation: menuItemFade 0.3s ease forwards;
 }
 
-.menu-overlay li:nth-child(1) { animation-delay: 0.1s; }
-.menu-overlay li:nth-child(2) { animation-delay: 0.18s; }
-.menu-overlay li:nth-child(3) { animation-delay: 0.26s; }
+.menu-overlay li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.menu-overlay li:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.menu-overlay li:nth-child(3) {
+  animation-delay: 0.26s;
+}
 
 .menu-overlay li a {
   text-decoration: none;
@@ -267,12 +285,6 @@ i {
   margin-left: 25px;
 }
 
-#hello-lottie {
-  width: 260px;
-  height: 260px;
-  margin-top: 1rem;
-}
-
 .title {
   margin: 0 auto;
   display: inline-block;
@@ -294,8 +306,13 @@ i {
 
 @keyframes blink-caret {
   from,
-  to { border-color: transparent; }
-  50% { border-color: orange; }
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: orange;
+  }
 }
 
 .intro {
@@ -910,7 +927,7 @@ input[type='checkbox']:checked ~ .dropdown-content {
   transform: translateY(0);
 }
 
-.dropdown-content > li {
+.dropdown-content:not(.menu-overlay) > li {
   background: #f7f7f9;
   border-radius: 8px;
   border-left: 3px solid transparent;
@@ -923,7 +940,7 @@ input[type='checkbox']:checked ~ .dropdown-content {
   transition: border-left-color 0.2s ease, transform 0.2s ease;
 }
 
-.dropdown-content > li:hover {
+.dropdown-content:not(.menu-overlay) > li:hover {
   border-left-color: #6070ff;
   transform: translateX(6px);
   cursor: pointer;
@@ -966,7 +983,7 @@ input[type='checkbox']:focus + label {
   color: white;
 }
 
-.dropdown-content li a {
+.dropdown-content:not(.menu-overlay) li a {
   display: block;
   padding: 0.7em 0.5em;
   margin-top: 15px;
@@ -1183,7 +1200,7 @@ input[type='submit']:active {
     position: absolute;
     z-index: 2;
     width: 40%;
-    height: 50rem;
+    height: 38rem;
   }
 
   .dropdown-content {
@@ -1206,15 +1223,6 @@ input[type='submit']:active {
     width: 100%;
     margin-left: 10px;
     margin-right: 10px;
-  }
-
-  #hello-lottie {
-    display: block;
-    width: 560px;
-    height: 560px;
-    flex-shrink: 0;
-    z-index: 3;
-    margin-top: 0;
   }
 
   #lottie {
@@ -1622,14 +1630,22 @@ html[data-theme="dark"] .dropdown-btn {
   color: #e2e8f0;
 }
 
-html[data-theme="dark"] .dropdown-content > li,
 html[data-theme="dark"] #language-content li {
   background: #252836;
   color: #94a3b8;
 }
 
-html[data-theme="dark"] .dropdown-content > li:hover,
+html[data-theme="dark"] .dropdown-content:not(#language-content) > li {
+  background: #252836;
+  color: #94a3b8;
+}
+
 html[data-theme="dark"] #language-content li:hover {
+  border-left-color: #818cf8;
+  transform: translateX(6px);
+}
+
+html[data-theme="dark"] .dropdown-content:not(#language-content) > li:hover {
   border-left-color: #818cf8;
   transform: translateX(6px);
 }
