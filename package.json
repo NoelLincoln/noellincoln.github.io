@@ -1,14 +1,15 @@
 {
-  "name": "my portfolio",
+  "name": "noellincoln-portfolio",
   "version": "1.0.0",
-  "description": "Showcasing projects I've done and my skills.\r <a name=\"readme-top\"></a>",
-  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "frontend"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm run dev --workspace=frontend",
+    "build": "npm run build --workspace=frontend",
+    "lint": "npm run lint --workspace=frontend"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",

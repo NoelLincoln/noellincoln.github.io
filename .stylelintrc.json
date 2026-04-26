@@ -11,7 +11,11 @@
           "apply",
           "variants",
           "responsive",
-          "screen"
+          "screen",
+          "custom-variant",
+          "theme",
+          "layer",
+          "import"
         ]
       }
     ]
