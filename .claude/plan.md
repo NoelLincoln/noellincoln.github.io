@@ -1,68 +1,75 @@
-# Implementation Plan
+# Plan
 
-> **Scope update (2026-04-23):** Migrating to Next.js UI first. No SSR or server-side data fetching in this phase — all data is static/local. Django backend added in a later phase once the UI is complete and deployed.
+## Goals
 
-## Pre-Work Rule (Always First)
+- Learn Python through building a real Django project.
+- Improve Next.js / React skills by building on top of what's already here.
+- End result: a portfolio site with a working blog powered by Django + PostgreSQL.
 
-- [ ] Use `develop` as the base integration branch for all active work.
-- [ ] Fetch and fast-forward `develop` before creating a new branch:
-  - `git fetch origin`
-  - `git checkout develop`
-  - `git pull --ff-only origin develop`
-- [ ] Create and switch to a branch before any new feature/fix/chore.
-- [ ] Branch format must be one of:
-  - `feat/description`
-  - `fix/description`
-  - `chore/description`
-  - `docs/description`
-  - `refactor/description`
+## Current State (Next.js frontend)
 
-## Monorepo Structure
+Already built in `frontend/src/`:
 
-```text
-noellincoln.github.io/
-├── frontend/          ← Next.js app (Phase 1–3)
-├── backend/           ← Django (Phase 4, placeholder for now)
-├── .claude/           ← planning docs
-├── package.json       ← npm workspaces root
-└── (legacy static files — kept until frontend is deployed)
-```
+- `layout.tsx` — root shell, Poppins font, ThemeProvider, Lottie script
+- `page.tsx` — assembles all sections
+- `components/layout/Header.tsx` — fixed header, dark mode toggle, mobile menu
+- `components/sections/Hero.tsx` — typing animation, social links, Lottie
+- `components/sections/Projects.tsx` — project cards + case study modal
+- `components/sections/About.tsx` — bio, skills accordion
+- `components/sections/Contact.tsx` — Formspree contact form
+- `data/projects.ts` — static project data
+- `globals.css` — design tokens (light/dark), Tailwind v4
 
-## Phase 1: Next.js Project Setup
+## What's Left on the Frontend
 
-- [ ] Convert root `package.json` to npm workspaces root.
-- [ ] Scaffold `frontend/` with Next.js (App Router, TypeScript, Tailwind CSS).
-- [ ] Install and configure shadcn/ui.
-- [ ] Install Framer Motion.
-- [ ] Migrate design tokens (colours, fonts) from `style.css` into `tailwind.config.ts`.
-- [ ] Set up `eslint` + `prettier` config.
-- [ ] Confirm `npm run dev` runs cleanly from repo root.
+- [ ] Footer component
+- [ ] Verify the site looks right end-to-end (run `npm run dev`)
+- [ ] SEO: `generateMetadata`, `sitemap.xml`, `robots.txt`
+- [ ] Deploy to Vercel
 
-## Phase 2: UI Migration (Static Data Only)
+## Blog — Django + PostgreSQL Backend
 
-- [ ] Build shared layout: Header (with dark mode toggle), mobile menu overlay, Footer.
-- [ ] Build Hero section (typing animation, social links, lottie).
-- [ ] Build Projects section — project cards + case study popup — data from a local `data/projects.ts` file.
-- [ ] Build About section — bio with keyword highlights, skills dropdowns.
-- [ ] Build Contact section — form wired to Formspree (existing endpoint).
-- [ ] Carry over all dark mode CSS variable logic.
-- [ ] Confirm feature parity with current static site.
+Build this in `backend/` once frontend is deployed.
 
-## Phase 3: SEO & Deployment
+### Step 1: Django project scaffold
 
-- [ ] Add `generateMetadata` per page (title, description, OG, Twitter).
-- [ ] Add `sitemap.xml` and `robots.txt`.
-- [ ] Deploy to Vercel.
-- [ ] Verify OG preview image renders correctly.
+- Create `backend/` Django project.
+- Install: `django`, `djangorestframework`, `django-cors-headers`, `psycopg2-binary`, `python-dotenv`.
+- Connect to PostgreSQL (local dev DB).
+- Confirm `python manage.py runserver` works.
 
-## Phase 4: Django Backend (Later)
+### Step 2: Blog models
 
-- [ ] Scaffold Django + DRF + PostgreSQL in `backend/`.
-- [ ] Models: Project, ContactMessage (blog if needed later).
-- [ ] API endpoints: `/api/projects/`, `/api/contact/`.
-- [ ] Swap static `data/projects.ts` for API fetch in Next.js.
-- [ ] Deploy backend on Render/Railway.
+- Create a `blog` Django app.
+- Models: `Post` (title, slug, body, published_at, status), `Category` (name, slug).
+- Register both in Django admin.
+- Run migrations and confirm admin works.
 
-## Current Focus
+### Step 3: REST API
 
-- [ ] Scaffold Next.js app and begin Phase 1.
+- DRF serializers for `Post` and `Category`.
+- Endpoints:
+  - `GET /api/posts/` — published posts list
+  - `GET /api/posts/<slug>/` — single post
+  - `GET /api/categories/` — category list
+- Read-only for now (no auth needed yet).
+
+### Step 4: Connect Next.js to the API
+
+- Add a typed API client in `frontend/src/lib/api.ts`.
+- Add `/blog` page — fetches post list from Django.
+- Add `/blog/[slug]` page — fetches single post.
+- Add Blog link to Header nav.
+
+### Step 5: Polish
+
+- Pagination on post list.
+- Category filter.
+- Reading time estimate.
+- Code block syntax highlighting.
+
+## Branching Rule
+
+- Always branch from `develop`.
+- Format: `feat/`, `fix/`, `chore/`, `docs/`, `refactor/`.
+- One branch per step above.
