@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "npm run dev --workspace=frontend",
     "build": "npm run build --workspace=frontend",
-    "lint": "npm run lint --workspace=frontend"
+    "lint": "npm run lint --workspace=frontend",
+    "prepare": "node -e \"if (!process.env.CI) { require('child_process').execSync('husky', {stdio: 'inherit'}) }\""
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -16,6 +17,7 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.29.1",
     "hint": "^7.1.10",
+    "husky": "^9.1.7",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
     "stylelint-csstree-validator": "^1.9.0",
