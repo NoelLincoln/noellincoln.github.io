@@ -1,0 +1,1 @@
+cd backend && . venv/bin/activate && (pytest || [ $? -eq 5 ])
