@@ -6,7 +6,6 @@ export function useTypingAnimation(text: string, speed = 60) {
   const [displayed, setDisplayed] = useState("");
 
   useEffect(() => {
-    setDisplayed("");
     let i = 0;
     const timer = setInterval(() => {
       if (i < text.length) {
