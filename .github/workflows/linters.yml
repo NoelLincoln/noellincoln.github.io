@@ -46,6 +46,9 @@ jobs:
       - name: Run tests
         run: pytest
         working-directory: backend
+        env:
+          SECRET_KEY: ci-secret-key-not-used-in-production
+          DATABASE_URL: sqlite:///tmp/test.db
 
   frontend-lint:
     name: Frontend — ESLint
@@ -60,6 +63,8 @@ jobs:
         run: npm ci
       - name: Lint
         run: npm run lint --workspace=frontend
+      - name: Format check
+        run: npm run format:check --workspace=frontend
 
   frontend-build:
     name: Frontend — Build
