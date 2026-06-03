@@ -5,7 +5,11 @@ import { motion } from "framer-motion";
 
 const socials = [
   { label: "Twitter", href: "https://twitter.com/Noel_Lincoln", icon: "/social/twitter.svg" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/noel-bryant/", icon: "/social/linkedin.svg" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/noel-bryant/",
+    icon: "/social/linkedin.svg",
+  },
   { label: "Medium", href: "https://medium.com/@noelsobryant", icon: "/social/medium.svg" },
   { label: "GitHub", href: "https://github.com/NoelLincoln", icon: "/social/github.svg" },
 ];
@@ -36,7 +40,14 @@ export default function Hero() {
           </h1>
 
           <p className="text-base md:text-lg text-[#344563] dark:text-[#94a3b8] leading-relaxed">
-            Full-stack engineer with <strong className="text-[#172b4d] dark:text-[#e2e8f0]">5+ years</strong> shipping production software across healthcare, IoT, and SaaS — from React &amp; Next.js frontends to Rails &amp; Node backends. I champion <strong className="text-[#172b4d] dark:text-[#e2e8f0]">TDD</strong>, clean architecture, and have a track record of <strong className="text-[#172b4d] dark:text-[#e2e8f0]">measurable impact</strong>: 20% performance gains, 25% fewer bugs, and teams that ship with confidence.
+            Full-stack engineer with{" "}
+            <strong className="text-[#172b4d] dark:text-[#e2e8f0]">5+ years</strong> shipping
+            production software across healthcare, IoT, and SaaS — from React &amp; Next.js
+            frontends to Rails &amp; Node backends. I champion{" "}
+            <strong className="text-[#172b4d] dark:text-[#e2e8f0]">TDD</strong>, clean architecture,
+            and have a track record of{" "}
+            <strong className="text-[#172b4d] dark:text-[#e2e8f0]">measurable impact</strong>: 20%
+            performance gains, 25% fewer bugs, and teams that ship with confidence.
           </p>
 
           <div className="flex flex-wrap gap-3 mt-1">

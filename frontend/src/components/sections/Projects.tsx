@@ -65,21 +65,13 @@ export default function Projects() {
 
       {/* Modal */}
       <AnimatePresence>
-        {selected && (
-          <ProjectModal project={selected} onClose={() => setSelected(null)} />
-        )}
+        {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
       </AnimatePresence>
     </section>
   );
 }
 
-function ProjectModal({
-  project,
-  onClose,
-}: {
-  project: Project;
-  onClose: () => void;
-}) {
+function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   return (
     <motion.div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"
@@ -99,9 +91,7 @@ function ProjectModal({
         {/* Header */}
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h3 className="text-xl font-bold text-[#172b4d] dark:text-[#e2e8f0]">
-              {project.name}
-            </h3>
+            <h3 className="text-xl font-bold text-[#172b4d] dark:text-[#e2e8f0]">{project.name}</h3>
             <div className="flex items-center gap-2 mt-1 text-xs font-semibold text-muted-foreground">
               <span>{project.company}</span>
               <span className="w-1.5 h-1.5 rounded-full bg-border" />

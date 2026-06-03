@@ -1,2 +1,3 @@
 cd backend && . venv/bin/activate && ruff format . && ruff check . && cd ..
+npx lint-staged
 npm run lint --workspace=frontend
