@@ -11,8 +11,17 @@ const skills = [
   {
     label: "Frameworks & Libraries",
     items: [
-      "React", "Next.js", "Node.js", "Ruby on Rails", "AngularJS",
-      "Express", "Redux", "Tailwind CSS", "MaterialUI", "Spring Boot", "Prisma",
+      "React",
+      "Next.js",
+      "Node.js",
+      "Ruby on Rails",
+      "AngularJS",
+      "Express",
+      "Redux",
+      "Tailwind CSS",
+      "MaterialUI",
+      "Spring Boot",
+      "Prisma",
     ],
   },
   {
@@ -22,15 +31,27 @@ const skills = [
   {
     label: "Tools & Practices",
     items: [
-      "Git", "Jira", "Postman", "TDD", "REST API", "GraphQL",
-      "CI/CD", "Unit Testing", "End-to-End Testing", "Agile / Scrum",
+      "Git",
+      "Jira",
+      "Postman",
+      "TDD",
+      "REST API",
+      "GraphQL",
+      "CI/CD",
+      "Unit Testing",
+      "End-to-End Testing",
+      "Agile / Scrum",
     ],
   },
 ];
 
 const socials = [
   { label: "Twitter", href: "https://twitter.com/Noel_Lincoln", icon: "/social/twitter.svg" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/noel-bryant/", icon: "/social/linkedin.svg" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/noel-bryant/",
+    icon: "/social/linkedin.svg",
+  },
   { label: "Medium", href: "https://medium.com/@noelsobryant", icon: "/social/medium.svg" },
   { label: "GitHub", href: "https://github.com/NoelLincoln", icon: "/social/github.svg" },
 ];
@@ -38,8 +59,7 @@ const socials = [
 export default function About() {
   const [open, setOpen] = useState<string | null>(null);
 
-  const toggle = (label: string) =>
-    setOpen((prev) => (prev === label ? null : label));
+  const toggle = (label: string) => setOpen((prev) => (prev === label ? null : label));
 
   return (
     <section
@@ -55,44 +75,44 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold text-[#172b4d] dark:text-[#e2e8f0]">
-            About Me
-          </h2>
+          <h2 className="text-3xl font-bold text-[#172b4d] dark:text-[#e2e8f0]">About Me</h2>
 
           <p className="text-[#344563] dark:text-[#94a3b8] leading-relaxed text-sm md:text-base">
             I&apos;m a{" "}
-            <span className="text-primary font-semibold">full-stack software engineer</span>{" "}
-            with{" "}
-            <span className="text-primary font-semibold">5+ years</span>{" "}
-            delivering production software across{" "}
-            <span className="text-primary font-semibold">healthcare</span>,{" "}
+            <span className="text-primary font-semibold">full-stack software engineer</span> with{" "}
+            <span className="text-primary font-semibold">5+ years</span> delivering production
+            software across <span className="text-primary font-semibold">healthcare</span>,{" "}
             <span className="text-primary font-semibold">IoT</span>, and{" "}
-            <span className="text-primary font-semibold">SaaS</span> domains.
-            Currently at{" "}
-            <span className="text-primary font-semibold">Savannah Informatics</span>,
-            I build interoperable healthcare platforms — driving PRDs, leading code
-            reviews, and mentoring junior engineers while shipping features that
-            improve healthcare access across East Africa.
+            <span className="text-primary font-semibold">SaaS</span> domains. Currently at{" "}
+            <span className="text-primary font-semibold">Savannah Informatics</span>, I build
+            interoperable healthcare platforms — driving PRDs, leading code reviews, and mentoring
+            junior engineers while shipping features that improve healthcare access across East
+            Africa.
           </p>
 
           <p className="text-[#344563] dark:text-[#94a3b8] leading-relaxed text-sm md:text-base">
             I&apos;m a strong advocate for{" "}
-            <span className="text-primary font-semibold">Test-Driven Development</span>,
-            clean architecture, and building software you can stand behind.
-            My results speak in numbers: a{" "}
-            <span className="text-primary font-semibold">20% boost in system performance</span>,
-            a{" "}
-            <span className="text-primary font-semibold">25% reduction in bugs</span>,
-            and{" "}
-            <span className="text-primary font-semibold">30% faster delivery</span>{" "}
-            through disciplined engineering practices and effective cross-functional collaboration.
+            <span className="text-primary font-semibold">Test-Driven Development</span>, clean
+            architecture, and building software you can stand behind. My results speak in numbers: a{" "}
+            <span className="text-primary font-semibold">20% boost in system performance</span>, a{" "}
+            <span className="text-primary font-semibold">25% reduction in bugs</span>, and{" "}
+            <span className="text-primary font-semibold">30% faster delivery</span> through
+            disciplined engineering practices and effective cross-functional collaboration.
           </p>
 
           {/* Values Pillars */}
           <div className="grid grid-cols-3 gap-3 mt-1">
             {[
-              { icon: "🧪", title: "TDD First", desc: "Automated tests before shipping. Every time." },
-              { icon: "⚙️", title: "Scalable Systems", desc: "Architecture that grows with your business." },
+              {
+                icon: "🧪",
+                title: "TDD First",
+                desc: "Automated tests before shipping. Every time.",
+              },
+              {
+                icon: "⚙️",
+                title: "Scalable Systems",
+                desc: "Architecture that grows with your business.",
+              },
               { icon: "🤝", title: "Mentor & Lead", desc: "I grow teams, not just codebases." },
             ].map(({ icon, title, desc }) => (
               <div

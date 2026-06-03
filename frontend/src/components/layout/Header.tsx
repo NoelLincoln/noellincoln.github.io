@@ -15,8 +15,9 @@ export default function Header() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
 
@@ -27,10 +28,7 @@ export default function Header() {
       <header className="fixed top-0 left-0 w-full z-50 bg-card border-b border-border shadow-sm">
         <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
           {/* Logo */}
-          <a
-            href="#"
-            className="text-xl font-bold text-primary tracking-tight"
-          >
+          <a href="#" className="text-xl font-bold text-primary tracking-tight">
             Noel
           </a>
 
@@ -74,9 +72,7 @@ export default function Header() {
             className="fixed inset-0 z-[1001] bg-[#1a1d27] flex flex-col items-center justify-center"
           >
             {/* Brand */}
-            <span className="absolute top-4 left-5 text-xl font-bold text-white">
-              Noel
-            </span>
+            <span className="absolute top-4 left-5 text-xl font-bold text-white">Noel</span>
 
             {/* Close */}
             <button

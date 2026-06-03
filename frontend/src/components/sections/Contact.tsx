@@ -40,9 +40,8 @@ export default function Contact() {
       >
         <h2 className="text-4xl font-bold text-white mt-4">Contact Me</h2>
         <p className="text-[#ebebff] dark:text-[#c7d2fe] text-center text-base md:text-lg max-w-md">
-          If you have an application you are interested in developing, a feature
-          that needs building, or a project that needs coding — I&apos;d love to
-          help!
+          If you have an application you are interested in developing, a feature that needs
+          building, or a project that needs coding — I&apos;d love to help!
         </p>
 
         <form onSubmit={handleSubmit} className="w-full flex flex-col gap-4 max-w-lg">
