@@ -6,7 +6,7 @@
     "frontend"
   ],
   "scripts": {
-    "dev": "npm run dev --workspace=frontend",
+    "dev": "concurrently --names \"backend,frontend\" --prefix-colors \"blue,green\" \"bash -c 'cd backend && venv/bin/python manage.py runserver'\" \"npm run dev --workspace=frontend\"",
     "build": "npm run build --workspace=frontend",
     "lint": "npm run lint --workspace=frontend",
     "prepare": "node -e \"if (!process.env.CI) { require('child_process').execSync('husky', {stdio: 'inherit'}) }\""
@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "concurrently": "^10.0.3",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.29.1",
