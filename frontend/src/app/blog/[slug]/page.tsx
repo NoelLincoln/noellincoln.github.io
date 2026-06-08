@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 import Header from "@/components/layout/Header";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -48,8 +49,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           <Separator className="mb-10" />
 
           {/* Body */}
-          <div className="text-foreground leading-relaxed text-base whitespace-pre-wrap">
-            {post.body}
+          <div className="prose prose-neutral dark:prose-invert max-w-none">
+            <ReactMarkdown>{post.body}</ReactMarkdown>
           </div>
         </div>
       </main>
