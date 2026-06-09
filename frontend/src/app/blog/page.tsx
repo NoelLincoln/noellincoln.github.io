@@ -16,9 +16,15 @@ export default async function BlogPage() {
           <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tight text-primary mb-4">
             Blog
           </h1>
-          <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+          <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6">
             Thoughts on software engineering &amp; learning in public
           </p>
+          <Link
+            href="/blog/create"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-primary border border-primary/40 rounded-full px-4 py-1.5 hover:bg-primary/10 transition-colors"
+          >
+            + Write a post
+          </Link>
         </section>
 
         {/* Posts grid */}

@@ -4,7 +4,7 @@ from .models import Category, Post
 from .serializers import CategorySerializer, PostSerializer
 
 
-class PostListView(generics.ListAPIView):
+class PostListView(generics.ListCreateAPIView):
     serializer_class = PostSerializer
 
     def get_queryset(self):
@@ -19,6 +19,6 @@ class PostDetailView(generics.RetrieveAPIView):
         return Post.objects.filter(status="published")
 
 
-class CategoryListView(generics.ListAPIView):
+class CategoryListView(generics.ListCreateAPIView):
     serializer_class = CategorySerializer
     queryset = Category.objects.all()

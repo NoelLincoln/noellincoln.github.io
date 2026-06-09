@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { Toaster } from "@/components/ui/sonner";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" suppressHydrationWarning className={poppins.variable}>
       <body className="min-h-screen flex flex-col">
         <ThemeProvider>{children}</ThemeProvider>
+        <Toaster richColors position="top-right" />
         <Script
           src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
           strategy="afterInteractive"
