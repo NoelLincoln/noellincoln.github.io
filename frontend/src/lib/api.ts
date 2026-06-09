@@ -28,3 +28,36 @@ export async function getPost(slug: string): Promise<Post> {
   if (!res.ok) throw new Error("Failed to fetch post");
   return res.json();
 }
+
+export async function createPost(data: {
+  title: string;
+  slug: string;
+  body: string;
+  category_id: number | null;
+  status: string;
+  published_at: string | null;
+}): Promise<Post> {
+  const res = await fetch(`${API_URL}/api/posts/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error("Failed to create post");
+  return res.json();
+}
+
+export async function getCategories(): Promise<Category[]> {
+  const res = await fetch(`${API_URL}/api/categories/`, { cache: "no-store" });
+  if (!res.ok) throw new Error("Failed to fetch categories");
+  return res.json();
+}
+
+export async function createCategory(data: { name: string; slug: string }): Promise<Category> {
+  const res = await fetch(`${API_URL}/api/categories/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error("Failed to create category");
+  return res.json();
+}
