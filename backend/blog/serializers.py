@@ -11,6 +11,13 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True)
+    category_id = serializers.PrimaryKeyRelatedField(
+        queryset=Category.objects.all(),
+        source="category",
+        write_only=True,
+        required=False,
+        allow_null=True,
+    )
 
     class Meta:
         model = Post
@@ -20,6 +27,7 @@ class PostSerializer(serializers.ModelSerializer):
             "slug",
             "body",
             "category",
+            "category_id",
             "status",
             "published_at",
             "created_at",
