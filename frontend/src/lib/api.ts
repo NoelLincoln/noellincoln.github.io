@@ -29,17 +29,22 @@ export async function getPost(slug: string): Promise<Post> {
   return res.json();
 }
 
-export async function createPost(data: {
-  title: string;
-  slug: string;
-  body: string;
-  category_id: number | null;
-  status: string;
-  published_at: string | null;
-}): Promise<Post> {
+export async function createPost(
+  data: {
+    title: string;
+    slug: string;
+    body: string;
+    category_id: number | null;
+    status: string;
+    published_at: string | null;
+  },
+  token?: string
+): Promise<Post> {
+  const headers: Record<string, string> = { "Content-Type": "application/json" };
+  if (token) headers["Authorization"] = `Bearer ${token}`;
   const res = await fetch(`${API_URL}/api/posts/`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers,
     body: JSON.stringify(data),
   });
   if (!res.ok) throw new Error("Failed to create post");
@@ -52,10 +57,15 @@ export async function getCategories(): Promise<Category[]> {
   return res.json();
 }
 
-export async function createCategory(data: { name: string; slug: string }): Promise<Category> {
+export async function createCategory(
+  data: { name: string; slug: string },
+  token?: string
+): Promise<Category> {
+  const headers: Record<string, string> = { "Content-Type": "application/json" };
+  if (token) headers["Authorization"] = `Bearer ${token}`;
   const res = await fetch(`${API_URL}/api/categories/`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers,
     body: JSON.stringify(data),
   });
   if (!res.ok) throw new Error("Failed to create category");

@@ -3,6 +3,17 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSession, signOut } from "next-auth/react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const navLinks = [
   { label: "Portfolio", href: "#projects" },
@@ -15,6 +26,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+  const { data: session } = useSession();
 
   useEffect(() => {
     setMounted(true);
@@ -23,6 +35,8 @@ export default function Header() {
   const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
 
   const closeMenu = () => setMenuOpen(false);
+
+  const initials = session?.user?.name ? session.user.name.slice(0, 2).toUpperCase() : "?";
 
   return (
     <>
@@ -45,6 +59,28 @@ export default function Header() {
               </a>
             ))}
             <ThemeToggle mounted={mounted} theme={theme} onToggle={toggleTheme} />
+            {session?.user && (
+              <DropdownMenu>
+                <DropdownMenuTrigger className="rounded-full border-0 bg-transparent p-0 cursor-pointer focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
+                  <Avatar className="h-8 w-8">
+                    <AvatarImage src={session.user.image ?? ""} alt={session.user.name ?? ""} />
+                    <AvatarFallback className="text-xs">{initials}</AvatarFallback>
+                  </Avatar>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuGroup>
+                    <DropdownMenuLabel>
+                      <p className="font-medium text-sm truncate">{session.user.name}</p>
+                      <p className="text-xs text-muted-foreground truncate">{session.user.email}</p>
+                    </DropdownMenuLabel>
+                  </DropdownMenuGroup>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={() => signOut({ callbackUrl: "/" })}>
+                    Sign out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
           </nav>
 
           {/* Mobile controls */}
