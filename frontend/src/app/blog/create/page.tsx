@@ -4,12 +4,12 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 import Header from "@/components/layout/Header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { handleAsync } from "@/lib/handle-async";
-import { getCategories, createPost } from "@/lib/api";
+import { getCategories } from "@/lib/api";
 import type { Category } from "@/lib/api";
 
 // Dynamic import — the markdown editor uses browser APIs so it can't run on the server
@@ -20,11 +20,13 @@ function slugify(text: string) {
     .toLowerCase()
     .trim()
     .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
+    .replace(/^-|-$/g, "")
+    .slice(0, 50);
 }
 
 export default function CreatePostPage() {
   const router = useRouter();
+  const { data: session } = useSession();
   const [categories, setCategories] = useState<Category[]>([]);
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
@@ -49,9 +51,14 @@ export default function CreatePostPage() {
       return;
     }
     setLoading(true);
-    const post = await handleAsync(
-      () =>
-        createPost({
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(session?.accessToken ? { Authorization: `Bearer ${session.accessToken}` } : {}),
+        },
+        body: JSON.stringify({
           title,
           slug,
           body,
@@ -59,9 +66,20 @@ export default function CreatePostPage() {
           status,
           published_at: status === "published" ? new Date().toISOString() : null,
         }),
-      { success: "Post created!", error: "Failed to create post. Slug may already exist." }
-    );
-    if (post) router.push(`/blog/${post.slug}`);
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        const message = Object.values(err).flat().join(" ");
+        toast.error(message || "Failed to create post.");
+        setLoading(false);
+        return;
+      }
+      const post = await res.json();
+      toast.success("Post created!");
+      router.push(`/blog/${post.slug}`);
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    }
     setLoading(false);
   };
 
@@ -79,10 +97,6 @@ export default function CreatePostPage() {
 
           <div className="flex items-start justify-between mb-8">
             <h1 className="text-4xl font-black uppercase tracking-tight text-primary">New Post</h1>
-            {/* Temporary warning — auth not yet implemented */}
-            <span className="text-xs bg-yellow-500/10 text-yellow-500 border border-yellow-500/30 rounded px-3 py-1">
-              ⚠ Not yet protected — auth coming soon
-            </span>
           </div>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
