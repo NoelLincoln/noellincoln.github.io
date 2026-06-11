@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 import Header from "@/components/layout/Header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -19,6 +20,7 @@ function slugify(text: string) {
 }
 
 export default function CategoriesPage() {
+  const { data: session } = useSession();
   const [categories, setCategories] = useState<Category[]>([]);
   const [name, setName] = useState("");
   const [slug, setSlug] = useState("");
@@ -39,7 +41,7 @@ export default function CategoriesPage() {
     if (!name || !slug) return;
     setLoading(true);
     setError("");
-    const created = await handleAsync(() => createCategory({ name, slug }), {
+    const created = await handleAsync(() => createCategory({ name, slug }, session?.accessToken), {
       success: `Category created.`,
       error: "Failed to create category. Slug may already exist.",
     });
