@@ -79,6 +79,10 @@ class SocialAuthView(APIView):
 
         refresh = RefreshToken.for_user(user)
         return Response(
-            {"access": str(refresh.access_token), "refresh": str(refresh)},
+            {
+                "access": str(refresh.access_token),
+                "refresh": str(refresh),
+                "is_staff": user.is_staff,
+            },
             status=status.HTTP_200_OK,
         )
