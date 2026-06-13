@@ -1,5 +1,14 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { getPosts, getPost, createPost, getCategories, createCategory } from "./api";
+import {
+  getPosts,
+  getPost,
+  createPost,
+  getCategories,
+  createCategory,
+  getComments,
+  createComment,
+  likeComment,
+} from "./api";
 
 const mockFetch = vi.fn();
 vi.stubGlobal("fetch", mockFetch);
@@ -101,6 +110,73 @@ describe("getCategories", () => {
   it("throws when response is not ok", async () => {
     mockResponse({}, false, 500);
     await expect(getCategories()).rejects.toThrow("Failed to fetch categories");
+  });
+});
+
+describe("getComments", () => {
+  it("fetches and returns comments for a post", async () => {
+    const comments = [{ id: 1, author_name: "alice", body: "hi", created_at: "2024-01-01" }];
+    mockResponse(comments);
+    expect(await getComments("my-post")).toEqual(comments);
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.stringContaining("/api/posts/my-post/comments/"),
+      expect.any(Object)
+    );
+  });
+
+  it("throws when response is not ok", async () => {
+    mockResponse({}, false, 500);
+    await expect(getComments("my-post")).rejects.toThrow("Failed to fetch comments");
+  });
+});
+
+describe("createComment", () => {
+  it("sends POST with bearer token and returns created comment", async () => {
+    const comment = { id: 1, author_name: "noel", body: "Great!", created_at: "2024-01-01" };
+    mockResponse(comment);
+    expect(await createComment("my-post", "Great!", "test-token")).toEqual(comment);
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.stringContaining("/api/posts/my-post/comments/"),
+      expect.objectContaining({
+        method: "POST",
+        headers: expect.objectContaining({ Authorization: "Bearer test-token" }),
+      })
+    );
+  });
+
+  it("throws Unauthorized on 401 response", async () => {
+    mockResponse({}, false, 401);
+    await expect(createComment("my-post", "hi", "expired-token")).rejects.toThrow("Unauthorized");
+  });
+
+  it("throws when creation fails", async () => {
+    mockResponse({}, false, 500);
+    await expect(createComment("my-post", "hi", "token")).rejects.toThrow("Failed to post comment");
+  });
+});
+
+describe("likeComment", () => {
+  it("sends POST with bearer token and returns like_count and liked", async () => {
+    mockResponse({ like_count: 1, liked: true });
+    const result = await likeComment("my-post", 42, "test-token");
+    expect(result).toEqual({ like_count: 1, liked: true });
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.stringContaining("/api/posts/my-post/comments/42/like/"),
+      expect.objectContaining({
+        method: "POST",
+        headers: expect.objectContaining({ Authorization: "Bearer test-token" }),
+      })
+    );
+  });
+
+  it("throws Unauthorized on 401 response", async () => {
+    mockResponse({}, false, 401);
+    await expect(likeComment("my-post", 42, "expired-token")).rejects.toThrow("Unauthorized");
+  });
+
+  it("throws when request fails", async () => {
+    mockResponse({}, false, 500);
+    await expect(likeComment("my-post", 42, "token")).rejects.toThrow("Failed to like comment");
   });
 });
 

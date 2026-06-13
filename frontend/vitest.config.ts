@@ -14,6 +14,7 @@ export default defineConfig({
         "src/lib/api.ts",
         "src/lib/handle-async.ts",
         "src/components/layout/Header.tsx",
+        "src/components/blog/CommentSection.tsx",
         "src/app/login/page.tsx",
         "src/app/register/page.tsx",
       ],
