@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { auth } from "@/auth";
 import Header from "@/components/layout/Header";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { getPosts } from "@/lib/api";
 
 export default async function BlogPage() {
-  const posts = await getPosts();
+  const [posts, session] = await Promise.all([getPosts(), auth()]);
 
   return (
     <>
@@ -19,12 +20,14 @@ export default async function BlogPage() {
           <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6">
             Thoughts on software engineering &amp; learning in public
           </p>
-          <Link
-            href="/blog/create"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary border border-primary/40 rounded-full px-4 py-1.5 hover:bg-primary/10 transition-colors"
-          >
-            + Write a post
-          </Link>
+          {session?.isStaff && (
+            <Link
+              href="/blog/create"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary border border-primary/40 rounded-full px-4 py-1.5 hover:bg-primary/10 transition-colors"
+            >
+              + Write a post
+            </Link>
+          )}
         </section>
 
         {/* Posts grid */}

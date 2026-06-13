@@ -1,11 +1,13 @@
 from rest_framework import generics
 
 from .models import Category, Post
+from .permissions import IsStaffOrReadOnly
 from .serializers import CategorySerializer, PostSerializer
 
 
 class PostListView(generics.ListCreateAPIView):
     serializer_class = PostSerializer
+    permission_classes = [IsStaffOrReadOnly]
 
     def get_queryset(self):
         return Post.objects.filter(status="published").order_by("-created_at")
@@ -22,3 +24,4 @@ class PostDetailView(generics.RetrieveAPIView):
 class CategoryListView(generics.ListCreateAPIView):
     serializer_class = CategorySerializer
     queryset = Category.objects.all()
+    permission_classes = [IsStaffOrReadOnly]

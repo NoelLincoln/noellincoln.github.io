@@ -26,13 +26,13 @@ function slugify(text: string) {
 
 export default function CreatePostPage() {
   const router = useRouter();
-  const { data: session } = useSession();
+  const { data: session, status: sessionStatus } = useSession();
   const [categories, setCategories] = useState<Category[]>([]);
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
   const [body, setBody] = useState("");
   const [categoryId, setCategoryId] = useState<number | null>(null);
-  const [status, setStatus] = useState("draft");
+  const [postStatus, setPostStatus] = useState("draft");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export default function CreatePostPage() {
     setSlug(slugify(val));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!title || !slug || !body) {
       toast.error("Title, slug, and body are required.");
@@ -63,15 +63,23 @@ export default function CreatePostPage() {
           slug,
           body,
           category_id: categoryId,
-          status,
-          published_at: status === "published" ? new Date().toISOString() : null,
+          status: postStatus,
+          published_at: postStatus === "published" ? new Date().toISOString() : null,
         }),
       });
       if (!res.ok) {
+        if (res.status === 401) {
+          toast.error("Session expired. Please sign in again.");
+          router.push("/login");
+          return;
+        }
+        if (res.status === 403) {
+          toast.error("You don't have permission to create posts.");
+          return;
+        }
         const err = await res.json();
         const message = Object.values(err).flat().join(" ");
         toast.error(message || "Failed to create post.");
-        setLoading(false);
         return;
       }
       const post = await res.json();
@@ -79,9 +87,31 @@ export default function CreatePostPage() {
       router.push(`/blog/${post.slug}`);
     } catch {
       toast.error("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
+
+  if (sessionStatus === "loading") return null;
+
+  if (!session?.isStaff) {
+    return (
+      <>
+        <Header />
+        <main className="min-h-screen bg-background flex items-center justify-center px-4">
+          <div className="text-center">
+            <p className="text-4xl font-black uppercase tracking-tight text-primary mb-3">403</p>
+            <p className="text-muted-foreground text-sm mb-6">
+              You don&apos;t have permission to create posts.
+            </p>
+            <Link href="/blog" className="text-primary text-sm font-medium hover:underline">
+              ← Back to the blog
+            </Link>
+          </div>
+        </main>
+      </>
+    );
+  }
 
   return (
     <>
@@ -155,8 +185,8 @@ export default function CreatePostPage() {
                   <div className="flex flex-col gap-1.5">
                     <label className="text-sm font-medium">Status</label>
                     <select
-                      value={status}
-                      onChange={(e) => setStatus(e.target.value)}
+                      value={postStatus}
+                      onChange={(e) => setPostStatus(e.target.value)}
                       className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
                     >
                       <option value="draft">Draft</option>
@@ -188,7 +218,11 @@ export default function CreatePostPage() {
 
             <div className="flex items-center gap-4">
               <Button type="submit" disabled={loading}>
-                {loading ? "Publishing..." : status === "published" ? "Publish post" : "Save draft"}
+                {loading
+                  ? "Publishing..."
+                  : postStatus === "published"
+                    ? "Publish post"
+                    : "Save draft"}
               </Button>
               <Link href="/blog" className="text-sm text-muted-foreground hover:underline">
                 Cancel
