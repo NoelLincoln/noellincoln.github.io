@@ -3,8 +3,9 @@ import type { JWT } from "next-auth/jwt";
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
 
-// Django access tokens expire in 5 minutes — refresh 30 seconds before that
-const ACCESS_TOKEN_TTL = 4.5 * 60 * 1000;
+// Refresh the Django token 5 minutes before its 1-hour expiry.
+// This ensures we never send an expired token to the API.
+const ACCESS_TOKEN_TTL = 55 * 60 * 1000;
 
 async function refreshAccessToken(token: JWT): Promise<JWT> {
   try {
@@ -53,13 +54,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           name: credentials.username as string,
           accessToken: tokens.access,
           refreshToken: tokens.refresh,
+          isStaff: tokens.is_staff ?? false,
         };
       },
     }),
   ],
   callbacks: {
     async jwt({ token, user, account }) {
-      // Google sign-in — exchange for a Django JWT
+      // Google sign-in — exchange Google identity for a Django JWT
       if (account?.provider === "google" && user) {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/social/`, {
           method: "POST",
@@ -73,6 +75,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             accessToken: tokens.access,
             refreshToken: tokens.refresh,
             accessTokenExpires: Date.now() + ACCESS_TOKEN_TTL,
+            isStaff: tokens.is_staff ?? false,
           };
         }
       }
@@ -84,6 +87,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           accessToken: (user as { accessToken?: string }).accessToken,
           refreshToken: (user as { refreshToken?: string }).refreshToken,
           accessTokenExpires: Date.now() + ACCESS_TOKEN_TTL,
+          isStaff: (user as { isStaff?: boolean }).isStaff ?? false,
         };
       }
 
@@ -92,11 +96,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         return token;
       }
 
-      // Token expired — refresh it
+      // Token expired — refresh it (isStaff is preserved via spread)
       return refreshAccessToken(token);
     },
     async session({ session, token }) {
       session.accessToken = token.accessToken as string | undefined;
+      session.isStaff = token.isStaff ?? false;
       return session;
     },
   },
