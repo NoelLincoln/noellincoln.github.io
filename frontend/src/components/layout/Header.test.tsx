@@ -157,6 +157,18 @@ describe("Header", () => {
     expect(mockSetTheme).toHaveBeenCalledWith("dark");
   });
 
+  it("shows Sign in link in desktop nav when logged out", () => {
+    render(<Header />);
+    expect(screen.getByRole("link", { name: "Sign in" })).toBeInTheDocument();
+  });
+
+  it("does not show Sign in link in mobile menu when logged in", async () => {
+    mockUseSession.mockReturnValue(loggedIn());
+    render(<Header />);
+    await userEvent.click(screen.getByLabelText("Open menu"));
+    expect(screen.queryByRole("link", { name: "Sign in" })).not.toBeInTheDocument();
+  });
+
   it("opens the mobile menu when hamburger is clicked", async () => {
     render(<Header />);
     expect(screen.queryByLabelText("Close menu")).not.toBeInTheDocument();

@@ -26,7 +26,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     setMounted(true);
@@ -59,6 +59,14 @@ export default function Header() {
               </a>
             ))}
             <ThemeToggle mounted={mounted} theme={theme} onToggle={toggleTheme} />
+            {status === "unauthenticated" && (
+              <a
+                href="/login"
+                className="text-sm font-semibold text-primary border border-primary/40 rounded-full px-3 py-1 hover:bg-primary/10 transition-colors"
+              >
+                Sign in
+              </a>
+            )}
             {session?.user && (
               <DropdownMenu>
                 <DropdownMenuTrigger className="rounded-full border-0 bg-transparent p-0 cursor-pointer focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
@@ -135,6 +143,18 @@ export default function Header() {
                   {link.label}
                 </motion.a>
               ))}
+              {status === "unauthenticated" && (
+                <motion.a
+                  href="/login"
+                  onClick={closeMenu}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.08 + navLinks.length * 0.08 }}
+                  className="text-4xl font-semibold text-white hover:text-indigo-300 transition-colors tracking-tight"
+                >
+                  Sign in
+                </motion.a>
+              )}
             </nav>
           </motion.div>
         )}
