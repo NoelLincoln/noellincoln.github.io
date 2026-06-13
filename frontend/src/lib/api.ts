@@ -47,6 +47,7 @@ export async function createPost(
     headers,
     body: JSON.stringify(data),
   });
+  if (res.status === 401) throw new Error("Unauthorized");
   if (!res.ok) throw new Error("Failed to create post");
   return res.json();
 }
@@ -68,6 +69,7 @@ export async function createCategory(
     headers,
     body: JSON.stringify(data),
   });
+  if (res.status === 401) throw new Error("Unauthorized");
   if (!res.ok) throw new Error("Failed to create category");
   return res.json();
 }

@@ -80,6 +80,11 @@ describe("createPost", () => {
     expect(options.headers.Authorization).toBeUndefined();
   });
 
+  it("throws Unauthorized on 401 response", async () => {
+    mockResponse({}, false, 401);
+    await expect(createPost(postData, "expired-token")).rejects.toThrow("Unauthorized");
+  });
+
   it("throws when creation fails", async () => {
     mockResponse({}, false, 400);
     await expect(createPost(postData, "token")).rejects.toThrow("Failed to create post");
@@ -118,6 +123,13 @@ describe("createCategory", () => {
     await createCategory({ name: "Django", slug: "django" });
     const [, options] = mockFetch.mock.calls[0];
     expect(options.headers.Authorization).toBeUndefined();
+  });
+
+  it("throws Unauthorized on 401 response", async () => {
+    mockResponse({}, false, 401);
+    await expect(
+      createCategory({ name: "Django", slug: "django" }, "expired-token")
+    ).rejects.toThrow("Unauthorized");
   });
 
   it("throws when creation fails", async () => {
