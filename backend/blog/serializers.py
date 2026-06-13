@@ -1,12 +1,25 @@
 from rest_framework import serializers
 
-from .models import Category, Post
+from .models import Category, Comment, Post
 
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ["id", "name", "slug"]
+
+
+class CommentSerializer(serializers.ModelSerializer):
+    author_name = serializers.CharField(source="author.username", read_only=True)
+    like_count = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Comment
+        fields = ["id", "author_name", "body", "like_count", "created_at"]
+        read_only_fields = ["id", "created_at"]
+
+    def get_like_count(self, obj):
+        return obj.likes.count()
 
 
 class PostSerializer(serializers.ModelSerializer):

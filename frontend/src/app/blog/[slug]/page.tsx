@@ -3,11 +3,12 @@ import ReactMarkdown from "react-markdown";
 import Header from "@/components/layout/Header";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { getPost } from "@/lib/api";
+import CommentSection from "@/components/blog/CommentSection";
+import { getPost, getComments } from "@/lib/api";
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = await getPost(slug);
+  const [post, comments] = await Promise.all([getPost(slug), getComments(slug)]);
 
   return (
     <>
@@ -52,6 +53,9 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           <div className="prose prose-neutral dark:prose-invert max-w-none">
             <ReactMarkdown>{post.body}</ReactMarkdown>
           </div>
+
+          <Separator className="mt-16 mb-0" />
+          <CommentSection slug={slug} initialComments={comments} />
         </div>
       </main>
     </>

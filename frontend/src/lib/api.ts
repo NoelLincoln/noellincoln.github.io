@@ -58,6 +58,45 @@ export async function getCategories(): Promise<Category[]> {
   return res.json();
 }
 
+export interface Comment {
+  id: number;
+  author_name: string;
+  body: string;
+  like_count: number;
+  created_at: string;
+}
+
+export async function getComments(slug: string): Promise<Comment[]> {
+  const res = await fetch(`${API_URL}/api/posts/${slug}/comments/`, { cache: "no-store" });
+  if (!res.ok) throw new Error("Failed to fetch comments");
+  return res.json();
+}
+
+export async function createComment(slug: string, body: string, token: string): Promise<Comment> {
+  const res = await fetch(`${API_URL}/api/posts/${slug}/comments/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+    body: JSON.stringify({ body }),
+  });
+  if (res.status === 401) throw new Error("Unauthorized");
+  if (!res.ok) throw new Error("Failed to post comment");
+  return res.json();
+}
+
+export async function likeComment(
+  slug: string,
+  commentId: number,
+  token: string
+): Promise<{ like_count: number; liked: boolean }> {
+  const res = await fetch(`${API_URL}/api/posts/${slug}/comments/${commentId}/like/`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (res.status === 401) throw new Error("Unauthorized");
+  if (!res.ok) throw new Error("Failed to like comment");
+  return res.json();
+}
+
 export async function createCategory(
   data: { name: string; slug: string },
   token?: string
