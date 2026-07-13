@@ -1,4 +1,15 @@
+import blogData from "@/data/posts.json";
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+/**
+ * Interim static-content fallback.
+ * When NEXT_PUBLIC_API_URL is unset, the blog is served from a bundled JSON
+ * file (src/data/posts.json) so the site works without a backend. As soon as
+ * the API URL is configured, every call below switches to the live Django API
+ * automatically — nothing to revert.
+ */
+export const backendEnabled = Boolean(API_URL);
 
 export interface Category {
   id: number;
@@ -17,13 +28,27 @@ export interface Post {
   created_at: string;
 }
 
+// Bundled fallback content. Each post body is stored as an array of lines in
+// posts.json (for readability), so join it back into one markdown string.
+const staticPosts = blogData.posts.map((p) => ({
+  ...p,
+  body: p.body.join("\n"),
+})) as Post[];
+const staticCategories = blogData.categories as Category[];
+
 export async function getPosts(): Promise<Post[]> {
+  if (!backendEnabled) return staticPosts;
   const res = await fetch(`${API_URL}/api/posts/`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to fetch posts");
   return res.json();
 }
 
 export async function getPost(slug: string): Promise<Post> {
+  if (!backendEnabled) {
+    const post = staticPosts.find((p) => p.slug === slug);
+    if (!post) throw new Error("Failed to fetch post");
+    return post;
+  }
   const res = await fetch(`${API_URL}/api/posts/${slug}/`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to fetch post");
   return res.json();
@@ -53,6 +78,7 @@ export async function createPost(
 }
 
 export async function getCategories(): Promise<Category[]> {
+  if (!backendEnabled) return staticCategories;
   const res = await fetch(`${API_URL}/api/categories/`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to fetch categories");
   return res.json();
@@ -67,6 +93,7 @@ export interface Comment {
 }
 
 export async function getComments(slug: string): Promise<Comment[]> {
+  if (!backendEnabled) return [];
   const res = await fetch(`${API_URL}/api/posts/${slug}/comments/`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to fetch comments");
   return res.json();
