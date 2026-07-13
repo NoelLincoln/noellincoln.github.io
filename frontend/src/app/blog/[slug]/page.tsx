@@ -4,7 +4,7 @@ import Header from "@/components/layout/Header";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import CommentSection from "@/components/blog/CommentSection";
-import { getPost, getComments } from "@/lib/api";
+import { getPost, getComments, backendEnabled } from "@/lib/api";
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -54,8 +54,19 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <ReactMarkdown>{post.body}</ReactMarkdown>
           </div>
 
-          <Separator className="mt-16 mb-0" />
-          <CommentSection slug={slug} initialComments={comments} />
+          {backendEnabled ? (
+            <>
+              <Separator className="mt-16 mb-0" />
+              <CommentSection slug={slug} initialComments={comments} />
+            </>
+          ) : (
+            <>
+              <Separator className="mt-16 mb-8" />
+              <p className="text-sm text-muted-foreground">
+                💬 Comments will be enabled once the blog backend is live.
+              </p>
+            </>
+          )}
         </div>
       </main>
     </>
