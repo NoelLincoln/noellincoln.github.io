@@ -1,3 +1,29 @@
-cd backend && . venv/bin/activate && ruff format . && ruff check . && cd ..
+#!/bin/sh
+set -e
+
+ROOT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
+cd "$ROOT_DIR/backend"
+
+echo "[husky] Preparing backend environment"
+if [ ! -x venv/bin/python ]; then
+  python3 -m venv venv
+fi
+
+. venv/bin/activate
+
+if ! command -v ruff >/dev/null 2>&1; then
+  echo "[husky] Installing backend dependencies"
+  python -m pip install --upgrade pip
+  python -m pip install -r requirements.txt
+fi
+
+echo "[husky] Running backend Ruff format"
+ruff format .
+echo "[husky] Running backend Ruff checks"
+ruff check .
+
+cd "$ROOT_DIR"
+echo "[husky] Running staged-file checks"
 npx lint-staged
+echo "[husky] Running frontend lint"
 npm run lint --workspace=frontend
