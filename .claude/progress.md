@@ -69,9 +69,16 @@ Shipped:
 
 - Recovered the `.claude/` planning pack after a machine change.
 - Recreated the human-facing `docs/` folder and a multi-part learning blog series.
+- Added an interim **static-content blog fallback** (`feat/static-blog-fallback`)
+  so the blog renders on Vercel before the backend is deployed — `src/data/posts.json`
+  is served whenever `NEXT_PUBLIC_API_URL` is unset.
+- Added **analytics** (`feat/analytics`): Google Analytics 4 + Microsoft Clarity,
+  consolidated under `src/components/analytics/`, each gated on its own env var.
 
 ## Next 3 Actions
 
-1. Deploy: Next.js on Vercel, Django + Postgres on Render/Fly/Railway.
-2. SEO pass: `generateMetadata` per post, `sitemap.xml`, `robots.txt`, JSON-LD.
-3. Blog polish: pagination, category filtering, reading time, code highlighting.
+1. Set Vercel env and redeploy: `AUTH_SECRET`, `NEXT_PUBLIC_GA_ID` (and
+   `NEXT_PUBLIC_CLARITY_ID` once Clarity is set up); keep `NEXT_PUBLIC_API_URL` unset.
+2. Deploy the Django backend (Render/Fly/Railway), then set `NEXT_PUBLIC_API_URL`
+   to switch the blog from static content to the live API.
+3. SEO + blog polish: metadata, `sitemap.xml`, `robots.txt`, pagination, code highlighting.

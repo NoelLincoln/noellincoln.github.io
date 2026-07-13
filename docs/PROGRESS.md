@@ -8,7 +8,8 @@ For the working checklist see [`../.claude/plan.md`](../.claude/plan.md).
 - **Shipped:** full-stack blog — publish, read (markdown), comment, like.
 - **Tested:** Vitest at 100% on core modules; pytest on the backend; CI enforced.
 - **Containerised:** backend + Postgres via Docker Compose.
-- **Next:** production deployment, SEO, and blog polish (pagination, filtering).
+- **Analytics:** Google Analytics 4 + Microsoft Clarity wired (env-gated).
+- **Next:** deploy the Django backend, SEO, and blog polish (pagination, filtering).
 
 ## Timeline
 
@@ -49,8 +50,16 @@ fixing layout shift and LCP). Deployed on GitHub Pages.
   `feat/redo-portfolio-with-next` branch, not in the fresh clone).
 - Recreated this `docs/` folder and wrote the `blogs/` learning series.
 
+### Jul 2026 — going live on the frontend
+
+- Added a static-content blog fallback so the frontend deploys on Vercel before
+  the backend exists (`src/data/posts.json`, served when `NEXT_PUBLIC_API_URL` is unset).
+- Added analytics — Google Analytics 4 + Microsoft Clarity — env-gated, under
+  `frontend/src/components/analytics/`.
+
 ## What's left
 
-1. **Deploy** — Vercel (frontend) + Render/Fly/Railway (Django + Postgres).
+1. **Deploy the backend** — Render/Fly/Railway (Django + Postgres); then point
+   `NEXT_PUBLIC_API_URL` at it to switch the blog off static content.
 2. **SEO** — `generateMetadata` per post, `sitemap.xml`, `robots.txt`, JSON-LD.
 3. **Polish** — pagination, category filtering, reading time, code highlighting.
