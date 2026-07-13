@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import {
   getPosts,
   getPost,
@@ -213,5 +213,59 @@ describe("createCategory", () => {
     await expect(createCategory({ name: "Django", slug: "django" }, "token")).rejects.toThrow(
       "Failed to create category"
     );
+  });
+});
+
+// With NEXT_PUBLIC_API_URL unset, the client serves bundled static content
+// (src/data/posts.json) instead of calling the backend. Re-import the module
+// per test so the module-load `backendEnabled` flag reflects the unset env.
+describe("static fallback when no backend is configured", () => {
+  beforeEach(() => {
+    vi.resetModules();
+    vi.stubEnv("NEXT_PUBLIC_API_URL", "");
+  });
+
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
+
+  it("reports the backend as disabled", async () => {
+    const api = await import("./api");
+    expect(api.backendEnabled).toBe(false);
+  });
+
+  it("getPosts returns bundled static posts without calling fetch", async () => {
+    const api = await import("./api");
+    const posts = await api.getPosts();
+    expect(posts.length).toBeGreaterThan(0);
+    expect(posts[0]).toHaveProperty("slug");
+    expect(typeof posts[0].body).toBe("string");
+    expect(mockFetch).not.toHaveBeenCalled();
+  });
+
+  it("getPost returns a static post by slug", async () => {
+    const api = await import("./api");
+    const [first] = await api.getPosts();
+    const post = await api.getPost(first.slug);
+    expect(post.slug).toBe(first.slug);
+    expect(mockFetch).not.toHaveBeenCalled();
+  });
+
+  it("getPost throws when the slug is unknown", async () => {
+    const api = await import("./api");
+    await expect(api.getPost("no-such-post")).rejects.toThrow("Failed to fetch post");
+  });
+
+  it("getCategories returns bundled static categories", async () => {
+    const api = await import("./api");
+    const cats = await api.getCategories();
+    expect(cats.length).toBeGreaterThan(0);
+    expect(mockFetch).not.toHaveBeenCalled();
+  });
+
+  it("getComments returns an empty list", async () => {
+    const api = await import("./api");
+    expect(await api.getComments("any-slug")).toEqual([]);
+    expect(mockFetch).not.toHaveBeenCalled();
   });
 });

@@ -8,6 +8,9 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: ["./src/test/setup.ts"],
+    // Default tests exercise the live-backend (fetch) path of the API client.
+    // The static-fallback path is covered by tests that unset this var.
+    env: { NEXT_PUBLIC_API_URL: "http://test.local" },
     coverage: {
       provider: "v8",
       include: [
