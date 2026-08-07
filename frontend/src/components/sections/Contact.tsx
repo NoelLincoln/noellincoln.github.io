@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import AnimatedButton from "@/components/ui/animated-button";
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -69,13 +70,14 @@ export default function Contact() {
             className="rounded-lg px-4 py-3 bg-white dark:bg-[#2d2a5e] text-[#172b4d] dark:text-[#e2e8f0] placeholder-gray-400 dark:placeholder-indigo-300 border border-transparent dark:border-[#4c4a8f] outline-none focus:ring-2 focus:ring-white/50 text-sm resize-none"
           />
 
-          <button
+          <AnimatedButton
             type="submit"
+            variant="onDark"
             disabled={status === "sending"}
-            className="w-fit px-6 py-3 rounded-lg bg-white dark:bg-[#4f46e5] text-primary dark:text-white font-medium text-sm hover:bg-indigo-50 dark:hover:bg-[#6366f1] transition-colors disabled:opacity-60"
+            className="w-fit px-6 py-3"
           >
             {status === "sending" ? "Sending…" : "Get in touch"}
-          </button>
+          </AnimatedButton>
 
           {status === "sent" && (
             <p className="text-green-300 text-sm">Message sent! I&apos;ll get back to you soon.</p>

@@ -1,6 +1,6 @@
 # Part 3 — Wiring It Together: Markdown and Auth
 
-*Series: [Learning in Public](./README.md) · Prev: [← Building the Backend](./part-2-building-the-blog-backend-with-django.md) · Next: [Making It Real →](./part-4-comments-tests-ci-and-docker.md)*
+_Series: [Learning in Public](./README.md) · Prev: [← Building the Backend](./part-2-building-the-blog-backend-with-django.md) · Next: [Making It Real →](./part-4-comments-tests-ci-and-docker.md)_
 
 ---
 
@@ -54,7 +54,7 @@ export default async function BlogPage() {
 }
 ```
 
-The detail page fetches the post *and* its comments in parallel with
+The detail page fetches the post _and_ its comments in parallel with
 `Promise.all` — a small thing that removes a request waterfall.
 
 ## Rendering markdown
@@ -69,7 +69,7 @@ headings, lists, and code blocks look right without hand-writing CSS:
 </div>
 ```
 
-For *writing* posts I added a markdown editor with live preview
+For _writing_ posts I added a markdown editor with live preview
 (`@uiw/react-md-editor`). It uses browser-only APIs, so it can't render on the
 server — the fix is a dynamic import with SSR turned off:
 
@@ -83,7 +83,7 @@ server.
 
 ## Authentication: the long part
 
-Here's the puzzle that took me longest to *understand*, let alone build. I had two
+Here's the puzzle that took me longest to _understand_, let alone build. I had two
 different systems that each wanted to own "who is the user":
 
 - **Django (SimpleJWT)** issues JSON Web Tokens. My API trusts a request if it
@@ -92,7 +92,7 @@ different systems that each wanted to own "who is the user":
   session cookie, Google OAuth.
 
 The insight that unlocked it: **NextAuth owns the browser session; Django owns the
-API.** So NextAuth's job is to *obtain and carry a Django JWT* on the user's behalf.
+API.** So NextAuth's job is to _obtain and carry a Django JWT_ on the user's behalf.
 NextAuth is the front door; the JWT is the keycard it hands to the API.
 
 ### Username + password
@@ -121,13 +121,13 @@ Credentials({
       isStaff: tokens.is_staff ?? false,
     };
   },
-})
+});
 ```
 
 ### Google sign-in, with a twist
 
-Google can tell me *who someone is*, but my Django API doesn't trust Google tokens —
-it trusts *its own* JWTs. So after a Google login I exchange the Google identity for
+Google can tell me _who someone is_, but my Django API doesn't trust Google tokens —
+it trusts _its own_ JWTs. So after a Google login I exchange the Google identity for
 a Django JWT in the NextAuth `jwt` callback:
 
 ```ts
@@ -137,14 +137,18 @@ if (account?.provider === "google" && user) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email: user.email, name: user.name }),
   });
-  const tokens = await res.json();   // Django's access + refresh
-  return { ...token, accessToken: tokens.access, refreshToken: tokens.refresh, /* … */ };
+  const tokens = await res.json(); // Django's access + refresh
+  return {
+    ...token,
+    accessToken: tokens.access,
+    refreshToken: tokens.refresh /* … */,
+  };
 }
 ```
 
 On the Django side, `SocialAuthView` finds or creates a user for that Google email
 and mints a JWT pair. It even de-duplicates usernames derived from the email's local
-part so two people named `noel@…` don't collide. So no matter *how* you sign in —
+part so two people named `noel@…` don't collide. So no matter _how_ you sign in —
 password or Google — the app ends up holding the same kind of credential: a Django
 JWT. Everything downstream only has to understand one thing.
 
@@ -154,8 +158,8 @@ Access tokens expire after an hour. Rather than let a request fail, the `jwt`
 callback refreshes the token ~5 minutes before expiry:
 
 ```ts
-if (Date.now() < (token.accessTokenExpires ?? 0)) return token;  // still valid
-return refreshAccessToken(token);                                 // expired → refresh
+if (Date.now() < (token.accessTokenExpires ?? 0)) return token; // still valid
+return refreshAccessToken(token); // expired → refresh
 ```
 
 Getting this wrong means users get logged out mid-action; getting it right means
@@ -171,7 +175,9 @@ pages before the page even renders:
 ```ts
 export default auth((req) => {
   const protectedPaths = ["/blog/create", "/blog/categories"];
-  const isProtected = protectedPaths.some((p) => req.nextUrl.pathname.startsWith(p));
+  const isProtected = protectedPaths.some((p) =>
+    req.nextUrl.pathname.startsWith(p),
+  );
   if (isProtected && !req.auth) {
     return NextResponse.redirect(new URL("/login", req.url));
   }
@@ -179,7 +185,7 @@ export default auth((req) => {
 ```
 
 **Backend (permissions)** is the one that actually matters — because anyone can
-bypass a frontend. Publishing requires a *staff* user:
+bypass a frontend. Publishing requires a _staff_ user:
 
 ```python
 class IsStaffOrReadOnly(BasePermission):
@@ -231,4 +237,4 @@ class LoginRateThrottle(AnonRateThrottle):
 Next: letting readers talk back with comments and likes, then making the whole thing
 trustworthy with tests, CI, and Docker.
 
-*Next: [Making It Real: Comments, Tests, CI & Docker →](./part-4-comments-tests-ci-and-docker.md)*
+_Next: [Making It Real: Comments, Tests, CI & Docker →](./part-4-comments-tests-ci-and-docker.md)_

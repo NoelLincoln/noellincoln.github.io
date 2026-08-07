@@ -4,7 +4,7 @@ This is the story of taking my portfolio from a static HTML/CSS/JS site I built 
 2023 to a full-stack application with a Next.js frontend, a Django REST API, a
 PostgreSQL database, authentication, comments, tests, and Docker.
 
-I wrote it as a journey — the decisions, the dead ends, and the small "oh, *that's*
+I wrote it as a journey — the decisions, the dead ends, and the small "oh, _that's_
 how it works" moments — because that's the part tutorials skip. It's also **not
 finished**: the app is live end-to-end, but deployment, SEO, and polish are still
 ahead. I'll keep adding to the series as I go.
@@ -25,13 +25,13 @@ ahead. I'll keep adding to the series as I go.
 
 ## The stack, at a glance
 
-| Layer | Tech |
-| --- | --- |
-| Frontend | Next.js 16 (App Router), TypeScript, Tailwind v4, shadcn/ui |
-| Backend | Django 6, Django REST Framework |
-| Database | PostgreSQL 16 |
-| Auth | SimpleJWT (API) + NextAuth v5 (client), Google OAuth |
-| Tooling | Ruff, ESLint, Prettier, pytest, Vitest, Husky, GitHub Actions, Docker |
+| Layer    | Tech                                                                  |
+| -------- | --------------------------------------------------------------------- |
+| Frontend | Next.js 16 (App Router), TypeScript, Tailwind v4, shadcn/ui           |
+| Backend  | Django 6, Django REST Framework                                       |
+| Database | PostgreSQL 16                                                         |
+| Auth     | SimpleJWT (API) + NextAuth v5 (client), Google OAuth                  |
+| Tooling  | Ruff, ESLint, Prettier, pytest, Vitest, Husky, GitHub Actions, Docker |
 
 ## How to read it
 

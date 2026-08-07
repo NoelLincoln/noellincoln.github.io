@@ -1,3 +1,6 @@
+// Proxy (formerly the `middleware` convention, renamed in Next 16) — guards the
+// authenticated blog routes, redirecting signed-out visitors to /login. The
+// NextAuth `auth()` wrapper is the single default export the proxy file expects.
 import { auth } from "@/auth";
 import { NextResponse } from "next/server";
 

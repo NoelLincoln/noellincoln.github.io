@@ -1,6 +1,6 @@
 # Part 2 — Building the Blog's Backend with Django + DRF
 
-*Series: [Learning in Public](./README.md) · Prev: [← From a Static Site to Full Stack](./part-1-from-static-site-to-full-stack.md) · Next: [Wiring It Together →](./part-3-wiring-it-together-markdown-and-auth.md)*
+_Series: [Learning in Public](./README.md) · Prev: [← From a Static Site to Full Stack](./part-1-from-static-site-to-full-stack.md) · Next: [Wiring It Together →](./part-3-wiring-it-together-markdown-and-auth.md)_
 
 ---
 
@@ -81,7 +81,7 @@ Small decisions that turned out to matter:
   going live. This one field shaped the whole API — every public query filters to
   `published`.
 - **`on_delete=SET_NULL` for the category** — deleting a category shouldn't delete
-  the posts in it. Django *makes you* state what happens on delete, which forced me
+  the posts in it. Django _makes you_ state what happens on delete, which forced me
   to think about it. That's a feature.
 
 Then the two commands that still feel like magic:
@@ -106,7 +106,7 @@ admin.site.register(Category)
 ```
 
 `python manage.py createsuperuser`, log in at `/admin/`, and I could create posts in
-a browser. For a blog, the Django admin *is* the CMS. I didn't have to build one.
+a browser. For a blog, the Django admin _is_ the CMS. I didn't have to build one.
 
 ## Turning models into an API with DRF
 
@@ -130,8 +130,8 @@ class PostSerializer(serializers.ModelSerializer):
                   "category_id", "status", "published_at", "created_at"]
 ```
 
-The read/write asymmetry took me a minute to appreciate: when the frontend *reads* a
-post it wants the full category object to display; when it *writes* one it only has
+The read/write asymmetry took me a minute to appreciate: when the frontend _reads_ a
+post it wants the full category object to display; when it _writes_ one it only has
 an id to send. Exposing `category` (read-only, nested) and `category_id`
 (write-only) gives each side exactly what it needs from one serializer.
 
@@ -185,7 +185,7 @@ CORS_ALLOWED_ORIGINS = env.list(
 ```
 
 Reading it from the environment meant production could allow a different origin
-without a code change. This is the kind of thing that's obvious *after* you've spent
+without a code change. This is the kind of thing that's obvious _after_ you've spent
 twenty minutes staring at a blocked request in the network tab.
 
 ## What I'd tell past me
@@ -196,11 +196,11 @@ twenty minutes staring at a blocked request in the network tab.
   authoring and defined every public query.
 - **Filter drafts in the queryset, not the view logic.** If the query can't select
   it, you can't leak it.
-- **Let DRF's generic views do the work.** Describe *what* is exposed; don't
+- **Let DRF's generic views do the work.** Describe _what_ is exposed; don't
   hand-roll request parsing.
 - **The Django admin is a real feature.** For content, it's a CMS you get for free.
 
 Next: connecting Next.js to this API with a typed client, rendering markdown posts —
 and then the part that took the longest, authentication.
 
-*Next: [Wiring It Together: Markdown and Auth →](./part-3-wiring-it-together-markdown-and-auth.md)*
+_Next: [Wiring It Together: Markdown and Auth →](./part-3-wiring-it-together-markdown-and-auth.md)_
