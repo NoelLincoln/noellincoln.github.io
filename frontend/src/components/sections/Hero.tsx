@@ -1,7 +1,16 @@
 "use client";
 
 import { useTypingAnimation } from "@/hooks/useTypingAnimation";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import AnimatedButton from "@/components/ui/animated-button";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+// Client-only WebGL layer. `ssr: false` is legal here because this module is a
+// Client Component; the canvas never renders on the server (no `window` there).
+const HeroBackground = dynamic(() => import("@/components/three/HeroBackground"), {
+  ssr: false,
+});
 
 const socials = [
   { label: "Twitter", href: "https://twitter.com/Noel_Lincoln", icon: "/social/twitter.svg" },
@@ -16,12 +25,16 @@ const socials = [
 
 export default function Hero() {
   const displayed = useTypingAnimation("Hi, I'm Noel.\nGlad to see you!", 65);
+  // Only mount the WebGL layer on ≥md screens — keeps it off mobile entirely
+  // (the chunk isn't even requested), matching the desktop-only Lottie.
+  const isDesktop = useMediaQuery("(min-width: 768px)");
 
   const lines = displayed.split("\n");
 
   return (
-    <section className="min-h-[580px] mt-14 flex items-center rounded-bl-[100px] bg-[#ddd0d0] dark:bg-[#141720] overflow-hidden">
-      <div className="max-w-7xl mx-auto w-full px-8 py-16 flex items-center justify-between gap-8">
+    <section className="relative min-h-[580px] mt-14 flex items-center rounded-bl-[100px] bg-[#ddd0d0] dark:bg-[#141720] overflow-hidden">
+      {isDesktop && <HeroBackground />}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-8 py-16 flex items-center justify-between gap-8">
         {/* Text */}
         <motion.div
           className="flex flex-col gap-4 max-w-xl"
@@ -51,18 +64,12 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-3 mt-1">
-            <a
-              href="#projects"
-              className="px-5 py-2.5 rounded-lg bg-primary text-white text-sm font-medium hover:opacity-90 transition-opacity"
-            >
+            <AnimatedButton href="#projects" variant="primary">
               View My Work
-            </a>
-            <a
-              href="#contact"
-              className="px-5 py-2.5 rounded-lg border border-primary text-primary text-sm font-medium hover:bg-primary hover:text-white transition-colors"
-            >
+            </AnimatedButton>
+            <AnimatedButton href="#contact" variant="outline">
               Get in Touch
-            </a>
+            </AnimatedButton>
           </div>
 
           <div className="mt-2">

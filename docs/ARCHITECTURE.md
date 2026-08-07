@@ -29,8 +29,8 @@ touches the database directly — everything goes through DRF.
   Every request/response shape is a TypeScript interface, so the whole app shares
   one definition of a `Post`, `Comment`, and `Category`.
 - **Auth** is handled by NextAuth v5 (`src/auth.ts`). It stores the Django JWT in
-  the NextAuth session and refreshes it before expiry. `middleware.ts` guards the
-  author-only routes.
+  the NextAuth session and refreshes it before expiry. `proxy.ts` (the file
+  convention formerly called `middleware`) guards the author-only routes.
 
 ## Backend (Django + DRF)
 
@@ -40,7 +40,7 @@ touches the database directly — everything goes through DRF.
   class-based DRF views, custom permissions, JWT token customisation, and auth
   views for registration and social login.
 - **Auth strategy** — DRF's default is `IsAuthenticatedOrReadOnly`; individual
-  views tighten this. Writes to posts/categories require a *staff* user
+  views tighten this. Writes to posts/categories require a _staff_ user
   (`IsStaffOrReadOnly`); commenting requires any authenticated user.
 
 ## Data model
@@ -61,7 +61,7 @@ Category 1 ──── * Post 1 ──── * Comment * ──── * User (l
 ## Request lifecycle: publishing a post
 
 1. Staff user signs in → NextAuth stores a Django JWT (with an `is_staff` claim).
-2. They open `/blog/create` (middleware allows it because they're authenticated).
+2. They open `/blog/create` (the proxy allows it because they're authenticated).
 3. They write markdown in the editor and submit.
 4. The browser `POST`s to `/api/posts/` with `Authorization: Bearer <jwt>`.
 5. DRF checks `IsStaffOrReadOnly` → allowed only if `is_staff`.

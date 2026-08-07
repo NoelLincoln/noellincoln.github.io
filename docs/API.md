@@ -15,6 +15,7 @@ All endpoints are under `/api/`. Payloads are JSON.
 ## Posts
 
 ### `GET /api/posts/`
+
 List published posts, newest first. **Public.**
 
 ```json
@@ -33,6 +34,7 @@ List published posts, newest first. **Public.**
 ```
 
 ### `POST /api/posts/`
+
 Create a post. **Staff only** (`IsStaffOrReadOnly`).
 
 ```json
@@ -51,14 +53,17 @@ Create a post. **Staff only** (`IsStaffOrReadOnly`).
 by the list/detail endpoints.
 
 ### `GET /api/posts/<slug>/`
+
 Retrieve one published post by slug. **Public.** `404` if it's a draft or missing.
 
 ## Categories
 
 ### `GET /api/categories/`
+
 List all categories. **Public.**
 
 ### `POST /api/categories/`
+
 Create a category. **Staff only.**
 
 ```json
@@ -68,6 +73,7 @@ Create a category. **Staff only.**
 ## Comments
 
 ### `GET /api/posts/<slug>/comments/`
+
 List a post's comments, oldest first. **Public.**
 
 ```json
@@ -83,6 +89,7 @@ List a post's comments, oldest first. **Public.**
 ```
 
 ### `POST /api/posts/<slug>/comments/`
+
 Add a comment. **Any authenticated user** (`IsAuthenticatedOrReadOnly`).
 The author and post are set server-side from the token and URL.
 
@@ -91,6 +98,7 @@ The author and post are set server-side from the token and URL.
 ```
 
 ### `POST /api/posts/<slug>/comments/<id>/like/`
+
 Toggle a like on a comment. **Authenticated.** Idempotent per user — calling it
 again removes the like. Returns the fresh state:
 
@@ -101,6 +109,7 @@ again removes the like. Returns the fresh state:
 ## Authentication endpoints
 
 ### `POST /api/auth/register/`
+
 Create an account. **Public.** Validates unique username/email, min 8-char password.
 
 ```json
@@ -108,6 +117,7 @@ Create an account. **Public.** Validates unique username/email, min 8-char passw
 ```
 
 ### `POST /api/auth/token/`
+
 Obtain a JWT pair from username + password. **Public.** Rate limited to
 **5 requests/minute** per client. Response includes `is_staff`:
 
@@ -116,6 +126,7 @@ Obtain a JWT pair from username + password. **Public.** Rate limited to
 ```
 
 ### `POST /api/auth/token/refresh/`
+
 Exchange a refresh token for a fresh access token. **Public.**
 
 ```json
@@ -123,6 +134,7 @@ Exchange a refresh token for a fresh access token. **Public.**
 ```
 
 ### `POST /api/auth/social/`
+
 Server-to-server endpoint called by NextAuth after a successful Google sign-in.
 Finds or creates a Django user for the Google email and returns a JWT pair.
 **Public** (trusted because it's called from the NextAuth server callback).
@@ -133,12 +145,12 @@ Finds or creates a Django user for the Google email and returns a JWT pair.
 
 ## Status codes you'll see
 
-| Code | Meaning |
-| --- | --- |
-| `200` | OK |
-| `201` | Created (register, post, comment) |
-| `400` | Validation error (body echoes field errors) |
+| Code  | Meaning                                                           |
+| ----- | ----------------------------------------------------------------- |
+| `200` | OK                                                                |
+| `201` | Created (register, post, comment)                                 |
+| `400` | Validation error (body echoes field errors)                       |
 | `401` | Missing/expired token — client refreshes or redirects to `/login` |
-| `403` | Authenticated but not staff (e.g. non-staff creating a post) |
-| `404` | Not found (or a draft post requested publicly) |
-| `429` | Login throttled (more than 5 attempts/minute) |
+| `403` | Authenticated but not staff (e.g. non-staff creating a post)      |
+| `404` | Not found (or a draft post requested publicly)                    |
+| `429` | Login throttled (more than 5 attempts/minute)                     |

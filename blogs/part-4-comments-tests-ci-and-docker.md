@@ -1,10 +1,10 @@
 # Part 4 — Making It Real: Comments, Tests, CI & Docker
 
-*Series: [Learning in Public](./README.md) · Prev: [← Wiring It Together](./part-3-wiring-it-together-markdown-and-auth.md)*
+_Series: [Learning in Public](./README.md) · Prev: [← Wiring It Together](./part-3-wiring-it-together-markdown-and-auth.md)_
 
 ---
 
-A blog you can read is nice. A blog people can *talk on*, that you can change without
+A blog you can read is nice. A blog people can _talk on_, that you can change without
 fear, and that runs the same everywhere — that's a real product. This post covers the
 last stretch of the journey so far: comments and likes, getting to 100% test
 coverage, a CI pipeline, and Docker. And because the project isn't finished, it ends
@@ -29,7 +29,7 @@ The `likes` field is where it got interesting. I first reached for a `like_count
 integer — and immediately hit the classic bug: nothing stops the same person liking
 twice. A **many-to-many to `User`** fixes it by design: a user is either in the set or
 not, so a like is inherently one-per-person, and the count is just `likes.count()`.
-*Model the truth, and the bug becomes unrepresentable.*
+_Model the truth, and the bug becomes unrepresentable._
 
 Two permission levels fell out naturally:
 
@@ -64,7 +64,9 @@ instantly, then reconciles with the server's real count:
 ```tsx
 const result = await likeComment(slug, commentId, session.accessToken);
 setComments((prev) =>
-  prev.map((c) => (c.id === commentId ? { ...c, like_count: result.like_count } : c))
+  prev.map((c) =>
+    c.id === commentId ? { ...c, like_count: result.like_count } : c,
+  ),
 );
 ```
 
@@ -76,7 +78,7 @@ it.** Update the UI immediately, then trust the response.
 I'd shipped features without tests before and paid for it in regressions. This time I
 wanted a safety net — but I also didn't want to chase a meaningless "100%" by testing
 trivial files. So I did something I'd recommend: I picked the modules that carry real
-logic and demanded *full* coverage of *those*.
+logic and demanded _full_ coverage of _those_.
 
 ```ts
 // vitest.config.ts
@@ -102,7 +104,7 @@ in, and the build fails if coverage on them slips.
 On the backend, pytest (with `pytest-django`) covers the models and API endpoints —
 running against SQLite in CI for speed, Postgres locally for fidelity.
 
-Writing tests also *taught* me the app. Testing the token-refresh branch forced me to
+Writing tests also _taught_ me the app. Testing the token-refresh branch forced me to
 articulate exactly when a token is stale. Tests are a design review you run twice.
 
 ## CI: the robot that says no
@@ -110,13 +112,13 @@ articulate exactly when a token is stale. Tests are a design review you run twic
 I wired up GitHub Actions to run on every PR into `develop` and `main`, with five
 parallel jobs:
 
-| Job | What it checks |
-| --- | --- |
-| Backend — Ruff | Python lint + format |
-| Backend — Pytest | Django tests |
-| Frontend — ESLint | JS/TS lint + Prettier |
+| Job               | What it checks                 |
+| ----------------- | ------------------------------ |
+| Backend — Ruff    | Python lint + format           |
+| Backend — Pytest  | Django tests                   |
+| Frontend — ESLint | JS/TS lint + Prettier          |
 | Frontend — Vitest | Tests + the 100% coverage gate |
-| Frontend — Build | `next build` actually compiles |
+| Frontend — Build  | `next build` actually compiles |
 
 Locally, Husky runs the fast checks on commit and the test suites on push, so I catch
 things before CI does:
@@ -173,11 +175,11 @@ backend:
   build: ./backend
   depends_on:
     db:
-      condition: service_healthy   # wait for the DB, don't just start
+      condition: service_healthy # wait for the DB, don't just start
 ```
 
 `docker compose up --build` now brings the whole backend up from nothing — migrations
-and all — on any machine with Docker. Which, given that I *lost a machine* partway
+and all — on any machine with Docker. Which, given that I _lost a machine_ partway
 through this project, feels like the right note to end on.
 
 ## Where we are — and what's next
@@ -209,4 +211,4 @@ finished**, and I think it's worth being honest about that. Still ahead:
 Thanks for following the journey. It's ongoing — I'll add to the series as the
 deployment and polish work lands.
 
-*Back to the [series index](./README.md).*
+_Back to the [series index](./README.md)._
