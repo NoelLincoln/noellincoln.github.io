@@ -2,12 +2,12 @@
 
 Project documentation for the portfolio + blog. Start here.
 
-| Doc | What it covers |
-| --- | --- |
-| [ARCHITECTURE.md](./ARCHITECTURE.md) | How the frontend, backend, and database fit together |
-| [SETUP.md](./SETUP.md) | Running the frontend, backend, and Docker locally |
-| [API.md](./API.md) | Every REST endpoint, its auth rules, and payloads |
-| [PROGRESS.md](./PROGRESS.md) | The build journal — what shipped, when, and what's next |
+| Doc                                  | What it covers                                          |
+| ------------------------------------ | ------------------------------------------------------- |
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | How the frontend, backend, and database fit together    |
+| [SETUP.md](./SETUP.md)               | Running the frontend, backend, and Docker locally       |
+| [API.md](./API.md)                   | Every REST endpoint, its auth rules, and payloads       |
+| [PROGRESS.md](./PROGRESS.md)         | The build journal — what shipped, when, and what's next |
 
 ## What is this project?
 
@@ -39,7 +39,7 @@ readers can comment and like.
 │       ├── components/ layout, sections, blog, ui (shadcn)
 │       ├── lib/       api client, async helper, utils
 │       ├── auth.ts    NextAuth config (providers, jwt/session callbacks)
-│       └── middleware.ts  route protection
+│       └── proxy.ts   route protection (formerly middleware.ts)
 ├── backend/           Django project
 │   ├── core/          settings, urls, wsgi/asgi
 │   └── blog/          models, serializers, views, permissions, auth, tests

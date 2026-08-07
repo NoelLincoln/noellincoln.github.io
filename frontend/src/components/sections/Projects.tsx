@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects, type Project } from "@/data/projects";
+import AnimatedButton from "@/components/ui/animated-button";
 
 export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null);
@@ -52,12 +53,13 @@ export default function Projects() {
                   {project.descrShort}
                 </p>
               </div>
-              <button
+              <AnimatedButton
+                variant="outline"
                 onClick={() => setSelected(project)}
-                className="w-fit px-5 py-2 rounded-lg border border-primary text-primary text-sm font-medium hover:bg-primary hover:text-white transition-colors"
+                className="w-fit px-5 py-2"
               >
                 See project
-              </button>
+              </AnimatedButton>
             </div>
           </motion.div>
         ))}

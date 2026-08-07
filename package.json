@@ -16,6 +16,12 @@
       "prettier --write"
     ]
   },
+  "overrides": {
+    "three": "0.182.0",
+    "stats-gl": {
+      "three": "0.170.0"
+    }
+  },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "concurrently": "^10.0.3",

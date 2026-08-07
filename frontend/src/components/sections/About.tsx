@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import AnimatedButton from "@/components/ui/animated-button";
 
 const skills = [
   {
@@ -114,15 +115,22 @@ export default function About() {
                 desc: "Architecture that grows with your business.",
               },
               { icon: "🤝", title: "Mentor & Lead", desc: "I grow teams, not just codebases." },
-            ].map(({ icon, title, desc }) => (
-              <div
+            ].map(({ icon, title, desc }, i) => (
+              <motion.div
                 key={title}
-                className="flex flex-col gap-1.5 p-3 rounded-xl bg-muted dark:bg-[#252836] border border-border"
+                className="group flex flex-col gap-1.5 p-3 rounded-xl bg-muted dark:bg-[#252836] border border-border hover:border-primary hover:shadow-md transition-colors cursor-default"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                whileHover={{ y: -6 }}
               >
-                <span className="text-xl">{icon}</span>
+                <span className="text-xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                  {icon}
+                </span>
                 <p className="text-xs font-semibold text-[#172b4d] dark:text-[#e2e8f0]">{title}</p>
                 <p className="text-xs text-[#344563] dark:text-[#94a3b8]">{desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -148,14 +156,15 @@ export default function About() {
             </div>
           </div>
 
-          <a
+          <AnimatedButton
             href="https://drive.google.com/file/d/1BpU8dTX44TQNiuD_cbhI-KtjGAPiA52w/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-fit mt-2 px-5 py-2.5 rounded-lg border border-primary text-primary text-sm font-medium hover:bg-primary hover:text-white transition-colors"
+            variant="outline"
+            className="w-fit mt-2"
           >
             Get my resume
-          </a>
+          </AnimatedButton>
         </motion.div>
 
         {/* Skills */}
